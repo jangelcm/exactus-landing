@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+:root {
+  /* Colores primarios */
+  --color-primary: 30 58 138; /* blue-900 */
+  --color-primary-light: 59 130 246; /* blue-500 */
+  --color-primary-dark: 29 78 216; /* blue-700 */
+  
+  /* Colores secundarios/acentos */
+  --color-accent: 249 115 22; /* orange-500 */
+  --color-accent-hover: 234 88 12; /* orange-600 */
+  --color-accent-light: 251 146 60; /* orange-400 */
+  
+  /* Colores de fondo */
+  --color-bg-primary: 255 255 255; /* white */
+  --color-bg-secondary: 248 250 252; /* slate-50 / blue-50 */
+  --color-bg-dark: 15 23 42; /* slate-900 */
+  --color-bg-dark-secondary: 30 41 59; /* slate-800 */
+  --color-bg-dark-accent: 2 6 23; /* slate-950 */
+  
+  /* Colores de texto */
+  --color-text-primary: 17 24 39; /* gray-900 */
+  --color-text-secondary: 55 65 81; /* gray-700 */
+  --color-text-muted: 107 114 128; /* gray-500 */
+  --color-text-on-dark: 255 255 255; /* white */
+  --color-text-on-dark-muted: 203 213 225; /* slate-300 */
+  
+  /* Colores de borde */
+  --color-border: 226 232 240; /* slate-200 / blue-100 */
+  --color-border-dark: 51 65 85; /* slate-700 */
+  --color-border-darker: 30 41 59; /* slate-800 */
+  
+  /* Colores especiales */
+  --color-pink: 236 72 153; /* pink-500 */
+  --color-shadow: 0 0 0; /* black for shadows */
+}

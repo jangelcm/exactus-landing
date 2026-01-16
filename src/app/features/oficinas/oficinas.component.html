@@ -1,0 +1,36 @@
+<main role="main">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-6 text-[rgb(var(--color-primary))]">Nuestras Oficinas en Lima</h1>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Oficina Principal -->
+      <article class="bg-[rgb(var(--color-bg-primary))] rounded-xl shadow p-6 flex flex-col gap-2 border border-[rgb(var(--color-border))]" itemscope itemtype="https://schema.org/LocalBusiness">
+        <h2 class="text-lg font-semibold text-[rgb(var(--color-primary-dark))] flex items-center gap-2">
+          <app-icon-location class="text-[rgb(var(--color-primary-light))]" aria-hidden="true"></app-icon-location>
+          <span itemprop="name">Oficina Principal - Miraflores</span>
+        </h2>
+        <p class="text-[rgb(var(--color-text-secondary))]" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span itemprop="streetAddress">Cal. 02 de Mayo Nro. 516 Int. 201</span><br>
+          <span itemprop="addressLocality">Miraflores</span> - <span itemprop="addressRegion">Lima</span> - <span itemprop="addressCountry">Perú</span>
+        </p>
+        <p class="text-[rgb(var(--color-text-muted))] text-sm">
+          Correo: <a href="mailto:admin@exactus.pe" class="text-[rgb(var(--color-primary-dark))] underline" itemprop="email">{{address}}</a>
+        </p>
+      </article>
+      
+      <!-- Oficina San Isidro -->
+      <article class="bg-[rgb(var(--color-bg-primary))] rounded-xl shadow p-6 flex flex-col gap-2 border border-[rgb(var(--color-border))]" itemscope itemtype="https://schema.org/LocalBusiness">
+        <h2 class="text-lg font-semibold text-[rgb(var(--color-primary-dark))] flex items-center gap-2">
+          <app-icon-location class="text-[rgb(var(--color-primary-light))]" aria-hidden="true"></app-icon-location>
+          <span itemprop="name">Oficina San Isidro</span>
+        </h2>
+        <p class="text-[rgb(var(--color-text-secondary))]" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span itemprop="streetAddress">Av. Javier Prado Este Nro. 560 int. 2302</span><br>
+          <span itemprop="addressLocality">San Isidro</span> - <span itemprop="addressRegion">Lima</span> - <span itemprop="addressCountry">Perú</span>
+        </p>
+        <p class="text-[rgb(var(--color-text-muted))] text-sm">
+          Teléfono: <a href="tel:+5117391203" class="text-[rgb(var(--color-primary-dark))] underline" itemprop="telephone">(511) 739-1203</a>
+        </p>
+      </article>
+    </div>
+  </div>
+</main>
