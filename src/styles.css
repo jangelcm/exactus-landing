@@ -4,9 +4,10 @@
 :root {
   /* Colores primarios */
   --color-primary: 30 58 138; /* blue-900 */
-  --color-primary-light: 59 130 246; /* blue-500 */
+  --color-primary-light: 213 53 65; /* blue-500 */
   --color-primary-dark: 29 78 216; /* blue-700 */
-  
+  --color-primary-hover: 153 30  30; /* blue-400 */
+
   /* Colores secundarios/acentos */
   --color-accent: 249 115 22; /* orange-500 */
   --color-accent-hover: 234 88 12; /* orange-600 */

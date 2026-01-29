@@ -1,0 +1,108 @@
+<section 
+  class="relative py-20 bg-gradient-to-br 
+         from-[rgb(var(--color-bg-dark-secondary))] 
+         via-[rgb(var(--color-bg-dark))] 
+         to-[rgb(var(--color-bg-dark-secondary))] 
+         text-[rgb(var(--color-text-on-dark))]"
+  aria-labelledby="main-services-title">
+
+  <!-- Glow -->
+  <div 
+    class="absolute inset-0 
+           blur-3xl rounded-full 
+           pointer-events-none"
+    aria-hidden="true">
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+
+    <!-- Header -->
+    <header class="text-center max-w-3xl mx-auto mb-16">
+      <p class="text-[rgb(var(--color-accent-light))] font-semibold uppercase tracking-widest text-sm mb-3">
+        Nuestros Servicios
+      </p>
+
+      <h2 id="main-services-title" class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+        Áreas principales de especialización
+      </h2>
+
+      <p class="text-[rgb(var(--color-text-on-dark-muted))] text-base sm:text-lg leading-relaxed">
+        Soluciones legales, tributarias y financieras enfocadas en proteger tu negocio y tu patrimonio.
+      </p>
+    </header>
+
+    <!-- Services Grid -->
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
+
+      <li *ngFor="let service of services" class="group">
+        <article 
+          class="h-full bg-[rgb(var(--color-bg-dark-secondary))]/80 
+                 backdrop-blur border border-[rgb(var(--color-border-dark))] 
+                 rounded-3xl p-8 shadow-xl 
+                 hover:border-[rgb(var(--color-accent))]/40 
+                 hover:shadow-2xl transition flex flex-col">
+
+          <!-- Icon + Title -->
+          <header class="mb-6">
+            <div class="text-5xl mb-4" aria-hidden="true">
+              {{ service.icon }}
+            </div>
+
+            <h3 class="text-2xl font-semibold mb-3">
+              {{ service.title }}
+            </h3>
+
+            <p class="text-[rgb(var(--color-text-on-dark-muted))] text-sm leading-relaxed">
+              {{ service.description }}
+            </p>
+          </header>
+
+          <!-- Highlights -->
+          <ul class="mb-8 space-y-2 text-sm" role="list">
+            <li 
+              *ngFor="let item of service.highlights" 
+              class="flex items-start gap-2 text-[rgb(var(--color-text-on-dark-muted))]">
+              <span class="text-[rgb(var(--color-accent-light))] mt-0.5">✔</span>
+              <span>{{ item }}</span>
+            </li>
+          </ul>
+
+          <!-- Footer CTA -->
+          <footer class="mt-auto">
+            <a 
+              [routerLink]="service.ctaLink"
+              class="inline-flex items-center gap-2 
+                     px-5 py-3 rounded-xl 
+                     border border-[rgb(var(--color-accent))]/40 
+                     text-[rgb(var(--color-accent-light))] 
+                     font-semibold text-sm 
+                     hover:bg-[rgb(var(--color-accent))]/10 
+                     transition">
+              {{ service.ctaLabel }}
+              <span aria-hidden="true">→</span>
+            </a>
+          </footer>
+
+        </article>
+      </li>
+
+    </ul>
+
+    <!-- Bottom CTA -->
+    <aside class="mt-16 text-center">
+      <p class="text-[rgb(var(--color-text-on-dark-muted))] mb-4">
+        ¿Necesitas una solución específica?
+      </p>
+
+      <button 
+        class="inline-flex items-center gap-2 
+               px-6 py-3 rounded-xl 
+               bg-[rgb(var(--color-accent))] 
+               hover:bg-[rgb(var(--color-accent-hover))] 
+               transition font-semibold text-white shadow-lg hover:shadow-xl">
+        Agenda una consulta personalizada
+      </button>
+    </aside>
+
+  </div>
+</section>

@@ -1,7 +1,7 @@
-<div class="top-bar bg-gray-700 text-white py-2 px-4 z-40">
-  <div class="container mx-auto flex flex-wrap items-center justify-between gap-4">
-    <!-- Información de contacto -->
-    <div class="flex flex-wrap items-center gap-6 text-sm">
+<div class="top-bar left-0 bg-[rgb(var(--color-primary-light))] text-white py-2 px-4 ">
+  <div class="container mx-auto flex flex-col sm:flex-row flex-wrap items-center justify-between gap-2 sm:gap-4">
+     <!-- Información de contacto -->
+    <div class="flex flex-col sm:flex-row flex-wrap md:items-center gap-2 sm:gap-6 text-xs sm:text-sm w-full sm:w-auto">
       <div class="flex items-center gap-2">
         <span class="font-semibold">Ofic. Principal:</span>
       </div>
@@ -21,7 +21,7 @@
     </div>
 
     <!-- Redes sociales y botón de llamada -->
-    <div class="flex items-center gap-4">
+    <div class="hidden sm:flex items-center gap-4">
       <!-- Iconos de redes sociales -->
       <div class="flex items-center gap-2">
         <a *ngFor="let social of socialLinks" 
@@ -46,7 +46,7 @@
       <!-- Botón de llamada -->
       <button 
         (click)="callPhone()"
-        class="bg-[rgb(var(--color-accent))] hover:bg-[rgb(var(--color-accent-hover))] text-white font-semibold px-6 py-2 rounded-md flex items-center gap-2 transition-colors">
+        class="bg-[rgb(var(--color-primary-light))] hover:bg-[rgb(var(--color-primary-hover))] text-white font-semibold px-6 py-2 rounded-md flex items-center gap-2 transition-colors">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
           <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
         </svg>

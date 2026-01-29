@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { environment } from '../../environment/enviroment';
 
 @Component({
-  selector: 'app-contacto',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './contacto.component.html',
-  styleUrls: ['./contacto.component.css']
+    selector: 'app-contacto',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './contacto.component.html',
+    styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent {
   contactForm: FormGroup;
@@ -22,7 +23,7 @@ export class ContactoComponent {
       telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{10,}$/)]],
       empresa: [''],
       asunto: ['', Validators.required],
-      mensaje: ['', [Validators.required, Validators.minLength(10)]]
+      mensaje: ['', [Validators.required, Validators.minLength(9)]]
     });
   }
 
@@ -39,14 +40,25 @@ export class ContactoComponent {
 
     // Aquí iría la lógica para enviar el formulario
     console.log('Formulario enviado:', this.contactForm.value);
-    
-    this.successMessage = true;
-    this.contactForm.reset();
-    this.submitted = false;
+    emailjs
+        .send(
+          environment.emailJs.serviceId,
+          environment.emailJs.templateId,
+          this.contactForm.value,
+          environment.emailJs.publicKey
+        )
+        .then(() => {
+          this.successMessage = true;
+          this.contactForm.reset();
+          this.submitted = false;
+          // Ocultar después de 5 segundos
+          setTimeout(() => {
+            this.successMessage = false;
+          }, 4000);
+        })
+        .catch((error) => {
+          console.error('Error al enviar email:', error);
+        });
 
-    // Ocultar mensaje después de 5 segundos
-    setTimeout(() => {
-      this.successMessage = false;
-    }, 5000);
   }
 }

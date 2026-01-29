@@ -2,11 +2,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-carousel',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css']
+    selector: 'app-carousel',
+    imports: [CommonModule],
+    templateUrl: './carousel.component.html',
+    styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent {
   @Input() slides: Array<{ image: string; video?: string; title: string; description: string; link?: string, youtube?: string }> = [];

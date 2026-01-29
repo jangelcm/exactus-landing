@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { CarouselComponent } from '../../shared/components/carousel/carousel.component';
+import { TargetAudienceComponent } from '../../shared/components/target-audience/target-audience.component';
+import { AppMainServicesComponent } from '../../shared/components/app-main-services/app-main-services.component';
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, CarouselComponent],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+    selector: 'app-home',
+    imports: [CommonModule, CarouselComponent,TargetAudienceComponent,AppMainServicesComponent],
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   slides = [

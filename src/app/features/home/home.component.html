@@ -1,5 +1,39 @@
 <main role="main">
-  <section class="bg-gradient-to-b from-[rgb(var(--color-bg-secondary))] to-[rgb(var(--color-bg-primary))]" aria-label="Carrusel de servicios destacados">
-    <app-carousel [slides]="slides" [showArrows]="true" [showDots]="true" [autoPlay]="true" [interval]="7000" class="w-full h-full"></app-carousel>
+  <section class="w-full bg-[rgb(var(--color-bg-primary))]">
+    <app-carousel 
+      [slides]="slides" 
+      [showArrows]="true" 
+      [showDots]="false" 
+      [autoPlay]="true" 
+      [interval]="7000"
+      class="w-full h-full">
+    </app-carousel>
+
+    <!-- Barra rápida SOLO desktop -->
+    <div class="hidden md:block absolute bottom-0 left-0 right-0 bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto grid grid-cols-3 gap-4 p-4 text-center">
+        <div>
+          <p class="font-semibold text-gray-800">📞 Llámanos</p>
+          <p class="text-sm text-gray-600">+51 999 999 999</p>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-800">💬 WhatsApp</p>
+          <p class="text-sm text-gray-600">Atención inmediata</p>
+        </div>
+        <div>
+          <button class="w-full bg-[rgb(var(--color-primary-dark))] text-white py-2 px-4 rounded-lg font-semibold hover:bg-[rgb(var(--color-primary))] transition">
+            Agenda una consulta
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
+  <!-- Público objetivo -->
+  <app-target-audience></app-target-audience>
+  
+<div class="w-full h-5 bg-[rgb(var(--color-primary-light))]"></div>
+  <!-- Servicios principales -->
+  <app-main-services></app-main-services>
+
+
 </main>
