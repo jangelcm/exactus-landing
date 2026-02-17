@@ -11,6 +11,8 @@ import { ServiciosComponent } from './features/servicios/servicios.component';
 import { VideosComponent } from './features/videos/videos.component';
 import { ContactoComponent } from './features/contacto/contacto.component';
 import { NosotrosComponent } from './features/nosotros/nosotros.component';
+import { BlogFormComponent } from './features/blog/blog-form.component';
+import { LoginComponent } from './features/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,7 +32,10 @@ const routes: Routes = [
     ServiciosComponent,
     VideosComponent,
     ContactoComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    BlogFormComponent,
+    BlogFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,4 +45,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

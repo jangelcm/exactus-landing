@@ -1,0 +1,200 @@
+<main class="w-full min-h-screen bg-white">
+    <!-- Loading State -->
+    @if (loading) {
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="flex gap-2">
+            <div class="w-3 h-3 bg-[rgb(var(--color-primary))] rounded-full animate-bounce"></div>
+            <div class="w-3 h-3 bg-[rgb(var(--color-primary))] rounded-full animate-bounce"
+                style="animation-delay: 0.1s;"></div>
+            <div class="w-3 h-3 bg-[rgb(var(--color-primary))] rounded-full animate-bounce"
+                style="animation-delay: 0.2s;"></div>
+        </div>
+    </div>
+    }
+
+    <!-- Not Found State -->
+    @else if (notFound) {
+    <section class="flex flex-col items-center justify-center min-h-screen px-4">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">Blog no encontrado</h1>
+        <p class="text-gray-600 mb-8">Parece que el artículo que buscas no existe.</p>
+        <a href="/blog"
+            class="bg-[rgb(var(--color-primary))] text-white px-8 py-3 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition">
+            Volver al blog
+        </a>
+    </section>
+    }
+
+    <!-- Blog Content -->
+    @else if (blog) {
+    <!-- Hero Section con imagen -->
+    <article class="w-full">
+        <!-- Image Hero -->
+        @if (blog.imageUrl) {
+        <div class="w-full h-50 md:h-[400px] border-b-20 border-[rgb(var(--color-primary))] ">
+
+            <!-- Imagen principal con máscara -->
+            <img [src]="blog.imageUrl" [alt]="blog.title" class="w-full max-h-full object-cover" />
+        </div>
+        }
+
+        <!-- Content Container -->
+        <div class="w-full max-w-7xl mx-auto px-4 py-16 md:py-20">
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 mb-8 text-sm text-gray-600">
+                <a href="/blog" class="hover:text-[rgb(var(--color-primary))] transition">Blog</a>
+                <span>/</span>
+                <span class="text-gray-800">{{ blog.title }}</span>
+            </nav>
+
+            <!-- Back Button -->
+            <button (click)="goBack()"
+                class="flex items-center gap-2 text-[rgb(var(--color-primary))] hover:text-[rgb(var(--color-primary-dark))] transition mb-8 font-semibold">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Atrás
+            </button>
+
+            <!-- Article Header -->
+            <header class="mb-12 border-b border-gray-200 pb-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    {{ blog.title }}
+                </h1>
+
+                <div class="flex flex-wrap items-center gap-6 text-gray-600">
+                    <!-- Author -->
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>{{ blog.author || 'Exactus' }}</span>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.757 4.243A8 8 0 0114.243 2.8c.914 1.146 1.465 2.56 1.465 4.1 0 3.314-2.686 6-6 6s-6-2.686-6-6c0-1.54.55-2.954 1.465-4.1zm3.44 10.535A5 5 0 116 9a5 5 0 016.757 3.778z"
+                                clip-rule="evenodd" />
+                            <path d="M10 6a1 1 0 100-2 1 1 0 000 2z" />
+                        </svg>
+                        <time [dateTime]="blog.date | date:'yyyy-MM-dd'">
+                            {{ formatDate(blog.date) }}
+                        </time>
+                    </div>
+
+                    <!-- Reading Time (estimado) -->
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                        </svg>
+                        <span>{{ (blog.content.split(' ').length / 200) | number:'1.0-0' }} min lectura</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Summary -->
+            @if (blog.summary) {
+            <p class="text-xl text-gray-700 mb-12 italic border-l-4 border-[rgb(var(--color-primary))] pl-6">
+                {{ blog.summary }}
+            </p>
+            }
+
+            <!-- Article Content -->
+            <div class="prose prose-lg max-w-none mb-16">
+                <div class="text-gray-800 leading-relaxed whitespace-pre-wrap">
+                    {{ blog.content }}
+                </div>
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="py-8 border-t border-b border-gray-200 mb-12">
+                <p class="text-gray-700 font-semibold mb-4">Compartir artículo:</p>
+                <div class="flex gap-4">
+                    <!-- Share on Facebook -->
+                    <a [href]="'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(currentUrl)"
+                        target="_blank" rel="noopener noreferrer"
+                        class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        Facebook
+                    </a>
+
+                    <!-- Share on Twitter -->
+                    <a [href]="'https://twitter.com/intent/tweet?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(blog.title)"
+                        target="_blank" rel="noopener noreferrer"
+                        class="flex items-center gap-2 bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7" />
+                        </svg>
+                        Twitter
+                    </a>
+
+                    <!-- Copy Link -->
+                    <button (click)="copyLink()"
+                        class="flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        Copiar enlace
+                    </button>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div
+                class="bg-gradient-to-r from-[rgb(var(--color-primary))]/10 to-[rgb(var(--color-primary-dark))]/10 border border-[rgb(var(--color-primary))]/20 rounded-lg p-8 mb-16">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">¿Necesitas asesoría profesional?</h3>
+                <p class="text-gray-700 mb-6">
+                    Si este artículo te ha sido útil y necesitas consultoría especializada, nuestro equipo en Exactus
+                    está listo para ayudarte.
+                </p>
+                <a href="/contacto"
+                    class="inline-block bg-[rgb(var(--color-primary))] text-white px-8 py-3 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition font-semibold">
+                    Solicitar consulta
+                </a>
+            </div>
+        </div>
+
+        <!-- Related Blogs Section -->
+        @if (relatedBlogs.length > 0) {
+        <section class="w-full bg-gray-50 py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12">Artículos relacionados</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    @for (relatedBlog of relatedBlogs; track relatedBlog.id) {
+                    <a [href]="'/blog/' + relatedBlog.id"
+                        class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+                        @if (relatedBlog.imageUrl) {
+                        <div class="h-48 overflow-hidden bg-gray-200">
+                            <img [src]="relatedBlog.imageUrl" [alt]="relatedBlog.title"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                        </div>
+                        }
+                        <div class="p-6">
+                            <h3
+                                class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[rgb(var(--color-primary))] transition">
+                                {{ relatedBlog.title }}
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                {{ relatedBlog.summary || relatedBlog.content.substring(0, 100) + '...' }}
+                            </p>
+                            <time class="text-gray-500 text-xs">
+                                {{ formatDate(relatedBlog.date) }}
+                            </time>
+                        </div>
+                    </a>
+                    }
+                </div>
+            </div>
+        </section>
+        }
+    </article>
+    }
+</main>

@@ -1,0 +1,48 @@
+<a [routerLink]="['/blog/detail', blog.id]"
+    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 h-full min-h-[300px] flex flex-col">
+
+    <!-- Imagen -->
+    <div class="relative overflow-hidden">
+        <img [src]="blog.imageUrl || 'assets/img/default-blog.jpg'" [alt]="blog.title"
+            class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105" />
+
+        <!-- Badge corporativo -->
+        <span class="absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full text-white"
+            style="background-color: var(--color-primary-dark);">
+            Blog Corporativo Exactus
+        </span>
+    </div>
+
+    <!-- Contenido -->
+    <div class="p-6 flex flex-col justify-between flex-1">
+
+        <!-- Fecha -->
+        <p class="text-sm text-gray-500 mb-3">
+            {{ blog.date | date:'longDate' }}
+        </p>
+
+        <!-- Título -->
+        <h3
+            class="text-xl font-semibold text-gray-800 mb-3 leading-snug transition-colors duration-300 group-hover:text-[var(--color-primary-dark)]">
+            {{ blog.title }}
+        </h3>
+
+        <!-- Descripción / Extracto -->
+        <p class="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
+            {{ blog.summary }}
+        </p>
+
+        <!-- Botón -->
+        <div class="mt-auto">
+            <div class="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-300
+                     text-[rgb(var(--color-primary-darker))]  hover:underline ">
+                Ver noticia
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</a>

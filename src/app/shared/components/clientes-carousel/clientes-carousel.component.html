@@ -1,0 +1,57 @@
+<section class="relative text-black py-16 sm:py-24 w-full overflow-hidden">
+
+
+    <!-- Decoración glow existente -->
+    <div class="absolute inset-0 blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
+    <div class="px-4 text-center">
+        <header class=" mb-12">
+
+            <p class="text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4">
+                Nuestros Clientes
+            </p>
+            <h2 id="main-services-title" class="text-4xl md:text-5xl font-bold text-gray-500 mb-6 leading-tight">
+                ¿Para quién trabajamos?
+            </h2>
+
+            <p class="text-base sm:text-lg leading-relaxed">
+                Confían en Exactus para potenciar su crecimiento y asegurar su cumplimiento. Un conjunto de clientes que
+                validan nuestra experiencia.
+            </p>
+        </header>
+
+        <section class="flex justify-center">
+            <div class="relative overflow-hidden">
+                <div class="flex gap-8 w-max animate-scroll mb-4">
+
+                    <!-- Primera copia -->
+                    @for (cliente of clientes; track cliente.nombre) {
+                    <div class=" flex-shrink-0 w-32 h-24 flex items-center justify-center bg-[rgb(var(--color-primary))]/20 rounded-lg border
+                border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                        <img [src]="cliente.logoUrl" [alt]="cliente.nombre"
+                            class="max-h-10 w-auto transition-transform duration-300 hover:scale-110" />
+                    </div>
+                    }
+
+                    <!-- Segunda copia (duplicado) -->
+                    @for (cliente of clientes; track cliente.nombre + '-dup') {
+                    <div
+                        class="flex-shrink-0 w-32 h-24 flex items-center justify-center bg-[rgb(var(--color-primary))]/20 rounded-lg border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                        <img [src]="cliente.logoUrl" [alt]="cliente.nombre"
+                            class="max-h-10 w-auto transition-transform duration-300 hover:scale-110" />
+                    </div>
+                    }
+
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="mt-16">
+            <button type="button"
+                class="bg-[rgb(var(--color-primary))] text-white font-semibold px-8 py-3 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition-colors shadow-lg">
+                Conoce más sobre nuestras alianzas
+            </button>
+
+        </footer>
+    </div>
+</section>

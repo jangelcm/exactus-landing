@@ -13,51 +13,64 @@ interface MainService {
 
 @Component({
   selector: 'app-main-services',
-  imports: [RouterLink,CommonModule],
+  imports: [RouterLink, CommonModule],
   templateUrl: './app-main-services.component.html',
   styleUrl: './app-main-services.component.css'
 })
 export class AppMainServicesComponent {
 
-  services: MainService[] = [
+  services = [
     {
-      icon: '⚖️',
-      title: 'Asesoría Legal',
-      description: 'Defensa y acompañamiento legal integral para empresas y personas naturales.',
+      icon: '📊',
+      title: 'Asesoría Contable',
+      description: 'Gestión contable integral bajo Normas Internacionales de Información Financiera (NIIF), elaboración de estados financieros y optimización de procesos contables.',
       highlights: [
-        'Derecho laboral',
-        'Derecho societario',
-        'Procesos judiciales',
-        'Derecho civil y administrativo'
+        'Estados financieros mensuales y anuales',
+        'Libros contables electrónicos',
+        'Reportes financieros para entidades externas',
+        'Capacitación contable empresarial'
       ],
-      ctaLabel: 'Ver asesoría legal',
-      ctaLink: '/servicios/asesoria-legal'
+      ctaLabel: 'Más sobre asesoría contable',
+      ctaLink: '/servicios/asesoria-contable'
     },
     {
-      icon: '🧾',
-      title: 'Asesoría Tributaria y Contable',
-      description: 'Optimización fiscal, cumplimiento tributario y gestión contable profesional.',
+      icon: '⚖️',
+      title: 'Asesoría Tributaria',
+      description: 'Planeamiento tributario estratégico y cumplimiento fiscal ante SUNAT, incluyendo detracciones, retenciones y fiscalizaciones.',
       highlights: [
+        'Declaración mensual y anual de impuestos',
+        'Atención de fiscalizaciones SUNAT',
         'Planeamiento tributario',
-        'Fiscalizaciones SUNAT',
-        'Outsourcing contable',
-        'Reclamaciones tributarias'
+        'Declaración de Beneficiario Final'
       ],
-      ctaLabel: 'Ver asesoría tributaria',
+      ctaLabel: 'Más sobre asesoría tributaria',
       ctaLink: '/servicios/asesoria-tributaria'
     },
     {
-      icon: '📊',
-      title: 'Auditoría y Consultoría',
-      description: 'Auditorías especializadas y consultoría estratégica para toma de decisiones.',
+      icon: '👥',
+      title: 'Asesoría Laboral',
+      description: 'Gestión de planillas electrónicas, cumplimiento ante MINTRA y SUNAFIL, y administración de beneficios laborales.',
       highlights: [
-        'Auditoría financiera',
-        'Auditoría tributaria',
-        'Informes especiales',
-        'Consultoría empresarial'
+        'Planilla electrónica PDT 601 PLAME',
+        'AFP NET y boletas de pago digitales',
+        'Liquidación de beneficios sociales',
+        'Atención de inspecciones laborales'
       ],
-      ctaLabel: 'Ver auditoría y consultoría',
-      ctaLink: '/servicios/auditoria'
+      ctaLabel: 'Más sobre asesoría laboral',
+      ctaLink: '/servicios/asesoria-laboral'
+    },
+    {
+      icon: '🔍',
+      title: 'Auditorías',
+      description: 'Auditorías financieras, tributarias y evaluaciones de control interno para empresas nacionales y transnacionales.',
+      highlights: [
+        'Auditoría de estados financieros',
+        'Auditoría tributaria preventiva',
+        'Precios de transferencia',
+        'Diagnóstico empresarial'
+      ],
+      ctaLabel: 'Más sobre auditorías',
+      ctaLink: '/servicios/auditorias'
     }
   ];
 

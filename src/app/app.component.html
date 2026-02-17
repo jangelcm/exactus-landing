@@ -1,15 +1,22 @@
-<main class="md:mt-12 mt-14 min-h-[80vh]">
-<app-navbar></app-navbar>
+<main class="min-h-[80vh]">
+  <app-navbar></app-navbar>
+  <app-top-bar></app-top-bar>
+
   <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>
-      <div class="fixed bottom-4 right-4 z-50 md:hidden">
-  <a 
-    href="https://wa.me/51999999999" 
-    class="flex items-center gap-2 
+<div class="fixed bottom-4 right-4 z-50">
+  <div class="fixed bottom-4 right-4 z-50 animate-bounce">
+    <a href="https://wa.me/51999999999" class="flex items-center gap-2 
            bg-green-500 text-white 
            px-4 py-3 rounded-full 
-           shadow-xl font-semibold">
-    💬 WhatsApp
-  </a>
-</div>
+           shadow-xl font-semibold
+           hover:bg-green-600 transition-colors duration-300">
+      <!-- Icono WhatsApp SVG -->
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 2C6.477 2 2 6.477 2 12c0 1.657.404 3.22 1.11 4.6L2 22l5.553-1.453A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.528 0-2.98-.437-4.207-1.188l-.299-.178-3.297.864.88-3.216-.194-.327A7.963 7.963 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8zm4.293-6.293l-1.414-1.414a1 1 0 00-1.414 0l-.293.293a6.978 6.978 0 01-2.828-2.828l.293-.293a1 1 0 000-1.414l-1.414-1.414a1 1 0 00-1.414 0C7.105 9.105 7 9.553 7 10c0 3.314 2.686 6 6 6 .447 0 .895-.105 1.293-.293a1 1 0 000-1.414z" />
+      </svg>
+      WhatsApp
+    </a>
+  </div>

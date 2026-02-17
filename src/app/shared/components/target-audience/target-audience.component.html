@@ -1,24 +1,34 @@
-<section 
-  class="relative py-20 bg-white"
-  aria-labelledby="target-audience-title">
+<section class="relative py-20 bg-white  overflow-hidden" aria-labelledby="target-audience-title">
 
-  <!-- Decoración glow -->
-  <div 
-    class="absolute inset-0 
-           blur-3xl rounded-full 
-           pointer-events-none"
-    aria-hidden="true">
-  </div>
+  <!-- Círculo rojo grande decorativo -->
+  <div class="absolute md:-top-60 -top-80 md:-left-5 left-20 w-96 h-96 bg-red-200 rounded-full opacity-40 z-0"></div>
+  <div class="absolute md:-top-60 -top-80 md:left-10 right-20 w-96 h-96 bg-red-200 rounded-full opacity-40 z-0"></div>
+
+  <!-- Línea curva SVG decorativa -->
+  <svg class="absolute top-10 left-1/2 -translate-x-1/2 z-0" width="400" height="120" fill="none" viewBox="0 0 400 120">
+    <path d="M0,60 Q200,0 400,60" stroke="#ef4444" stroke-width="8" fill="none" opacity="0.15" />
+  </svg>
+
+  <!-- Línea curva SVG decorativa inferior (invertida) -->
+  <svg class="absolute -bottom-10 left-1/2 -translate-x-1/2 z-0" width="400" height="120" fill="none"
+    viewBox="0 0 400 120">
+    <path d="M0,60 Q200,0 400,60" stroke="#ef4444" stroke-width="8" fill="none" opacity="0.15" />
+  </svg>
+
+  <!-- Decoración glow existente -->
+  <div class="absolute inset-0 blur-3xl rounded-full pointer-events-none" aria-hidden="true"></div>
 
   <div class="relative max-w-7xl mx-auto px-6">
 
     <!-- Header semántico -->
     <header class="text-center max-w-3xl mx-auto mb-14">
-      <p class="font-bold uppercase tracking-widest text-sm mb-3 underline decoration-[rgb(var(--color-primary-light))] decoration-4">
+      <p
+        class="font-bold uppercase tracking-widest text-lg mb-3 underline decoration-[rgb(var(--color-primary))] decoration-4">
         Nuestros Clientes
       </p>
 
-      <h2 id="target-audience-title" class="text-[rgb(var(--color-primary-light))] text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+      <h2 id="target-audience-title"
+        class="text-[rgb(var(--color-primary))] text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
         ¿Para quién trabajamos?
       </h2>
 
@@ -28,23 +38,18 @@
     </header>
 
     <!-- Lista semántica -->
-    <ul 
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-      role="list">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
 
-      <li 
-        *ngFor="let audience of audiences" 
-        class="group">
+      <li *ngFor="let audience of audiences" class="group">
 
-        <article 
-          class="flex flex-col h-full 
+        <article class="flex flex-col h-full 
                  backdrop-blur border border-[rgb(var(--color-border-dark))] 
                  rounded-2xl p-7 shadow-xl 
-                 hover:border-[rgb(var(--color-primary-light))] 
+                 hover:border-[rgb(var(--color-primary))] 
                  hover:shadow-xl transition">
 
           <!-- Title -->
-          <h3 class="text-xl text-[rgb(var(--color-primary-light))] font-semibold mb-3">
+          <h3 class="text-xl text-[rgb(var(--color-primary))] font-semibold mb-3">
             {{ audience.title }}
           </h3>
 
@@ -55,18 +60,15 @@
 
           <!-- CTA -->
           <footer class="mt-auto">
-            <a 
-              *ngIf="audience.ctaLink; else noLink"
-              [routerLink]="audience.ctaLink"
-              class="inline-flex items-center gap-1 
-                     text-[rgb(var(--color-primary-dark))] 
+            <a *ngIf="audience.ctaLink; else noLink" [routerLink]="audience.ctaLink" class="inline-flex items-center gap-1 
+                     text-[rgb(var(--color-primary-darker))] 
                      text-sm font-semibold 
                      hover:underline">
               {{ audience.ctaLabel }} →
             </a>
 
             <ng-template #noLink>
-              <span class="text-[rgb(var(--color-accent-light))] text-sm font-semibold">
+              <span class="text-[rgb(var(--color-accent--color-primary))] text-sm font-semibold">
                 {{ audience.ctaLabel }} →
               </span>
             </ng-template>
@@ -82,11 +84,10 @@
         ¿No estás seguro cuál aplica a tu caso?
       </p>
 
-      <button 
-        class="inline-flex items-center gap-2 
+      <button class="inline-flex items-center gap-2 
                px-6 py-3 rounded-xl 
-               bg-[rgb(var(--color-primary-light))]
-               hover:bg-[rgb(var(--color-primary-hover))] 
+               bg-[rgb(var(--color-primary))]
+               hover:bg-[rgb(var(--color-primary-dark))] 
                transition font-semibold text-white shadow-lg hover:shadow-xl">
         Agendar una consulta
       </button>

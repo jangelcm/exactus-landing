@@ -1,1 +1,52 @@
-/* Puedes personalizar los estilos con Tailwind en los templates */
+.animate-scroll-left {
+    animation: scrollLeft 20s linear infinite;
+}
+
+.animate-scroll-right {
+    animation: scrollRight 20s linear infinite;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotateY(180deg);
+    }
+
+    100% {
+        transform: translateX(-100%) rotateY(360deg);
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateX(50%) rotateY(180deg);
+    }
+
+    100% {
+        transform: translateX(100%) rotateY(360deg);
+    }
+}
+
+img {
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+}
+
+img[alt="Storyblok"],
+img[alt="Creative Force"],
+img[alt="CoreMedia"],
+img[alt="Front-Commerce"],
+img[alt="Contentstack"] {
+    filter: none;
+}
+
+img[alt="Getty Images"] {
+    filter: brightness(0) invert(1) contrast(2);
+}

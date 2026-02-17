@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { environment } from '../../environment/enviroment';
+import { IconLocationComponent } from '../../shared/components/icons/icon-location.component';
 
 @Component({
-    selector: 'app-contacto',
-    imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './contacto.component.html',
-    styleUrls: ['./contacto.component.css']
+  selector: 'app-contacto',
+  imports: [CommonModule, ReactiveFormsModule, IconLocationComponent],
+  templateUrl: './contacto.component.html',
+  styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent {
   contactForm: FormGroup;
@@ -41,24 +42,24 @@ export class ContactoComponent {
     // Aquí iría la lógica para enviar el formulario
     console.log('Formulario enviado:', this.contactForm.value);
     emailjs
-        .send(
-          environment.emailJs.serviceId,
-          environment.emailJs.templateId,
-          this.contactForm.value,
-          environment.emailJs.publicKey
-        )
-        .then(() => {
-          this.successMessage = true;
-          this.contactForm.reset();
-          this.submitted = false;
-          // Ocultar después de 5 segundos
-          setTimeout(() => {
-            this.successMessage = false;
-          }, 4000);
-        })
-        .catch((error) => {
-          console.error('Error al enviar email:', error);
-        });
+      .send(
+        environment.emailJs.serviceId,
+        environment.emailJs.templateId,
+        this.contactForm.value,
+        environment.emailJs.publicKey
+      )
+      .then(() => {
+        this.successMessage = true;
+        this.contactForm.reset();
+        this.submitted = false;
+        // Ocultar después de 5 segundos
+        setTimeout(() => {
+          this.successMessage = false;
+        }, 4000);
+      })
+      .catch((error) => {
+        console.error('Error al enviar email:', error);
+      });
 
   }
 }

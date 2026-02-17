@@ -1,87 +1,70 @@
-<section 
-  class="relative py-20 bg-gradient-to-br 
-         from-[rgb(var(--color-bg-dark-secondary))] 
-         via-[rgb(var(--color-bg-dark))] 
-         to-[rgb(var(--color-bg-dark-secondary))] 
-         text-[rgb(var(--color-text-on-dark))]"
-  aria-labelledby="main-services-title">
+<section class="py-24 px-6" aria-labelledby="main-services-title">
 
-  <!-- Glow -->
-  <div 
-    class="absolute inset-0 
-           blur-3xl rounded-full 
-           pointer-events-none"
-    aria-hidden="true">
-  </div>
-
-  <div class="relative max-w-7xl mx-auto px-6">
+  <div class="lg:px-20">
 
     <!-- Header -->
-    <header class="text-center max-w-3xl mx-auto mb-16">
-      <p class="text-[rgb(var(--color-accent-light))] font-semibold uppercase tracking-widest text-sm mb-3">
+    <header class="text-center max-w-3xl mx-auto mb-20">
+
+      <p class="text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4">
         Nuestros Servicios
       </p>
 
-      <h2 id="main-services-title" class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+      <h2 id="main-services-title" class="text-4xl md:text-5xl font-bold text-gray-500  mb-6 leading-tight">
         Áreas principales de especialización
       </h2>
 
-      <p class="text-[rgb(var(--color-text-on-dark-muted))] text-base sm:text-lg leading-relaxed">
-        Soluciones legales, tributarias y financieras enfocadas en proteger tu negocio y tu patrimonio.
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Soluciones contables, tributarias y laborales diseñadas para proteger tu empresa,
+        optimizar tus recursos y garantizar cumplimiento normativo.
       </p>
+
     </header>
 
-    <!-- Services Grid -->
-    <ul class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
+    <!-- Grid -->
+    <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10">
 
       <li *ngFor="let service of services" class="group">
-        <article 
-          class="h-full bg-[rgb(var(--color-bg-dark-secondary))]/80 
-                 backdrop-blur border border-[rgb(var(--color-border-dark))] 
-                 rounded-3xl p-8 shadow-xl 
-                 hover:border-[rgb(var(--color-accent))]/40 
-                 hover:shadow-2xl transition flex flex-col">
+        <article class="relative h-full rounded-2xl p-8 shadow-sm border border-gray-100
+                 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
 
-          <!-- Icon + Title -->
-          <header class="mb-6">
-            <div class="text-5xl mb-4" aria-hidden="true">
-              {{ service.icon }}
-            </div>
+          <!-- Decorative Accent Line -->
+          <div class="absolute left-0 top-0 h-full w-2 bg-[rgb(var(--color-primary))]
+                   scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300 rounded-l-2xl">
+          </div>
 
-            <h3 class="text-2xl font-semibold mb-3">
-              {{ service.title }}
-            </h3>
+          <!-- Icon -->
+          <div class="w-14 h-14 flex items-center justify-center rounded-full
+                   bg-[rgb(var(--color-primary))]/10
+                   text-[rgb(var(--color-primary))]
+                   text-2xl mb-6">
+            {{ service.icon }}
+          </div>
 
-            <p class="text-[rgb(var(--color-text-on-dark-muted))] text-sm leading-relaxed">
-              {{ service.description }}
-            </p>
-          </header>
+          <!-- Title -->
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">
+            {{ service.title }}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">
+            {{ service.description }}
+          </p>
 
           <!-- Highlights -->
-          <ul class="mb-8 space-y-2 text-sm" role="list">
-            <li 
-              *ngFor="let item of service.highlights" 
-              class="flex items-start gap-2 text-[rgb(var(--color-text-on-dark-muted))]">
-              <span class="text-[rgb(var(--color-accent-light))] mt-0.5">✔</span>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <li *ngFor="let item of service.highlights" class="flex items-start gap-2">
+              <span class="text-[rgb(var(--color-primary))] mt-1">•</span>
               <span>{{ item }}</span>
             </li>
           </ul>
 
-          <!-- Footer CTA -->
-          <footer class="mt-auto">
-            <a 
-              [routerLink]="service.ctaLink"
-              class="inline-flex items-center gap-2 
-                     px-5 py-3 rounded-xl 
-                     border border-[rgb(var(--color-accent))]/40 
-                     text-[rgb(var(--color-accent-light))] 
-                     font-semibold text-sm 
-                     hover:bg-[rgb(var(--color-accent))]/10 
-                     transition">
-              {{ service.ctaLabel }}
-              <span aria-hidden="true">→</span>
-            </a>
-          </footer>
+          <!-- CTA -->
+          <a [routerLink]="service.ctaLink" class="mt-auto inline-flex items-center gap-2 text-sm font-semibold
+                   text-[rgb(var(--color-primary))]
+                   hover:gap-3 transition-all duration-300">
+            {{ service.ctaLabel }}
+            <span>→</span>
+          </a>
 
         </article>
       </li>
@@ -89,20 +72,19 @@
     </ul>
 
     <!-- Bottom CTA -->
-    <aside class="mt-16 text-center">
-      <p class="text-[rgb(var(--color-text-on-dark-muted))] mb-4">
-        ¿Necesitas una solución específica?
+    <div class="mt-24 text-center">
+
+      <p class="text-gray-600 mb-6 text-lg">
+        ¿Necesitas una solución personalizada para tu empresa?
       </p>
 
-      <button 
-        class="inline-flex items-center gap-2 
-               px-6 py-3 rounded-xl 
-               bg-[rgb(var(--color-accent))] 
-               hover:bg-[rgb(var(--color-accent-hover))] 
-               transition font-semibold text-white shadow-lg hover:shadow-xl">
-        Agenda una consulta personalizada
+
+      <button type="button" [routerLink]="['/contacto']"
+        class="bg-[rgb(var(--color-primary))] text-white font-semibold px-8 py-3 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition-colors shadow-lg">
+        Agenda una consulta estratégica
+
       </button>
-    </aside>
+    </div>
 
   </div>
 </section>

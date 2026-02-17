@@ -1,39 +1,78 @@
 <main role="main">
-  <section class="w-full bg-[rgb(var(--color-bg-primary))]">
-    <app-carousel 
-      [slides]="slides" 
-      [showArrows]="true" 
-      [showDots]="false" 
-      [autoPlay]="true" 
-      [interval]="7000"
+  <section class="w-full bg-[rgb(var(--color-primary))]">
+    <app-carousel [slides]="slides" [showArrows]="true" [showDots]="false" [autoPlay]="true" [interval]="7000"
       class="w-full h-full">
     </app-carousel>
 
-    <!-- Barra rápida SOLO desktop -->
-    <div class="hidden md:block absolute bottom-0 left-0 right-0 bg-white shadow-lg">
-      <div class="max-w-7xl mx-auto grid grid-cols-3 gap-4 p-4 text-center">
-        <div>
-          <p class="font-semibold text-gray-800">📞 Llámanos</p>
-          <p class="text-sm text-gray-600">+51 999 999 999</p>
-        </div>
-        <div>
-          <p class="font-semibold text-gray-800">💬 WhatsApp</p>
-          <p class="text-sm text-gray-600">Atención inmediata</p>
-        </div>
-        <div>
-          <button class="w-full bg-[rgb(var(--color-primary-dark))] text-white py-2 px-4 rounded-lg font-semibold hover:bg-[rgb(var(--color-primary))] transition">
-            Agenda una consulta
-          </button>
-        </div>
-      </div>
-    </div>
   </section>
+  <!-- Clientes -->
+  <app-clientes-carousel></app-clientes-carousel>
   <!-- Público objetivo -->
-  <app-target-audience></app-target-audience>
-  
-<div class="w-full h-5 bg-[rgb(var(--color-primary-light))]"></div>
+  <div class="w-full h-5 bg-[rgb(var(--color-primary))]"></div>
   <!-- Servicios principales -->
   <app-main-services></app-main-services>
+  <div class="w-full h-5 bg-[rgb(var(--color-primary))]"></div>
+  <!-- Oficinas -->
+  <app-oficinas></app-oficinas>
 
+  <div class="w-full h-5 bg-[rgb(var(--color-primary))]"></div>
+  <section class="w-full py-16">
+    <div class="container mx-auto px-4">
+      <!-- Header -->
+      <header class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-[rgb(var(--color-primary))] mb-4">Preguntas Frecuentes</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Resuelve tus dudas sobre nuestros servicios de auditoría, asesoría y consultoría.
+        </p>
+      </header>
+
+      <!-- FAQ List -->
+      <article class="max-w-3xl mx-auto">
+        <div class="space-y-3">
+          <!-- FAQ Item -->
+          <div *ngFor="let faq of preguntas; let i = index"
+            class="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+
+            <!-- Question Button -->
+            <button (click)="toggleFAQ(i)" type="button"
+              class="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-primary))] focus:ring-inset">
+
+              <h3 class="text-left text-lg font-semibold text-gray-800 flex-1">
+                {{ faq.pregunta }}
+              </h3>
+
+              <!-- Icon -->
+              <svg class="w-6 h-6 text-[rgb(var(--color-primary))] transition-transform duration-300 flex-shrink-0 ml-4"
+                [class.rotate-180]="faq.expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+              </svg>
+            </button>
+
+            <!-- Answer -->
+            <div *ngIf="faq.expanded" @expandCollapse class="px-6 py-4 bg-blue-50 border-t border-gray-200">
+              <p class="text-gray-700 leading-relaxed">
+                {{ faq.respuesta }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CTA Section -->
+      <div class="mt-16 text-center">
+        <p class="text-gray-600 mb-6">¿No encontraste la respuesta que buscas?</p>
+        <button type="button" [routerLink]="['/contacto']"
+          class="bg-[rgb(var(--color-primary))] text-white font-semibold px-8 py-3 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition shadow-lg">
+          Contacta con nuestro equipo
+        </button>
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <!-- <app-target-audience></app-target-audience> -->
 
 </main>

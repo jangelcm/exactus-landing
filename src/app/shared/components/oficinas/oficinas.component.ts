@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconLocationComponent } from '../../shared/components/icons/icon-location.component';
+import { IconLocationComponent } from '../icons/icon-location.component';
 
 @Component({
     selector: 'app-oficinas',
@@ -9,5 +9,5 @@ import { IconLocationComponent } from '../../shared/components/icons/icon-locati
     styleUrls: ['./oficinas.component.css']
 })
 export class OficinasComponent {
-    address= 'admin@exactus.pe';
+    address = 'admin@exactus.pe';
 }

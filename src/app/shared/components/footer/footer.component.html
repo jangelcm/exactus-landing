@@ -1,12 +1,78 @@
-<footer class="w-full bg-gradient-to-t from-[rgb(var(--color-bg-secondary))] to-[rgb(var(--color-bg-primary))] border-t border-[rgb(var(--color-border))] py-6">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-    <div class="flex items-center gap-2">
-      <img src="assets/logo.png" alt="Tasklif Logo" class="h-7 w-7 hidden sm:block" />
-      <span class="font-bold text-[rgb(var(--color-primary))] text-lg">Exactus</span>
+<footer
+  class="w-full bg-gradient-to-t from-[rgb(var(--color-bg-secondary))] to-[rgb(var(--color-bg-primary))] border-t border-[rgb(var(--color-border))] py-8">
+  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+    <!-- Logo y lema -->
+    <div class="flex flex-col items-center md:items-start gap-2">
+      <img src="assets/logo.svg" alt="Logo de Exactus" class="h-10 w-auto mb-2" />
+      <span class="font-semibold text-[rgb(var(--color-primary))] text-center md:text-left"></span>
+
     </div>
-    <div class="text-[rgb(var(--color-text-muted))] text-sm text-center md:text-right">
-      © 2026 Tasklif. Todos los derechos reservados.<br>
-      <span class="text-xs">Desarrollado con <span class="text-[rgb(var(--color-pink))]">♥</span> por tu equipo</span>
+    <!-- Navegación principal -->
+    <div>
+      <h3 class="font-bold mb-2 text-[rgb(var(--color-primary))]">Navegación</h3>
+      <ul class="space-y-1 text-[rgb(var(--color-text-muted))]">
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
+          <a routerLink="/" class="hover:text-[rgb(var(--color-primary))]">Inicio</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
+          <a routerLink="/nosotros" class="hover:text-[rgb(var(--color-primary))]">Nosotros</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
+          <a routerLink="/servicios" class="hover:text-[rgb(var(--color-primary))]">Servicios</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
+          <a routerLink="/oficinas" class="hover:text-[rgb(var(--color-primary))]">Oficinas</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
+          <a routerLink="/casos" class="hover:text-[rgb(var(--color-primary))]">Casos de éxito</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
+          <a routerLink="/contacto" class="hover:text-[rgb(var(--color-primary))]">Contáctanos</a>
+        </li>
+      </ul>
     </div>
+    <!-- Servicios -->
+    <div>
+      <h3 class="font-bold mb-2 text-[rgb(var(--color-primary))]">Servicios</h3>
+      <ul class="space-y-1 text-[rgb(var(--color-text-muted))]">
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Activo Fijo
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Contabilidad
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Inventario
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Planilla
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Ventas y comprobantes electrónicos
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Tesorería
+        </li>
+      </ul>
+    </div>
+    <!-- Contacto -->
+    <div>
+      <h3 class="font-bold mb-2 text-[rgb(var(--color-primary))]">Contacto</h3>
+      <ul class="space-y-1 text-[rgb(var(--color-text-muted))]">
+        <li><span class="font-semibold">Tel:</span> 993 652 732</li>
+        <li><span class="font-semibold">Email:</span> </li>
+        <li><span class="font-semibold">Ubicación:</span> Lima - Perú</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt-8 text-center text-[rgb(var(--color-text-muted))] text-xs">
+    © 2026 Exactus. Todos los derechos reservados.<br>
+    <!-- <span>Desarrollado con <span class="text-[rgb(var(--color-pink))]">♥</span> por tu equipo</span> -->
   </div>
 </footer>
