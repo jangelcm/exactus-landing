@@ -13,3 +13,9 @@
 .animate-fade-in {
 	animation: fade-in 0.2s ease-in;
 }
+
+.icon-angle-down {
+	font-size: 16px;
+	margin-left: .2em;
+	opacity: .6;
+}
