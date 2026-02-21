@@ -52,7 +52,8 @@ export class BlogDetailComponent implements OnInit {
             next: (blog) => {
                 this.blog = blog;
                 this.updateSEO(blog);
-                this.loadRelatedBlogs(blog.id!);
+                // Cargar blogs relacionados (simulado) luego
+                // this.loadRelatedBlogs(blog.id!);
                 this.loading = false;
             },
             error: () => {

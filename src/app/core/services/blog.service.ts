@@ -8,7 +8,10 @@ import { environment } from '../../environment/enviroment';
 export class BlogService {
     private apiUrl = `${environment.apiUrl}/blog`;
 
-    constructor(private http: HttpClient, private authService: AuthService) { }
+    constructor(
+        private http: HttpClient,
+        private authService: AuthService
+    ) { }
 
     getBlogs(): Observable<any[]> {
         return this.http.get<any[]>(this.apiUrl);
@@ -44,7 +47,6 @@ export class BlogService {
     uploadImage(file: File): Promise<any> {
         const formData = new FormData();
         formData.append('image', file);
-        // No se envía token normalmente para uploads públicos, pero si tu backend lo requiere, añade headers
         return this.http.post<any>(`${environment.apiUrl}/blog/upload-image`, formData).toPromise();
     }
 

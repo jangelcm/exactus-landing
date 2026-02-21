@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
 
 export interface Servicio {
   slug: string;
@@ -29,7 +30,10 @@ export class NavbarComponent {
     { slug: 'auditoria-financiera', title: 'Auditoría Financiera', description: 'Auditoría de estados financieros' }
   ];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    public authService: AuthService
+  ) { }
 
   navigateToService(slug: string) {
     this.router.navigate(['/servicios', slug]);
@@ -40,5 +44,11 @@ export class NavbarComponent {
 
   closeDropdowns() {
     this.openServiciosDropdown = false;
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/']);
+    window.location.reload();
   }
 }

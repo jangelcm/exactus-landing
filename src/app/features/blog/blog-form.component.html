@@ -1,5 +1,6 @@
-<div class="py-4">
-    <div class="container mx-auto px-4 py-12">
+<div class="container mx-auto px-4 py-12">
+    <!-- Mostrar solo si es admin -->
+    <ng-container *ngIf="authService.isAdmin$ | async">
         <!-- Tarjeta de agregar noticia -->
         <div *ngIf="!showForm" class="flex justify-center mb-8">
             <article
@@ -7,7 +8,7 @@
                 <h2 class="text-2xl font-bold text-white mb-4">¿Quieres publicar una noticia?</h2>
                 <button type="button"
                     class="bg-white text-[rgb(var(--color-primary))] font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
-                    (click)="showForm = true">
+                    (click)="openNewForm()">
                     Crear noticia
                 </button>
             </article>
@@ -15,7 +16,9 @@
         <div *ngIf="showForm" class="flex justify-center mb-8">
             <article class="bg-white rounded-2xl shadow-lg p-8 w-full max-w">
                 <header>
-                    <h1 class="text-3xl font-bold text-[rgb(var(--color-primary))] mb-6">Agregar noticia</h1>
+                    <h1 class="text-3xl font-bold text-[rgb(var(--color-primary))] mb-6">
+                        {{ isEditMode ? 'Editar noticia' : 'Agregar noticia' }}
+                    </h1>
                 </header>
                 <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-6">
                     <div>
@@ -34,7 +37,7 @@
                         <!-- Área Upload -->
                         <div
                             class="relative border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-[rgb(var(--color-primary))] transition cursor-pointer bg-gray-50">
-                            <input type="file" accept="image/*" (change)="onFileChange($event)"
+                            <input type="file" accept="image/jpeg,image/png,image/webp" (change)="onFileChange($event)"
                                 class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
 
                             <div *ngIf="!imagePreview && !form.value.imageUrl" class="space-y-2">
@@ -78,9 +81,11 @@
                     <div class="flex justify-end gap-4 pt-4">
                         <button type="button"
                             class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300 transition"
-                            (click)="showForm = false">Cancelar</button>
-                        <button type="submit"
-                            class="bg-[rgb(var(--color-primary))] text-white font-bold px-6 py-2 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition">Guardar</button>
+                            (click)="cancelForm()">Cancelar</button>
+                        <button type="submit" [disabled]="submitLoading"
+                            class="bg-[rgb(var(--color-primary))] text-white font-bold px-6 py-2 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition disabled:opacity-50 disabled:cursor-not-allowed">
+                            {{ submitLoading ? 'Guardando...' : 'Guardar' }}
+                        </button>
                     </div>
                 </form>
             </article>
@@ -98,7 +103,8 @@
             @else if (!loading && blogs.length !== 0) {
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" @staggerFadeUp>
                 @for (blog of blogs; track blog.id) {
-                <app-blog [blog]="blog"></app-blog>
+                <app-blog [blog]="blog" [isAdmin]="true" (onEdit)="editBlog($event)"
+                    (onDelete)="deleteBlog()"></app-blog>
                 }
             </div>
             }@else{
@@ -107,5 +113,31 @@
 
 
         </div>
-    </div>
+    </ng-container>
+
+    <!-- Mensaje para usuarios no admin -->
+    <ng-container *ngIf="!(authService.isAdmin$ | async)">
+        <div class="flex flex-col justify-center">
+            <p class="text-[rgb(var(--color-primary))] text-start text-4xl md:text-6xl font-bold mb-6 uppercase">
+                Nuestro Blog</p>
+            @if (loading) {
+            <div class="flex justify-center gap-2">
+                <span class="size-3 animate-ping rounded-full bg-[rgb(var(--color-primary))]"></span>
+                <span
+                    class="size-3 animate-ping rounded-full bg-[rgb(var(--color-primary))] [animation-delay:0.2s]"></span>
+                <span
+                    class="size-3 animate-ping rounded-full bg-[rgb(var(--color-primary))] [animation-delay:0.4s]"></span>
+            </div>
+            }
+            @else if (!loading && blogs.length !== 0) {
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full" @staggerFadeUp>
+                @for (blog of blogs; track blog.id) {
+                <app-blog [blog]="blog" [isAdmin]="false"></app-blog>
+                }
+            </div>
+            }@else{
+            <p class="text-center text-gray-500 mt-8">No hay noticias disponibles.</p>
+            }
+        </div>
+    </ng-container>
 </div>
