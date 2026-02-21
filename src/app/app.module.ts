@@ -8,7 +8,6 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeComponent } from './features/home/home.component';
 import { ServiciosComponent } from './features/servicios/servicios.component';
-import { VideosComponent } from './features/videos/videos.component';
 import { ContactoComponent } from './features/contacto/contacto.component';
 import { NosotrosComponent } from './features/nosotros/nosotros.component';
 import { BlogFormComponent } from './features/blog/blog-form.component';
@@ -16,8 +15,8 @@ import { LoginComponent } from './features/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'servicios/:slug', component: ServiciosComponent },
   { path: 'servicios', component: ServiciosComponent },
-  { path: 'videos', component: VideosComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'nosotros', component: NosotrosComponent },
   { path: '**', redirectTo: '' }
@@ -30,7 +29,6 @@ const routes: Routes = [
     FooterComponent,
     HomeComponent,
     ServiciosComponent,
-    VideosComponent,
     ContactoComponent,
     NosotrosComponent,
     BlogFormComponent,

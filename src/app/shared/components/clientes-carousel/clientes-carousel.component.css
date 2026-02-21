@@ -1,25 +1,8 @@
-@keyframes scrollLeft {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
 }
 
-.animate-scroll {
-    animation: scrollLeft 40s linear infinite;
-}
-
-.animate-scroll:hover {
-    animation-play-state: paused;
-}
-
-.animate-scroll-reverse {
-    animation: scrollLeft 40s linear infinite reverse;
-}
-
-.animate-scroll-reverse:hover {
-    animation-play-state: paused;
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

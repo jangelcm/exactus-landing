@@ -21,26 +21,26 @@ export class HomeComponent {
       image: 'assets/slider/outsourcing.webp',
       title: 'Asesoría Contable',
       description: 'Organización y mejora de procesos, elaboración de estados financieros y cumplimiento de obligaciones contables y tributarias.',
-      link: '/servicios'
+      link: '/servicios/asesoria-contable'
     },
 
     {
       image: 'assets/slider/laboral.jpg',
       title: 'Asesoría Laboral',
       description: 'Gestión laboral y obligaciones legales con precisión y experiencia.',
-      link: '/servicios'
+      link: '/servicios/asesoria-laboral'
     },
     {
       image: 'assets/slider/tributaria.jpg',
       title: 'Asesoría Tributaria',
       description: 'Controles y cumplimiento de normas tributarias para tu empresa.',
-      link: '/servicios'
+      link: '/servicios/asesoria-tributaria'
     },
     {
       image: 'assets/slider/auditoria-tributaria.jpg',
       title: 'Auditorías',
       description: 'Servicios de Auditoría de Estados Financieros, Auditoría Financiera y Auditoría Tributaria.',
-      link: '/servicios'
+      link: '/servicios/auditorias'
     }
   ];
 

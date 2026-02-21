@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 
 interface Cliente {
@@ -10,7 +11,7 @@ interface Cliente {
 
 @Component({
   selector: 'app-clientes-carousel',
-  imports: [CommonModule],
+  imports: [CommonModule, AnimateOnScrollDirective],
   templateUrl: './clientes-carousel.component.html',
   styleUrls: ['./clientes-carousel.component.css'],
   animations: [
@@ -39,19 +40,30 @@ interface Cliente {
 })
 export class ClientesCarouselComponent {
   clientes: Cliente[] = [
-    { nombre: 'Google', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/google.svg' },
-    { nombre: 'Adobe', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/adobe.svg' },
-    { nombre: 'Figma', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg' },
-    { nombre: 'Hubspot', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/hubspot.svg' },
-    { nombre: 'Stripe', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/stripe.svg' },
-    { nombre: 'Slack', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/slack.svg' },
-    { nombre: 'Amazon', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazon.svg' },
-    { nombre: 'Microsoft', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoft.svg' },
+    { nombre: 'Efixo', logoUrl: 'assets/clientes/efixo.png' },
+    { nombre: 'blue water', logoUrl: 'assets/clientes/bluewater.png' },
+    { nombre: 'ecomotion', logoUrl: 'assets/clientes/ecomotion.png' },
+    { nombre: 'fundacionoli', logoUrl: 'assets/clientes/fundacionoli.png' },
+    { nombre: 'macpoint', logoUrl: 'assets/clientes/macpoint.png' },
+    { nombre: 'esg', logoUrl: 'assets/clientes/esg.png' },
+    { nombre: 'tdx', logoUrl: 'assets/clientes/tdx.png' },
+    { nombre: 'trip go', logoUrl: 'assets/clientes/trip go.png' },
   ];
 
 
-  // Duplicamos para efecto infinito
-  get clientesLoop() {
-    return [...this.clientes, ...this.clientes];
+  @ViewChild('carousel', { static: false }) carousel!: ElementRef;
+
+  scrollLeft() {
+    this.carousel.nativeElement.scrollBy({
+      left: -300,
+      behavior: 'smooth'
+    });
+  }
+
+  scrollRight() {
+    this.carousel.nativeElement.scrollBy({
+      left: 300,
+      behavior: 'smooth'
+    });
   }
 }

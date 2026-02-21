@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 
 export interface Servicio {
+  slug: string;
   title: string;
   description: string;
 }
@@ -19,19 +20,19 @@ export class NavbarComponent {
   openServiciosDropdownMobile = false;
 
   servicios: Servicio[] = [
-    { title: 'Asesoría Tributaria', description: 'Cumplimiento tributario integral' },
-    { title: 'Asesoría Laboral', description: 'Gestión de relaciones laborales' },
-    { title: 'Asesoría Jurídica', description: 'Servicios legales especializados' },
-    { title: 'Informes Especiales', description: 'Informes técnicos y periciales' },
-    { title: 'Outsourcing Contable', description: 'Externalización contable profesional' },
-    { title: 'Auditoría Tributaria', description: 'Fiscalización tributaria' },
-    { title: 'Auditoría Financiera', description: 'Auditoría de estados financieros' }
+    { slug: 'asesoria-tributaria', title: 'Asesoría Tributaria', description: 'Cumplimiento tributario integral' },
+    { slug: 'asesoria-laboral', title: 'Asesoría Laboral', description: 'Gestión de relaciones laborales' },
+    { slug: 'asesoria-juridica', title: 'Asesoría Jurídica', description: 'Servicios legales especializados' },
+    { slug: 'informes-especiales', title: 'Informes Especiales', description: 'Informes técnicos y periciales' },
+    { slug: 'asesoria-contable', title: 'Asesoria Contable', description: 'Externalización contable profesional' },
+    { slug: 'auditoria-tributaria', title: 'Auditoría Tributaria', description: 'Fiscalización tributaria' },
+    { slug: 'auditoria-financiera', title: 'Auditoría Financiera', description: 'Auditoría de estados financieros' }
   ];
 
   constructor(private router: Router) { }
 
-  navigateToService(index: number) {
-    this.router.navigate(['/servicios'], { queryParams: { service: index } });
+  navigateToService(slug: string) {
+    this.router.navigate(['/servicios', slug]);
     this.open = false;
     this.openServiciosDropdownMobile = false;
     window.scrollTo(0, 0);

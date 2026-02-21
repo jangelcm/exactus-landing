@@ -1,9 +1,10 @@
-<section class="py-24 px-6" aria-labelledby="main-services-title">
+<section class="py-16 px-6" aria-labelledby="main-services-title">
 
   <div class="lg:px-20">
 
     <!-- Header -->
-    <header class="text-center max-w-3xl mx-auto mb-20">
+    <header class="text-center max-w-3xl mx-auto mb-20" appAnimateOnScroll [animationType]="'slideDown'"
+      [animationDuration]="800">
 
       <p
         class="lg:text-2xl sm:text-xl text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4">
@@ -22,7 +23,8 @@
     </header>
 
     <!-- Grid -->
-    <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10" appAnimateOnScroll [animationType]="'slideUp'"
+      [animationDuration]="800">
 
       <li *ngFor="let service of services" class="group">
         <article class="relative h-full rounded-2xl p-8 shadow-sm border border-gray-100

@@ -45,7 +45,7 @@
                                         class="absolute left-0 mt-0 w-64 bg-white shadow-2xl rounded-lg py-2 z-50 border border-gray-100 animate-fade-in">
                                         <div *ngFor="let servicio of servicios; let i = index" role="menuitem"
                                                 class="px-4 py-3 hover:bg-[rgb(var(--color-primary))]/15 hover:bg-opacity-10 cursor-pointer transition-colors border-b border-gray-100 last:border-b-0 group/item"
-                                                (click)="navigateToService(i)">
+                                                (click)="navigateToService(servicio.slug)">
                                                 <p
                                                         class="font-semibold text-sm text-[rgb(var(--color-primary))] group-hover/item:text-[rgb(var(--color-primary-dark))]">
                                                         {{ servicio.title }}
@@ -100,7 +100,7 @@
                                 <!-- Dropdown Mobile -->
                                 <div *ngIf="openServiciosDropdownMobile" role="menu" class="rounded-lg mt-2 py-2">
                                         <button *ngFor="let servicio of servicios; let i = index" role="menuitem"
-                                                (click)="navigateToService(i)"
+                                                (click)="navigateToService(servicio.slug)"
                                                 class="w-full text-left px-3 py-2 text-sm hover:bg-[rgb(var(--color-primary))] hover:bg-opacity-10 transition-colors border-l-4 border-transparent hover:border-[rgb(var(--color-primary))]">
                                                 <p class="font-semibold text-[rgb(var(--color-primary))]">
                                                         {{ servicio.title }}

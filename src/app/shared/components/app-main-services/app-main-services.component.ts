@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 interface MainService {
   icon: string;
@@ -13,7 +14,7 @@ interface MainService {
 
 @Component({
   selector: 'app-main-services',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, AnimateOnScrollDirective],
   templateUrl: './app-main-services.component.html',
   styleUrl: './app-main-services.component.css'
 })

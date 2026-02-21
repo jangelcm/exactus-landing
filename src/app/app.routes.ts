@@ -12,6 +12,7 @@ import { OficinasComponent } from './shared/components/oficinas/oficinas.compone
 export const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'nosotros', component: NosotrosComponent },
+	{ path: 'servicios/:slug', component: ServiciosComponent },
 	{ path: 'servicios', component: ServiciosComponent },
 	{ path: 'contacto', component: ContactoComponent },
 	{ path: 'oficinas', component: OficinasComponent },

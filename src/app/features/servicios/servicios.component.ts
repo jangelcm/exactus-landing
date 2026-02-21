@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CardExactusComponent } from '../../shared/components/card-exactus/card-exactus.component';
 export interface Servicio {
+    slug: string;
     title: string;
     description: string;
     image: string;
@@ -21,9 +22,21 @@ export interface Servicio {
     styleUrls: ['./servicios.component.css']
 })
 export class ServiciosComponent implements OnInit {
-    constructor(private route: ActivatedRoute) { }
+    private readonly slugAliases: Record<string, string> = {
+        'asesoria-contable': 'asesoria-contable',
+        'auditorias': 'auditoria-tributaria'
+    };
+
+    constructor(private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
+        this.route.paramMap.subscribe(params => {
+            const slug = params.get('slug');
+            if (slug) {
+                this.selectServicioBySlug(slug);
+            }
+        });
+
         this.route.queryParams.subscribe(params => {
             const serviceIndex = params['service'];
             if (serviceIndex !== undefined && serviceIndex >= 0 && serviceIndex < this.servicios.length) {
@@ -33,6 +46,7 @@ export class ServiciosComponent implements OnInit {
     }
     servicios: Servicio[] = [
         {
+            slug: 'asesoria-tributaria',
             title: 'Asesoría Tributaria',
             description: 'Analizar, establecer y diseñar controles para el estricto cumplimiento de las normas tributarias que rigen a las empresas.',
             image: 'assets/servicios/tributaria.jpg',
@@ -56,6 +70,7 @@ export class ServiciosComponent implements OnInit {
             ]
         },
         {
+            slug: 'asesoria-laboral',
             title: 'Asesoría Laboral',
             description: 'Asesoramiento y gestión laboral a empresas, procedimiento laboral, extranjería. Aplicar con precisión las obligaciones legales vigentes.',
             image: 'assets/servicios/laboral.jpg',
@@ -79,6 +94,7 @@ export class ServiciosComponent implements OnInit {
             ]
         },
         {
+            slug: 'asesoria-juridica',
             title: 'Asesoría Jurídica',
             description: 'Abogados de empresa, servicios legales, derecho mercantil y societario, sucesión patrimonial, corporate compliance.',
             image: 'assets/servicios/juridica.jpg',
@@ -102,6 +118,7 @@ export class ServiciosComponent implements OnInit {
             ]
         },
         {
+            slug: 'informes-especiales',
             title: 'Informes Especiales',
             description: 'Diferentes tipos de informes requeridos en distintas situaciones, alineados a las circunstancias inherentes a cada caso.',
             image: 'assets/servicios/juridica.jpg',
@@ -125,7 +142,8 @@ export class ServiciosComponent implements OnInit {
             ]
         },
         {
-            title: 'Outsourcing Contable',
+            slug: 'asesoria-contable',
+            title: 'Asesoria Contable',
             description: 'Delegar áreas y funcionalidades no estratégicas para que la empresa se enfoque en lo esencial.',
             image: 'assets/servicios/outsourcing.jpg',
             subtitle1: 'Contabilidad y Registro Operativo',
@@ -148,6 +166,7 @@ export class ServiciosComponent implements OnInit {
             ]
         },
         {
+            slug: 'auditoria-tributaria',
             title: 'Auditoría Tributaria',
             description: 'Fiscalizar el correcto cumplimiento de la obligación tributaria principal y las accesorias/formales.',
             image: 'assets/servicios/auditoria-tributaria.jpg',
@@ -171,6 +190,7 @@ export class ServiciosComponent implements OnInit {
             ]
         },
         {
+            slug: 'auditoria-financiera',
             title: 'Auditoría Financiera',
             description: 'Examina los estados financieros y operaciones para emitir una opinión técnica y profesional.',
             image: 'assets/servicios/auditoria-financiera.png',
@@ -199,6 +219,15 @@ export class ServiciosComponent implements OnInit {
 
     selectServicio(servicio: Servicio) {
         this.selectedServicio = servicio;
+        this.router.navigate(['/servicios', servicio.slug]);
         window.scrollTo(0, 0);
+    }
+
+    private selectServicioBySlug(slug: string) {
+        const normalizedSlug = this.slugAliases[slug] ?? slug;
+        const found = this.servicios.find(servicio => servicio.slug === normalizedSlug);
+        if (found) {
+            this.selectedServicio = found;
+        }
     }
 }

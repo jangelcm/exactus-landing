@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-carousel',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
   animations: [
