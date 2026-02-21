@@ -3,7 +3,7 @@
     class="min-h-screen bg-gradient-to-br from-[rgb(var(--color-bg-dark))] via-[rgb(var(--color-bg-dark-secondary))] to-[rgb(var(--color-bg-dark))] text-[rgb(var(--color-text-on-dark))]">
 
     <!-- HERO + FORMULARIO -->
-    <section class="max-w-7xl mx-auto px-4 py-20" aria-labelledby="contacto-titulo">
+    <section class="max-w-7xl mx-auto px-4 lg:py-20 py-5" aria-labelledby="contacto-titulo">
       <div class="grid md:grid-cols-2 gap-12 items-start">
 
         <!-- Información de contacto -->
@@ -46,8 +46,8 @@
               <div>
                 <h2 class="text-xl font-semibold mb-2 text-[rgb(var(--color-primary))]">Contacto directo</h2>
                 <p class="text-[rgb(var(--color-text-on-dark-muted))]">
-                  Email: contacto&#64;despacho.com<br>
-                  Teléfono: +52 (55) 1234-5678
+                  Email: admin&#64;exactus.pe<br>
+                  Teléfono: +51 993 652 732
                 </p>
               </div>
             </div>
@@ -58,8 +58,8 @@
               <div>
                 <h2 class="text-xl font-semibold mb-2 text-[rgb(var(--color-primary))]">Ubicación</h2>
                 <p class="text-[rgb(var(--color-text-on-dark-muted))]">
-                  Av. Principal #123<br>
-                  Colonia Centro, Ciudad de México
+                  Cal. 02 de Mayo Nro. 516 Int. 201 <br>
+                  Lima - Lima - Miraflores
                 </p>
               </div>
             </div>
@@ -131,10 +131,10 @@
                   </label>
                   <input type="tel" id="telefono" formControlName="telefono"
                     class="w-full px-4 py-3 rounded-xl bg-[rgb(var(--color-bg-dark))] border border-[rgb(var(--color-border-dark))] focus:border-[rgb(var(--color-accent))] focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-accent))]/20 transition"
-                    placeholder="5512345678" [class.border-red-500]="submitted && f['telefono'].errors" />
+                    placeholder="9999999999" [class.border-red-500]="submitted && f['telefono'].errors" />
                   <p *ngIf="submitted && f['telefono'].errors" class="mt-1 text-sm text-red-400">
                     <span *ngIf="f['telefono'].errors['required']">El teléfono es requerido</span>
-                    <span *ngIf="f['telefono'].errors['pattern']">Debe contener al menos 10 dígitos</span>
+                    <span *ngIf="f['telefono'].errors['pattern']">Debe contener al menos 9 dígitos</span>
                   </p>
                 </div>
               </div>

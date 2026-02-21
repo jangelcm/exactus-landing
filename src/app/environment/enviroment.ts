@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://ftrd78n2-3000.brs.devtunnels.ms',
+  apiUrl: 'http://localhost:3000',
   emailJs: {
     serviceId: 'service_m9k5l17',
     templateId: 'template_hxdo30w',

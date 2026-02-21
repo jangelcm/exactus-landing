@@ -21,7 +21,7 @@ export class ContactoComponent {
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       apellido: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{10,}$/)]],
+      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{9,}$/)]],
       empresa: [''],
       asunto: ['', Validators.required],
       mensaje: ['', [Validators.required, Validators.minLength(9)]]

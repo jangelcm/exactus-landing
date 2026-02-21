@@ -1,10 +1,10 @@
 <header role="banner" class="sticky top-0 z-50">
-        <nav class="w-full bg-[rgb(var(--color-bg-primary))] shadow-md md:px-20 px-4 md:py-5 py-4 flex items-center md:justify-end justify-between"
+        <nav class="w-full max-w-full h-30 mx-auto bg-[rgb(var(--color-bg-primary))] md:px-25 px-4 md:py-5 py-4 flex items-center md:justify-end justify-between border-b border-[rgb(var(--color-primary))]"
                 role="navigation" aria-label="Navegación principal">
                 <a routerLink="/" aria-label="Ir a inicio">
-                        <img src="assets/logo.svg" alt="Logo de Tasklif" class="h-8 w-40 mr-10" />
+                        <img src="assets/logo.svg" alt="Logo de Tasklif" class="h-40 w-60 mr-10" />
                 </a>
-                <button class="sm:hidden flex items-center px-3 py-2 border rounded text-[rgb(var())] border-[rgb(var())]"
+                <button class="sm:hidden flex items-center px-3 py-2 border rounded text-[rgb(var(--color-primary))] border-[rgb(var(--color-primary))]"
                         (click)="open = !open" aria-label="Abrir menú de navegación" [attr.aria-expanded]="open"
                         aria-controls="mobile-menu">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -14,30 +14,57 @@
                                 </path>
                         </svg>
                 </button>
-                <ul class="hidden sm:flex gap-8 text-base font-medium" role="menubar">
-                        <li role="none"><a routerLink="/"
-                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
-                                        class="hover:text-[rgb(var(--color-primary-dark))] transition-colors"
-                                        role="menuitem">Inicio</a>
-                        </li>
+                <ul class="hidden sm:flex gap-8 text-2xl font-medium" role="menubar">
+
                         <li role="none"><a routerLink="/nosotros"
                                         routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
-                                        class="hover:text-[rgb(var(--color-primary-dark))] transition-colors"
+                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors"
                                         role="menuitem">Nosotros</a>
                         </li>
-                        <li role="none"><a routerLink="/servicios"
-                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
-                                        class="hover:text-[rgb(var(--color-primary-dark))] transition-colors"
-                                        role="menuitem">Servicios</a>
+
+                        <!-- Menú Servicios Desktop -->
+                        <li role="none" class="relative group" (mouseenter)="openServiciosDropdown = true"
+                                (mouseleave)="openServiciosDropdown = false">
+                                <button [routerLink]="['/servicios']"
+                                        [routerLinkActive]="'font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]'"
+                                        [routerLinkActiveOptions]="{ exact: false }"
+                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors flex items-center gap-2"
+                                        role="menuitem" aria-haspopup="true"
+                                        [attr.aria-expanded]="openServiciosDropdown" (click)="$event.preventDefault()">
+                                        Servicios
+                                        <svg class="h-4 w-4 transition-transform"
+                                                [ngClass]="{'rotate-180': openServiciosDropdown}" fill="none"
+                                                stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                        </svg>
+                                </button>
+
+                                <!-- Dropdown Desktop -->
+                                <div *ngIf="openServiciosDropdown" role="menu"
+                                        class="absolute left-0 mt-0 w-64 bg-white shadow-2xl rounded-lg py-2 z-50 border border-gray-100 animate-fade-in">
+                                        <div *ngFor="let servicio of servicios; let i = index" role="menuitem"
+                                                class="px-4 py-3 hover:bg-[rgb(var(--color-primary))]/15 hover:bg-opacity-10 cursor-pointer transition-colors border-b border-gray-100 last:border-b-0 group/item"
+                                                (click)="navigateToService(i)">
+                                                <p
+                                                        class="font-semibold text-sm text-[rgb(var(--color-primary))] group-hover/item:text-[rgb(var(--color-primary-dark))]">
+                                                        {{ servicio.title }}
+                                                </p>
+                                                <p class="text-xs text-gray-600 group-hover/item:text-gray-800">
+                                                        {{ servicio.description }}
+                                                </p>
+                                        </div>
+                                </div>
                         </li>
+
                         <li role="none"><a routerLink="/blog"
                                         routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
-                                        class="hover:text-[rgb(var(--color-primary-dark))] transition-colors"
+                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors"
                                         role="menuitem">Blog</a>
                         </li>
                         <li role="none"><a routerLink="/contacto"
                                         routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
-                                        class="hover:text-[rgb(var(--color-primary-dark))] transition-colors"
+                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors"
                                         role="menuitem">Contacto</a>
                         </li>
                 </ul>
@@ -45,20 +72,47 @@
                 <ul *ngIf="open" id="mobile-menu"
                         class="absolute top-full right-0 w-2/3 bg-white shadow-md flex flex-col py-4 px-6 sm:hidden animate-fade-in"
                         role="menu">
-                        <li role="none" class="border-b border-[rgb(var(--color-primary))]">
-                                <a routerLink="/" routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
-                                        (click)="open = false" class="py-2 block" role="menuitem">Inicio</a>
-                        </li>
+
                         <li role="none" class="border-b border-[rgb(var(--color-primary))]">
                                 <a routerLink="/nosotros"
                                         routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
                                         (click)="open = false" class="py-2 block" role="menuitem">Nosotros</a>
                         </li>
+
+                        <!-- Menú Servicios Mobile -->
                         <li role="none" class="border-b border-[rgb(var(--color-primary))]">
-                                <a routerLink="/servicios"
-                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
-                                        (click)="open = false" class="py-2 block" role="menuitem">Servicios</a>
+                                <button [routerLink]="['/servicios']"
+                                        [routerLinkActive]="'font-bold text-[rgb(var(--color-primary-dark))]'"
+                                        [routerLinkActiveOptions]="{ exact: false }"
+                                        (click)="openServiciosDropdownMobile = !openServiciosDropdownMobile; $event.preventDefault()"
+                                        class="py-2 w-full text-left flex items-center justify-between text-[rgb(var(--color-primary-dark))]"
+                                        role="menuitem" aria-haspopup="true"
+                                        [attr.aria-expanded]="openServiciosDropdownMobile">
+                                        Servicios
+                                        <svg class="h-4 w-4 transition-transform"
+                                                [ngClass]="{'rotate-180': openServiciosDropdownMobile}" fill="none"
+                                                stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                        </svg>
+                                </button>
+
+                                <!-- Dropdown Mobile -->
+                                <div *ngIf="openServiciosDropdownMobile" role="menu"
+                                        class="bg-gray-50 rounded-lg mt-2 py-2">
+                                        <button *ngFor="let servicio of servicios; let i = index" role="menuitem"
+                                                (click)="navigateToService(i)"
+                                                class="w-full text-left px-3 py-2 text-sm hover:bg-[rgb(var(--color-primary))] hover:bg-opacity-10 transition-colors border-l-4 border-transparent hover:border-[rgb(var(--color-primary))]">
+                                                <p class="font-semibold text-[rgb(var(--color-primary))]">
+                                                        {{ servicio.title }}
+                                                </p>
+                                                <p class="text-xs text-gray-600">
+                                                        {{ servicio.description }}
+                                                </p>
+                                        </button>
+                                </div>
                         </li>
+
                         <li role="none" class="border-b border-[rgb(var(--color-primary))]">
                                 <a routerLink="/blog" routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
                                         (click)="open = false" class="py-2 block" role="menuitem">Blog</a>

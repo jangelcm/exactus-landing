@@ -1,9 +1,10 @@
 <main role="main">
   <article
-    class="bg-gradient-to-br from-[rgb(var(--color-bg-dark))] via-[rgb(var(--color-bg-dark-secondary))] to-[rgb(var(--color-bg-dark))] text-[rgb(var(--color-text-on-dark))]">
+    class="bg-gradient-to-br from-[rgb(var(--color-bg-dark))] via-[rgb(var(--color-bg-dark-secondary))] to-[rgb(var(--color-bg-dark))] text-[rgb(var(--color-text-on-dark))] py-10">
     <!-- HERO -->
-    <section class="hero bg-cover lg:bg-center bg-right bg-no-repeat relative px-6" aria-labelledby="quienes-somos">
-      <div class="mx-auto max-w-7xl grid md:grid-cols-2 lg:gap-12 justify-center lg:py-20">
+    <section class="hero lg:min-h-[calc(100vh-7rem)] bg-cover lg:bg-center bg-right bg-no-repeat relative px-6"
+      aria-labelledby="quienes-somos">
+      <div class="grid md:grid-cols-2 lg:gap-12 justify-center lg:py-20 py-5">
         <div class="hidden lg:block">
           <div [@slideInLeft] class="text-2xl mb-4 lg:text-[rgb(var(--color-primary))]">
             <span class="lg:text-black text-sm  font-semibold uppercase tracking-wide ">José
@@ -11,13 +12,11 @@
             <span class="text-sm font-semibold uppercase tracking-wide">Gerente/Contador</span>
           </div>
         </div>
-        <img src="assets/v1.png" alt="Ilustración representativa de nuestra empresa"
-          class="lg:hidden h-auto max-w-full object-cover" [@fadeInContent]>
 
         <!-- Texto principal -->
-        <div [@slideUpContent] class="lg:pt-40 pt-20 mb-20">
+        <div [@slideUpContent] class="lg:pt-40 md:mb-20 mb-10">
           <h1 id="quienes-somos"
-            class="text-[rgb(var(--color-primary))] text-start text-4xl md:text-7xl font-bold mb-6">
+            class="text-[rgb(var(--color-primary))] text-center lg:text-start text-4xl md:text-7xl font-bold mb-6 uppercase">
             ¿Quiénes somos?
           </h1>
           <p class="text-[rgb(var(--color-text-on-dark-muted))] text-lg leading-relaxed mb-8">
@@ -38,6 +37,14 @@
             </a>
           </div>
         </div>
+        <div class="lg:hidden relative">
+          <div class="absolute inset-0  animate-pulse rounded-lg">
+          </div>
+          <img src="assets/v1.png" alt="Ilustración representativa de nuestra empresa"
+            class="lg:hidden h-auto max-w-full object-cover opacity-0 transition-opacity duration-500"
+            [class.opacity-100]="imageLoaded" (load)="imageLoaded = true" [@slideInLeft]>
+        </div>
+
       </div>
     </section>
 

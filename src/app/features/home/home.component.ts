@@ -1,39 +1,18 @@
 import { Component } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
 import { CarouselComponent } from '../../shared/components/carousel/carousel.component';
-import { TargetAudienceComponent } from '../../shared/components/target-audience/target-audience.component';
 import { AppMainServicesComponent } from '../../shared/components/app-main-services/app-main-services.component';
 import { OficinasComponent } from '../../shared/components/oficinas/oficinas.component';
-import { RouterLink } from '@angular/router';
 import { ClientesCarouselComponent } from '../../shared/components/clientes-carousel/clientes-carousel.component';
-import { trigger, transition, style, animate } from '@angular/animations';
-
-
-export interface FAQ {
-  id: number;
-  pregunta: string;
-  respuesta: string;
-  expanded?: boolean;
-}
+import { FaqComponent } from '../../shared/components/faq/faq.component';
+import { FAQ } from '../../shared/components/faq/faq.component';
 
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, CarouselComponent, AppMainServicesComponent, OficinasComponent, RouterLink, ClientesCarouselComponent],
+  imports: [CommonModule, CarouselComponent, AppMainServicesComponent, OficinasComponent, ClientesCarouselComponent, FaqComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  animations: [
-    trigger('expandCollapse', [
-      transition(':enter', [
-        style({ height: 0, opacity: 0 }),
-        animate('300ms ease-out', style({ height: '*', opacity: 1 }))
-      ]),
-      transition(':leave', [
-        animate('300ms ease-in', style({ height: 0, opacity: 0 }))
-      ])
-    ])
-  ]
+  styleUrls: ['./home.component.css']
 })
 
 export class HomeComponent {
@@ -127,8 +106,4 @@ export class HomeComponent {
       expanded: false
     }
   ];
-
-  toggleFAQ(index: number): void {
-    this.preguntas[index].expanded = !this.preguntas[index].expanded;
-  }
 }

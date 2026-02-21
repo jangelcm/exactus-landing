@@ -1,86 +1,50 @@
 <main role="main">
   <div class="container mx-auto px-4 py-12">
-    <h1 class="text-center text-[rgb(var(--color-primary))] text-4xl md:text-5xl font-bold mb-6">Servicios de asesoría
-      profesional</h1>
+    <h1 class="text-center text-[rgb(var(--color-primary))] text-4xl md:text-5xl font-bold mb-6 uppercase">Nuestros
+      Servicios
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:gap-20 gap-10 lg:pt-20">
+      <!-- Detalle del servicio seleccionado -->
+      <div class="md:col-span-2 flex flex-col justify-start">
+        <h2 class="lg:text-2xl sm:text-xl text-lg font-semibold tracking-widest uppercase  mb-4">
+          {{ selectedServicio.title }}</h2>
+        <img *ngIf="selectedServicio.image" [src]="selectedServicio.image" alt="{{ selectedServicio.title }}"
+          class="mb-4 rounded-lg max-w-full object-cover h-64 w-full">
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" itemscope itemtype="https://schema.org/ItemList">
-      <!-- Asesoría Tributaria -->
-      <article
-        class=" rounded-xl shadow p-6 flex flex-col gap-3 border-t-3 border-[rgb(var(--color-primary-dark))] hover:scale-105 transition-transform"
-        itemscope itemtype="https://schema.org/Service" itemprop="itemListElement">
-        <img src="assets/servicios/tributaria.jpg" alt="Servicio de Asesoría Tributaria"
-          class="rounded-lg w-full h-36 object-cover mb-2" itemprop="image">
-        <h2 class="text-xl font-bold text-[rgb(var(--color-primary-dark))]" itemprop="name">Asesoría Tributaria</h2>
-        <p class="text-[rgb(var(--color-text-secondary))] text-sm" itemprop="description">Analizar, establecer y diseñar
-          controles para el estricto cumplimiento de las normas tributarias que rigen a las empresas.</p>
-      </article>
+        <!-- Sección 1 -->
+        <h3 class="text-xl font-semibold mt-6 mb-2 text-[rgb(var(--color-primary))]">{{ selectedServicio.subtitle1 }}
+        </h3>
+        <p class="text-base mb-3">{{ selectedServicio.detail1 }}</p>
+        <ul class="mb-6 space-y-2">
+          <li *ngFor="let item of selectedServicio.detail1Items" class="flex items-start gap-2">
+            <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
+            <span>{{ item }}</span>
+          </li>
+        </ul>
 
-      <!-- Asesoría Laboral -->
-      <article
-        class=" rounded-xl shadow p-6 flex flex-col gap-3 border-t-3 border-[rgb(var(--color-primary-dark))] hover:scale-105 transition-transform"
-        itemscope itemtype="https://schema.org/Service" itemprop="itemListElement">
-        <img src="assets/servicios/laboral.jpg" alt="Servicio de Asesoría Laboral"
-          class="rounded-lg w-full h-36 object-cover mb-2" itemprop="image">
-        <h2 class="text-xl font-bold text-[rgb(var(--color-primary-dark))]" itemprop="name">Asesoría Laboral</h2>
-        <p class="text-[rgb(var(--color-text-secondary))] text-sm" itemprop="description">Asesoramiento y gestión
-          laboral a empresas, procedimiento laboral, extranjería. Aplicar con precisión las obligaciones legales
-          vigentes.</p>
-      </article>
-
-      <!-- Asesoría Jurídica -->
-      <article
-        class=" rounded-xl shadow p-6 flex flex-col gap-3 border-t-3 border-[rgb(var(--color-primary-dark))] hover:scale-105 transition-transform"
-        itemscope itemtype="https://schema.org/Service" itemprop="itemListElement">
-        <img src="assets/servicios/juridica.jpg" alt="Servicio de Asesoría Jurídica"
-          class="rounded-lg w-full h-36 object-cover mb-2" itemprop="image">
-        <h2 class="text-xl font-bold text-[rgb(var(--color-primary-dark))]" itemprop="name">Asesoría Jurídica</h2>
-        <p class="text-[rgb(var(--color-text-secondary))] text-sm" itemprop="description">Abogados de empresa, servicios
-          legales, derecho mercantil y societario, sucesión patrimonial, corporate compliance.</p>
-      </article>
-
-      <!-- Informes Especiales -->
-      <article
-        class=" rounded-xl shadow p-6 flex flex-col gap-3 border-t-3 border-[rgb(var(--color-primary-dark))] hover:scale-105 transition-transform"
-        itemscope itemtype="https://schema.org/Service" itemprop="itemListElement">
-        <img src="assets/servicios/juridica.jpg" alt="Servicio de Informes Especiales"
-          class="rounded-lg w-full h-36 object-cover mb-2" itemprop="image">
-        <h2 class="text-xl font-bold text-[rgb(var(--color-primary-dark))]" itemprop="name">Informes Especiales</h2>
-        <p class="text-[rgb(var(--color-text-secondary))] text-sm" itemprop="description">Diferentes tipos de informes
-          requeridos en distintas situaciones, alineados a las circunstancias inherentes a cada caso.</p>
-      </article>
-
-      <!-- Outsourcing Contable -->
-      <article
-        class=" rounded-xl shadow p-6 flex flex-col gap-3 border-t-3 border-[rgb(var(--color-primary-dark))] hover:scale-105 transition-transform"
-        itemscope itemtype="https://schema.org/Service" itemprop="itemListElement">
-        <img src="assets/servicios/outsourcing.jpg" alt="Servicio de Outsourcing Contable"
-          class="rounded-lg w-full h-36 object-cover mb-2" itemprop="image">
-        <h2 class="text-xl font-bold text-[rgb(var(--color-primary-dark))]" itemprop="name">Outsourcing Contable</h2>
-        <p class="text-[rgb(var(--color-text-secondary))] text-sm" itemprop="description">Delegar áreas y
-          funcionalidades no estratégicas para que la empresa se enfoque en lo esencial.</p>
-      </article>
-
-      <!-- Auditoría Tributaria -->
-      <article
-        class=" rounded-xl shadow p-6 flex flex-col gap-3 border-t-3 border-[rgb(var(--color-primary-dark))] hover:scale-105 transition-transform"
-        itemscope itemtype="https://schema.org/Service" itemprop="itemListElement">
-        <img src="assets/servicios/auditoria-tributaria.jpg" alt="Servicio de Auditoría Tributaria"
-          class="rounded-lg w-full h-36 object-cover mb-2" itemprop="image">
-        <h2 class="text-xl font-bold text-[rgb(var(--color-primary-dark))]" itemprop="name">Auditoría Tributaria</h2>
-        <p class="text-[rgb(var(--color-text-secondary))] text-sm" itemprop="description">Fiscalizar el correcto
-          cumplimiento de la obligación tributaria principal y las accesorias/formales.</p>
-      </article>
-
-      <!-- Auditoría Financiera -->
-      <article
-        class="rounded-xl shadow p-6 flex flex-col gap-3 border-t-3 border-[rgb(var(--color-primary-dark))] hover:scale-105 transition-transform"
-        itemscope itemtype="https://schema.org/Service" itemprop="itemListElement">
-        <img src="assets/servicios/auditoria-financiera.png" alt="Servicio de Auditoría Financiera"
-          class="rounded-lg w-full h-36 object-cover mb-2" itemprop="image">
-        <h2 class="text-xl font-bold text-[rgb(var(--color-primary-dark))]" itemprop="name">Auditoría Financiera</h2>
-        <p class="text-[rgb(var(--color-text-secondary))] text-sm" itemprop="description">Examina los estados
-          financieros y operaciones para emitir una opinión técnica y profesional.</p>
-      </article>
+        <!-- Sección 2 -->
+        <h3 class="text-xl font-semibold mt-4 mb-2 text-[rgb(var(--color-primary))]">{{ selectedServicio.subtitle2 }}
+        </h3>
+        <p class="text-base mb-3">{{ selectedServicio.detail2 }}</p>
+        <ul class="space-y-2">
+          <li *ngFor="let item of selectedServicio.detail2Items" class="flex items-start gap-2">
+            <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
+            <span>{{ item }}</span>
+          </li>
+        </ul>
+      </div>
+      <!-- Listado de cards -->
+      <div>
+        <p
+          class="lg:text-2xl sm:text-xl text-lg font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4 underline underline-offset-4">
+          Más Servicios
+        </p>
+        <div class="flex flex-col gap-4">
+          <card-exactus *ngFor="let servicio of servicios" [title]="servicio.title" [description]="servicio.description"
+            [image]="servicio.image" [class.selected]="servicio === selectedServicio"
+            (click)="selectServicio(servicio)"></card-exactus>
+        </div>
+      </div>
     </div>
   </div>
 </main>

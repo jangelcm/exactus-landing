@@ -39,13 +39,18 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class NosotrosComponent {
 
     @ViewChild('valuesSection') valuesSection!: ElementRef;
-
     years = 0;
     clients = 0;
     socios = 0;
     sectoresEconomicos = 0;
 
     private animated = false;
+
+    imageLoaded = false;
+
+    onImageLoad(): void {
+        this.imageLoaded = true;
+    }
 
     ngAfterViewInit() {
         const observer = new IntersectionObserver(entries => {
