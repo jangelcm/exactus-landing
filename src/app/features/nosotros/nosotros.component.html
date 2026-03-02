@@ -2,7 +2,7 @@
   <article
     class="bg-gradient-to-br from-[rgb(var(--color-bg-dark))] via-[rgb(var(--color-bg-dark-secondary))] to-[rgb(var(--color-bg-dark))] text-[rgb(var(--color-text-on-dark))] ">
     <!-- HERO -->
-    <section class="hero lg:min-h-[calc(100vh-7rem)] bg-cover lg:bg-center bg-right bg-no-repeat relative px-6"
+    <section class="hero lg:min-h-[calc(95vh-7rem)] bg-cover lg:bg-center bg-right bg-no-repeat relative px-6"
       aria-labelledby="quienes-somos">
       <div class="grid md:grid-cols-2 lg:gap-12 justify-center lg:py-20 py-12">
         <div class="hidden lg:block">
@@ -20,7 +20,7 @@
             class="text-[rgb(var(--color-primary))] text-center lg:text-start text-4xl md:text-6xl font-bold mb-6 uppercase">
             ¿Quiénes somos?
           </h1>
-          <p class="text-[rgb(var(--color-text-on-dark-muted))] text-lg leading-relaxed mb-8">
+          <p class="max-w-2xl  text-[rgb(var(--color-text-on-dark-muted))] text-lg lg:text-2xl leading-relaxed mb-8">
             Somos una empresa enfocada en brindar soluciones innovadoras, eficientes y escalables,
             ayudando a nuestros clientes a crecer con tecnología moderna y asesoría profesional de excelencia.
           </p>
@@ -38,65 +38,12 @@
             </a>
           </div>
 
-          <!-- Valores -->
-          <section class="mt-10" aria-labelledby="valores">
-            <div class="flex items-center gap-3 mb-6">
-              <span class="h-1 w-10 rounded-full bg-[rgb(var(--color-primary))]"></span>
-              <h2 id="valores" class="text-xl md:text-2xl font-bold uppercase tracking-widest">
-                Nuestros valores
-              </h2>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <div
-                class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <span
-                  class="absolute -right-6 -top-6 h-16 w-16 rounded-full bg-[rgb(var(--color-primary))]/20 blur-lg"></span>
-                <p class="text-sm uppercase tracking-[0.2em] text-[rgb(var(--color-primary))]">Servicio</p>
-                <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Atención cercana y oportuna.</p>
-              </div>
-              <div
-                class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <span
-                  class="absolute -right-6 -top-6 h-16 w-16 rounded-full bg-[rgb(var(--color-primary))]/20 blur-lg"></span>
-                <p class="text-sm uppercase tracking-[0.2em] text-[rgb(var(--color-primary))]">Dinamismo</p>
-                <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Agilidad y adaptación constante.</p>
-              </div>
-              <div
-                class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <span
-                  class="absolute -right-6 -top-6 h-16 w-16 rounded-full bg-[rgb(var(--color-primary))]/20 blur-lg"></span>
-                <p class="text-sm uppercase tracking-[0.2em] text-[rgb(var(--color-primary))]">Integridad</p>
-                <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Ética y transparencia total.</p>
-              </div>
-              <div
-                class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <span
-                  class="absolute -right-6 -top-6 h-16 w-16 rounded-full bg-[rgb(var(--color-primary))]/20 blur-lg"></span>
-                <p class="text-sm uppercase tracking-[0.2em] text-[rgb(var(--color-primary))]">Excelencia</p>
-                <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Calidad en cada entrega.</p>
-              </div>
-              <div
-                class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <span
-                  class="absolute -right-6 -top-6 h-16 w-16 rounded-full bg-[rgb(var(--color-primary))]/20 blur-lg"></span>
-                <p class="text-sm uppercase tracking-[0.2em] text-[rgb(var(--color-primary))]">Confidencialidad</p>
-                <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Protección de la información.</p>
-              </div>
-              <div
-                class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <span
-                  class="absolute -right-6 -top-6 h-16 w-16 rounded-full bg-[rgb(var(--color-primary))]/20 blur-lg"></span>
-                <p class="text-sm uppercase tracking-[0.2em] text-[rgb(var(--color-primary))]">Trabajo en equipo</p>
-                <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Sinergia y colaboración real.</p>
-              </div>
-            </div>
-          </section>
         </div>
-        <div class="lg:hidden relative">
+        <div class="lg:hidden relative flex justify-center">
           <div class="absolute inset-0  animate-pulse rounded-lg">
           </div>
-          <img src="assets/v1.png" alt="Ilustración representativa de nuestra empresa"
-            class="lg:hidden h-auto max-w-full object-cover opacity-0 transition-opacity duration-500"
+          <img src="assets/v1.png" alt="Ilustración representativa de nuestra empresa" width="300"
+            class="lg:hidden h-auto max-w-full object-contain opacity-0 transition-opacity duration-500"
             [class.opacity-100]="imageLoaded" (load)="imageLoaded = true" appAnimateOnScroll
             [animationType]="'slideLeft'" [animationDuration]="800">
         </div>
@@ -105,12 +52,12 @@
     </section>
 
     <!-- MISIÓN / VISIÓN -->
-    <section class="bg-[rgb(var(--color-primary))]/60 border-[rgb(var(--color-primary-light))]"
+    <section class="bg-[rgb(var(--color-primary))]/30 border-[rgb(var(--color-primary-light))]"
       aria-labelledby="mision-vision">
       <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-10">
 
         <!-- Misión -->
-        <article appAnimateOnScroll [animationType]="'slideRight'" [animationDuration]="800"
+        <article appAnimateOnScroll [animationType]="'slideDown'" [animationDuration]="800" [animationDelay]="200"
           class="bg-[rgb(var(--color-bg-primary))]  rounded-2xl p-8 hover:scale-[1.02] transition">
           <h2 class="text-2xl mb-4 text-[rgb(var(--color-primary))]">Misión</h2>
           <p class="text-[rgb(var(--color-text-on-dark-muted))] leading-relaxed">
@@ -124,7 +71,7 @@
         </article>
 
         <!-- Visión -->
-        <article appAnimateOnScroll [animationType]="'slideLeft'" [animationDuration]="800" [animationDelay]="200"
+        <article appAnimateOnScroll [animationType]="'slideDown'" [animationDuration]="800" [animationDelay]="200"
           class="bg-[rgb(var(--color-bg-primary))] rounded-2xl p-8 hover:scale-[1.02] transition">
           <h2 class="text-2xl mb-4 text-[rgb(var(--color-primary))]">Visión</h2>
           <p class="text-[rgb(var(--color-text-on-dark-muted))] leading-relaxed">
@@ -138,6 +85,48 @@
             sus expectativas.
           </p>
         </article>
+
+        <section appAnimateOnScroll [animationType]="'slideUp'" [animationDuration]="800" [animationDelay]="200"
+          class="mt-10 md:col-span-2 bg-white rounded-2xl p-10" aria-labelledby="valores">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="h-1 w-10 rounded-full bg-[rgb(var(--color-primary))]"></span>
+            <h2 id="valores" class="text-xl md:text-2xl font-bold uppercase text-gray-500">
+              Nuestros valores
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="group relative rounded-2xl border border-white/10 bg-white/5 p-4">
+              <span class="absolute -right-6 -top-6 h-16 w-16 rounded-full"></span>
+              <p class="text-sm uppercase  text-[rgb(var(--color-primary))]">Servicio</p>
+              <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Atención cercana y oportuna.</p>
+            </div>
+            <div class="group relative rounded-2xl border border-white/10 bg-white/5 p-4">
+              <span class="absolute -right-6 -top-6 h-16 w-16 rounded-full"></span>
+              <p class="text-sm uppercase  text-[rgb(var(--color-primary))]">Dinamismo</p>
+              <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Agilidad y adaptación constante.</p>
+            </div>
+            <div class="group relative rounded-2xl border border-white/10 bg-white/5 p-4">
+              <span class="absolute -right-6 -top-6 h-16 w-16 rounded-full"></span>
+              <p class="text-sm uppercase  text-[rgb(var(--color-primary))]">Integridad</p>
+              <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Ética y transparencia total.</p>
+            </div>
+            <div class="group relative rounded-2xl border border-white/10 bg-white/5 p-4">
+              <span class="absolute -right-6 -top-6 h-16 w-16 rounded-full"></span>
+              <p class="text-sm uppercase  text-[rgb(var(--color-primary))]">Excelencia</p>
+              <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Calidad en cada entrega.</p>
+            </div>
+            <div class="group relative rounded-2xl border border-white/10 bg-white/5 p-4">
+              <span class="absolute -right-6 -top-6 h-16 w-16 rounded-full"></span>
+              <p class="text-sm uppercase  text-[rgb(var(--color-primary))]">Confidencialidad</p>
+              <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Protección de la información.</p>
+            </div>
+            <div class="group relative rounded-2xl border border-white/10 bg-white/5 p-4">
+              <span class="absolute -right-6 -top-6 h-16 w-16 rounded-full"></span>
+              <p class="text-sm uppercase  text-[rgb(var(--color-primary))]">Trabajo en equipo</p>
+              <p class="mt-2 text-sm text-[rgb(var(--color-text-on-dark-muted))]">Sinergia y colaboración real.</p>
+            </div>
+          </div>
+        </section>
 
       </div>
     </section>
@@ -170,67 +159,85 @@
       <div class="grid lg:grid-cols-2 gap-16 items-start">
 
         <!-- BLOQUE IZQUIERDO -->
-        <div class="space-y-10">
+        <div class="space-y-8">
+          <h3 class="text-2xl font-semibold mb-8 text-black/80">
+            Tecnología y Asesoría en un solo lugar
+          </h3>
+          <!-- Introducción E-Novus -->
+          <div class="bg-[rgb(var(--color-primary))]/30 rounded-2xl p-6">
+            <p class="text-black leading-relaxed mb-6">
+              E-Novus es una empresa de soluciones tecnológicas en el mercado peruano, comprometida con brindar un
+              servicio cercano y de calidad, enfocado en las necesidades de nuestros clientes y respaldado por altos
+              estándares de innovación.
+            </p>
 
-          <div class="grid sm:grid-cols-3 gap-6">
+            <div class="flex items-center gap-2 mb-8">
+              <span class="text-[rgb(var(--color-primary))] font-bold text-lg">ENOVUS</span>
+              <span class="text-[rgb(var(--color-text-on-dark-muted))] font-semibold">es parte de</span>
+              <span class="text-[rgb(var(--color-primary))] font-bold text-lg">EXACTUS</span>
+            </div>
+
+            <p class="text-[rgb(var(--color-text-on-dark-muted))] font-semibold mb-8">
+              Juntos ofrecemos soluciones integrales que combinan:
+            </p>
+          </div>
+
+          <!-- Soluciones Integrales - Flujo Vertical Conectado -->
+          <div class="relative space-y-6">
+            <!-- Línea conectora vertical -->
+            <div
+              class="absolute left-6 top-12 bottom-0 w-0.5 bg-gradient-to-b from-[rgb(var(--color-primary))] to-[rgb(var(--color-primary))]/30">
+            </div>
 
             <!-- Tecnología -->
-            <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur
-                 hover:-translate-y-2 hover:border-[rgb(var(--color-primary))]/60
-                 transition duration-300">
-
-              <div class="mb-4 text-[rgb(var(--color-primary))]">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" stroke-width="1.6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M3 9h2m14 0h2M5 5h14v14H5z" />
-                </svg> -->
+            <div class="flex gap-6 items-start">
+              <div class="relative flex-shrink-0">
+                <div
+                  class="w-12 h-12 rounded-full bg-[rgb(var(--color-primary))] flex items-center justify-center text-white font-bold text-lg z-10 relative">
+                  1
+                </div>
               </div>
-
-              <h3 class="font-semibold text-lg mb-2">Tecnología</h3>
-              <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
-                Infraestructura moderna y soluciones digitales escalables.
-              </p>
-            </article>
+              <div class="pt-1">
+                <h4 class="font-bold text-lg text-[rgb(var(--color-primary))] mb-2">Tecnología</h4>
+                <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
+                  Infraestructura moderna y soluciones digitales escalables que impulsan tu negocio.
+                </p>
+              </div>
+            </div>
 
             <!-- Gestión Contable -->
-            <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur
-                 hover:-translate-y-2 hover:border-[rgb(var(--color-primary))]/60
-                 transition duration-300">
-
-              <div class="mb-4 text-[rgb(var(--color-primary))]">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" stroke-width="1.6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6h13M9 11l3-3m0 0l3 3m-3-3v12" />
-                </svg> -->
+            <div class="flex gap-6 items-start">
+              <div class="relative flex-shrink-0">
+                <div
+                  class="w-12 h-12 rounded-full bg-[rgb(var(--color-primary))] flex items-center justify-center text-white font-bold text-lg z-10 relative">
+                  2
+                </div>
               </div>
-
-              <h3 class="font-semibold text-lg mb-2">Gestión Contable</h3>
-              <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
-                Control financiero eficiente y automatizado.
-              </p>
-            </article>
+              <div class="pt-1">
+                <h4 class="font-bold text-lg text-[rgb(var(--color-primary))] mb-2">Gestión Contable</h4>
+                <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
+                  Control financiero eficiente y automatizado para mayor transparencia y cumplimiento.
+                </p>
+              </div>
+            </div>
 
             <!-- Asesoría Especializada -->
-            <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur
-                 hover:-translate-y-2 hover:border-[rgb(var(--color-primary))]/60
-                 transition duration-300">
-
-              <div class="mb-4 text-[rgb(var(--color-primary))]">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" stroke-width="1.6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-3 0-5 2-5 5h10c0-3-2-5-5-5z" />
-                </svg> -->
+            <div class="flex gap-6 items-start">
+              <div class="relative flex-shrink-0">
+                <div
+                  class="w-12 h-12 rounded-full bg-[rgb(var(--color-primary))] flex items-center justify-center text-white font-bold text-lg z-10 relative">
+                  3
+                </div>
               </div>
-
-              <h3 class="font-semibold text-lg mb-2">Asesoría Especializada</h3>
-              <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
-                Acompañamiento estratégico profesional.
-              </p>
-            </article>
-
+              <div class="pt-1">
+                <h4 class="font-bold text-lg text-[rgb(var(--color-primary))] mb-2">Asesoría Especializada</h4>
+                <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
+                  Acompañamiento estratégico profesional para alcanzar tus objetivos empresariales.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-
         <!-- BLOQUE DERECHO -->
         <div>
 
@@ -290,6 +297,27 @@
             </div>
 
           </div>
+          <div class="relative mt-10 group">
+            <img src="assets/nosotros/tecnologia.webp" width="600" height="400"
+              alt="Ilustración de módulos del sistema E-Novus"
+              class="w-full h-auto lg:max-h-[300px] object-cover rounded-lg shadow-md">
+
+            <!-- Etiquetas de marca -->
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span
+                class="px-3 py-1 bg-[rgb(var(--color-primary))] text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg">
+                ENOVUS
+              </span>
+              <span
+                class="px-3 py-1 bg-white text-[rgb(var(--color-primary))] text-xs font-bold uppercase tracking-wider rounded-full shadow-lg">
+                EXACTUS
+              </span>
+            </div>
+
+            <!-- Overlay con gradiente sutil -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg pointer-events-none">
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -329,7 +357,6 @@
 
           <div class="flex justify-center mb-4">
             <div class="bg-[rgb(var(--color-primary))]/10 p-4 rounded-full group-hover:scale-110 transition">
-              <!-- Clock Icon -->
               <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[rgb(var(--color-primary))]" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round"

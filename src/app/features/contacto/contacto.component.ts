@@ -7,7 +7,7 @@ import { IconLocationComponent } from '../../shared/components/icons/icon-locati
 
 @Component({
   selector: 'app-contacto',
-  imports: [CommonModule, ReactiveFormsModule, IconLocationComponent],
+  imports: [CommonModule, ReactiveFormsModule, IconLocationComponent,],
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })

@@ -9,6 +9,9 @@ import { BlogDetailComponent } from './features/blog/blog-detail.component';
 import { OficinasComponent } from './shared/components/oficinas/oficinas.component';
 import { AdminGuard } from './core/guards/admin.guard';
 
+// ... existing code
+import { ReviewsComponent } from './features/reviews/reviews.component';
+
 export const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'nosotros', component: NosotrosComponent },
@@ -16,6 +19,7 @@ export const routes: Routes = [
 	{ path: 'servicios', component: ServiciosComponent },
 	{ path: 'contacto', component: ContactoComponent },
 	{ path: 'oficinas', component: OficinasComponent },
+	{ path: 'casos-exito', component: ReviewsComponent }, // Placeholder, replace with actual component when available
 
 	// Blog
 	{ path: 'blog', component: BlogFormComponent },

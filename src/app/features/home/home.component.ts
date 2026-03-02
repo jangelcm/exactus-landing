@@ -6,11 +6,12 @@ import { OficinasComponent } from '../../shared/components/oficinas/oficinas.com
 import { ClientesCarouselComponent } from '../../shared/components/clientes-carousel/clientes-carousel.component';
 import { FaqComponent } from '../../shared/components/faq/faq.component';
 import { FAQ } from '../../shared/components/faq/faq.component';
+import { ReviewsComponent } from '../reviews/reviews.component';
 
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, CarouselComponent, AppMainServicesComponent, OficinasComponent, ClientesCarouselComponent, FaqComponent],
+  imports: [CommonModule, CarouselComponent, AppMainServicesComponent, OficinasComponent, ClientesCarouselComponent, FaqComponent, ReviewsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

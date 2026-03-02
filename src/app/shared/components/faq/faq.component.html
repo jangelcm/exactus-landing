@@ -12,9 +12,9 @@
         </header>
 
         <!-- FAQ Grid - 2 columnas en pantallas grandes -->
-        <article class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <article class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto items-start">
             <div *ngFor="let faq of preguntas; let i = index"
-                class="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+                class="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition self-start">
 
                 <!-- Question Button -->
                 <button (click)="toggleFAQ(i)" type="button"
