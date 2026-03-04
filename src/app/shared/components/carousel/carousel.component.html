@@ -7,9 +7,9 @@
     <!-- Media -->
     <div class="absolute inset-0">
 
-      <img [src]="slides[current].image" class="w-full h-full object-cover transition-opacity duration-700"
-        [class.opacity-0]="!imageLoaded" [class.opacity-100]="imageLoaded" (load)="onImageLoad()"
-        [@zoomInImage]="current" />
+      <img [src]="slides[current].image" class="w-full h-full object-cover transition-all duration-700 ease-out"
+        [class.opacity-0]="!imageLoaded" [class.opacity-100]="imageLoaded" [class.scale-105]="!imageLoaded"
+        [class.scale-100]="imageLoaded" (load)="onImageLoad()" />
       <!-- Overlay oscuro elegante -->
       <div class="absolute inset-0 bg-gradient-to-br from-black/100 via-black/50 to-black/50"></div>
 
@@ -19,27 +19,27 @@
     <div class="relative z-10 h-full flex items-center">
       <div class="max-w-7xl mx-auto h-min-content w-full px-6 py-12 md:py-16 lg:py-20">
         <div class="max-w-2xl">
-          <!-- Wrapper que se destruye y recrea con cada slide -->
-          <div [@fadeInContent]="current">
+          <!-- Wrapper con animación CSS -->
+          <div class="animate-fade-in">
             <!-- Eyebrow -->
-            <p class="text-[rgb(var(--color-primary-light))] uppercase tracking-widest md:text-lg text-sm font-bold mb-3"
-              [@slideUpContent]="current">
+            <p
+              class="text-[rgb(var(--color-primary-light))] uppercase tracking-widest md:text-lg text-sm font-bold mb-3 animate-slide-up">
               Estudio Legal & Tributario
             </p>
 
             <!-- Título principal -->
-            <h1 class="text-white text-5xl md:text-7xl font-extrabold leading-tight mb-4 drop-shadow"
-              [@slideUpContent]="current">
+            <h1
+              class="text-white text-5xl md:text-7xl font-extrabold leading-tight mb-4 drop-shadow animate-slide-up animation-delay-100">
               {{ slides[current].title }}
             </h1>
 
             <!-- Descripción -->
-            <p class="text-white/90 text-base md:text-lg mb-8 leading-relaxed" [@slideUpContent]="current">
+            <p class="text-white/90 text-base md:text-lg mb-8 leading-relaxed animate-slide-up animation-delay-200">
               {{ slides[current].description }}
             </p>
 
             <!-- CTAs -->
-            <div class="flex flex-col sm:flex-row gap-4" [@slideUpContent]="current">
+            <div class="flex flex-col sm:flex-row gap-4 animate-slide-up animation-delay-300">
               <button
                 class="bg-[rgb(var(--color-primary))] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[rgb(var(--color-primary-dark))] transition">
                 Agenda una consulta

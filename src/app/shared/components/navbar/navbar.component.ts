@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, PLATFORM_ID, inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 
@@ -16,6 +16,7 @@ export interface Servicio {
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  private platformId = inject(PLATFORM_ID);
   open = false;
   openServiciosDropdown = false;
   openServiciosDropdownMobile = false;
@@ -39,7 +40,9 @@ export class NavbarComponent {
     this.router.navigate(['/servicios', slug]);
     this.open = false;
     this.openServiciosDropdownMobile = false;
-    window.scrollTo(0, 0);
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo(0, 0);
+    }
   }
 
   closeDropdowns() {
@@ -49,6 +52,8 @@ export class NavbarComponent {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/']);
-    window.location.reload();
+    if (isPlatformBrowser(this.platformId)) {
+      window.location.reload();
+    }
   }
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BlogService } from '../../core/services/blog.service';
 import { Meta, Title } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 export interface Blog {
     id?: number;
@@ -22,6 +22,7 @@ export interface Blog {
     standalone: true
 })
 export class BlogDetailComponent implements OnInit {
+    private platformId = inject(PLATFORM_ID);
     blog: Blog | null = null;
     loading: boolean = true;
     relatedBlogs: Blog[] = [];
@@ -37,7 +38,9 @@ export class BlogDetailComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+        if (isPlatformBrowser(this.platformId)) {
+            this.currentUrl = window.location.href;
+        }
         this.route.params.subscribe(params => {
             const id = params['id'];
             this.loadBlogDetail(id);
@@ -147,14 +150,18 @@ export class BlogDetailComponent implements OnInit {
     }
 
     goBack(): void {
-        window.history.back();
+        if (isPlatformBrowser(this.platformId)) {
+            window.history.back();
+        }
     }
 
     copyLink(): void {
-        const url = window.location.href;
-        navigator.clipboard.writeText(url).then(() => {
-            // Puedes agregar una notificación aquí
-            alert('Enlace copiado al portapapeles');
-        });
+        if (isPlatformBrowser(this.platformId)) {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                // Puedes agregar una notificación aquí
+                alert('Enlace copiado al portapapeles');
+            });
+        }
     }
 }

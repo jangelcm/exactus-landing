@@ -1,7 +1,7 @@
-<div *ngIf="isVisible" [@backdropFadeIn] class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+<div *ngIf="isVisible" class="animate-backdrop-fade fixed inset-0 bg-black/50 flex items-center justify-center z-50"
     (click)="backdropClick($event)">
 
-    <div [@modalScaleIn] class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
+    <div class="animate-modal-scale bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
         <!-- Header with info color -->
         <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-6 flex items-center gap-4">
             <div class="flex-shrink-0">

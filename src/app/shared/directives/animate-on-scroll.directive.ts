@@ -1,4 +1,5 @@
-import { Directive, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
     selector: '[appAnimateOnScroll]',
@@ -11,10 +12,14 @@ export class AnimateOnScrollDirective implements OnInit, OnDestroy {
     @Input() threshold: number = 0.1;
 
     private observer!: IntersectionObserver;
+    private platformId = inject(PLATFORM_ID);
 
     constructor(private el: ElementRef) { }
 
     ngOnInit() {
+        if (!isPlatformBrowser(this.platformId)) {
+            return;
+        }
         this.setupInitialState();
         this.createObserver();
     }

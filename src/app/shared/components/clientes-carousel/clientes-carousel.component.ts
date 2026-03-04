@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, transition, style, animate } from '@angular/animations';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 
@@ -13,30 +12,7 @@ interface Cliente {
   selector: 'app-clientes-carousel',
   imports: [CommonModule, AnimateOnScrollDirective],
   templateUrl: './clientes-carousel.component.html',
-  styleUrls: ['./clientes-carousel.component.css'],
-  animations: [
-    trigger('slideAnimation', [
-      transition(':enter', [
-        style({ transform: 'translateX(0)' }),
-        animate('0s')
-      ]),
-      transition(':leave', [
-        animate('0s', style({ transform: 'translateX(0)' }))
-      ])
-    ]),
-    trigger('infiniteScroll', [
-      transition('* <=> *', [
-        style({ transform: 'translateX(0)' }),
-        animate('40s linear', style({ transform: 'translateX(100%)' }))
-      ])
-    ]),
-    trigger('infiniteScrollReverse', [
-      transition('* <=> *', [
-        style({ transform: 'translateX(0)' }),
-        animate('40s linear', style({ transform: 'translateX(-100%)' }))
-      ])
-    ])
-  ]
+  styleUrls: ['./clientes-carousel.component.css']
 })
 export class ClientesCarouselComponent {
   clientes: Cliente[] = [
