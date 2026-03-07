@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { GoogleReviewsService } from '../../core/services/reviews.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +12,9 @@ import { GoogleReviewsResponse } from '../../core/models/review.model';
     imports: [CommonModule, FormsModule]
 })
 export class ReviewsComponent implements OnInit {
+
+    private platformId = inject(PLATFORM_ID);
+
     reviewsResponse: GoogleReviewsResponse | null = null;
     isLoading = false;
     error: string | null = null;
@@ -65,25 +68,25 @@ export class ReviewsComponent implements OnInit {
     }
 
 
-    subscribeToState(): void {
-        this.googleReviewsService.loading$.subscribe(loading => this.isLoading = loading);
-        this.googleReviewsService.error$.subscribe(error => this.error = error);
-    }
+    // subscribeToState(): void {
+    //     this.googleReviewsService.loading$.subscribe(loading => this.isLoading = loading);
+    //     this.googleReviewsService.error$.subscribe(error => this.error = error);
+    // }
 
-    loadLocationReviews(): void {
-        this.googleReviewsService.getLocationReviews(this.locationName, this.pageSize)
-            .subscribe(data => this.reviewsResponse = data);
-    }
+    // loadLocationReviews(): void {
+    //     this.googleReviewsService.getLocationReviews(this.locationName, this.pageSize)
+    //         .subscribe(data => this.reviewsResponse = data);
+    // }
 
-    loadReviewsByRating(): void {
-        this.googleReviewsService.getReviewsByRating(this.locationName, this.minRating, this.pageSize)
-            .subscribe(data => this.reviewsResponse = data);
-    }
+    // loadReviewsByRating(): void {
+    //     this.googleReviewsService.getReviewsByRating(this.locationName, this.minRating, this.pageSize)
+    //         .subscribe(data => this.reviewsResponse = data);
+    // }
 
-    loadRecentReviews(): void {
-        this.googleReviewsService.getRecentReviews(this.locationName, this.daysAgo, this.pageSize)
-            .subscribe(data => this.reviewsResponse = data);
-    }
+    // loadRecentReviews(): void {
+    //     this.googleReviewsService.getRecentReviews(this.locationName, this.daysAgo, this.pageSize)
+    //         .subscribe(data => this.reviewsResponse = data);
+    // }
 
     getStarRating(rating: number): string[] {
         const fullStars = Math.floor(rating);

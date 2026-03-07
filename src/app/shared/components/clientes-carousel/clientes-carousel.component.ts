@@ -1,11 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, ViewChild, PLATFORM_ID, inject, AfterViewInit } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
-
 
 interface Cliente {
   nombre: string;
-  logoUrl: string; // Usaremos URLs de logos SVG para mejor calidad
+  logoUrl: string;
 }
 
 @Component({
@@ -14,7 +13,9 @@ interface Cliente {
   templateUrl: './clientes-carousel.component.html',
   styleUrls: ['./clientes-carousel.component.css']
 })
-export class ClientesCarouselComponent {
+export class ClientesCarouselComponent implements AfterViewInit {
+  private platformId = inject(PLATFORM_ID);
+
   clientes: Cliente[] = [
     { nombre: 'Efixo', logoUrl: 'assets/clientes/efixo.png' },
     { nombre: 'blue water', logoUrl: 'assets/clientes/bluewater.png' },
@@ -26,10 +27,15 @@ export class ClientesCarouselComponent {
     { nombre: 'trip go', logoUrl: 'assets/clientes/trip go.png' },
   ];
 
-
   @ViewChild('carousel', { static: false }) carousel!: ElementRef;
 
+  ngAfterViewInit() {
+    // ViewChild solo está disponible después de la vista inicializada
+  }
+
   scrollLeft() {
+    if (!isPlatformBrowser(this.platformId) || !this.carousel) return;
+
     this.carousel.nativeElement.scrollBy({
       left: -300,
       behavior: 'smooth'
@@ -37,6 +43,8 @@ export class ClientesCarouselComponent {
   }
 
   scrollRight() {
+    if (!isPlatformBrowser(this.platformId) || !this.carousel) return;
+
     this.carousel.nativeElement.scrollBy({
       left: 300,
       behavior: 'smooth'

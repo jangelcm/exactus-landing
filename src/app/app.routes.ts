@@ -19,10 +19,13 @@ export const routes: Routes = [
 	{ path: 'servicios', component: ServiciosComponent },
 	{ path: 'contacto', component: ContactoComponent },
 	{ path: 'oficinas', component: OficinasComponent },
-	{ path: 'casos-exito', component: ReviewsComponent }, // Placeholder, replace with actual component when available
+	{ path: 'casos-exito', component: ReviewsComponent },
 
 	// Blog
-	{ path: 'blog', component: BlogFormComponent },
+	{
+		path: 'blog',
+		component: BlogFormComponent,
+	},
 	{ path: 'blog/detail/:id', component: BlogDetailComponent },
 
 	// Admin routes (protegidas)

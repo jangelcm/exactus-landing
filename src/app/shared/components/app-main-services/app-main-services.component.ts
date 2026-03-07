@@ -32,7 +32,8 @@ export class AppMainServicesComponent {
         'Capacitación contable empresarial'
       ],
       ctaLabel: 'Más sobre asesoría contable',
-      ctaLink: '/servicios/asesoria-contable'
+      ctaLink: '/servicios/asesoria-contable',
+      color: '#D32f2f'
     },
     {
       icon: '⚖️',
@@ -45,7 +46,8 @@ export class AppMainServicesComponent {
         'Declaración de Beneficiario Final'
       ],
       ctaLabel: 'Más sobre asesoría tributaria',
-      ctaLink: '/servicios/asesoria-tributaria'
+      ctaLink: '/servicios/asesoria-tributaria',
+      color: '#1976d2'
     },
     {
       icon: '👥',
@@ -58,7 +60,8 @@ export class AppMainServicesComponent {
         'Atención de inspecciones laborales'
       ],
       ctaLabel: 'Más sobre asesoría laboral',
-      ctaLink: '/servicios/asesoria-laboral'
+      ctaLink: '/servicios/asesoria-laboral',
+      color: '#388e3c'
     },
     {
       icon: '🔍',
@@ -71,7 +74,8 @@ export class AppMainServicesComponent {
         'Diagnóstico empresarial'
       ],
       ctaLabel: 'Más sobre auditorías',
-      ctaLink: '/servicios/auditorias'
+      ctaLink: '/servicios/auditorias',
+      color: '#fbc02d'
     }
   ];
 

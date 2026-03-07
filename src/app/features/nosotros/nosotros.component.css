@@ -4,6 +4,76 @@ section {
 
 @media (min-width: 1024px) {
     section.hero {
-        background-image: url('/assets/nosotros.png');
+        background-image: url('/assets/nosotros/quienes-somos.png');
+    }
+}
+
+/* Person badges (visible on lg and up) */
+.person-badges {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: flex-start;
+    position: relative;
+    bottom: 0;
+    top: 80%;
+    left: 50%;
+}
+
+.person-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.6rem 0.9rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(16, 24, 40, 0.08);
+    transform: translateX(-6%);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    border-left: 4px solid rgba(239, 68, 68, 0.12);
+}
+
+.person-badge:hover {
+    transform: translateX(0);
+    box-shadow: 0 14px 30px rgba(16, 24, 40, 0.12);
+}
+
+.person-badge .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    background: rgb(220, 38, 38);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.person-badge .avatar.bg-secondary {
+    background: rgb(185, 28, 28);
+}
+
+.person-badge .info .name {
+    font-weight: 700;
+    color: rgb(185, 28, 28);
+    text-transform: none;
+    font-size: 0.95rem;
+}
+
+.person-badge .info .role {
+    font-size: 0.78rem;
+    color: rgba(17, 24, 39, 0.7);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* On small screens hide badges entirely (redundant with hidden lg:block, but defensive) */
+@media (max-width: 1023px) {
+
+    .person-badges,
+    .person-badge {
+        display: none !important;
     }
 }

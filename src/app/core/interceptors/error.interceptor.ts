@@ -1,7 +1,6 @@
-import { Injectable, inject } from '@angular/core';
+import { inject, PLATFORM_ID } from '@angular/core';
 import {
     HttpRequest,
-    HttpHandler,
     HttpEvent,
     HttpErrorResponse,
     HttpInterceptorFn
@@ -9,12 +8,22 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AlertService } from '../../shared/services/alert.service';
+import { isPlatformServer } from '@angular/common';
 
 export const errorInterceptor: HttpInterceptorFn = (
     request: HttpRequest<unknown>,
     next: any
 ): Observable<HttpEvent<unknown>> => {
     const alertService = inject(AlertService);
+    const platformId = inject(PLATFORM_ID);
+
+    if (isPlatformServer(platformId)) {
+        console.log('[SSR HTTP]', request.url);
+    }
+
+    if (request.headers.has('X-Skip-Error-Handler')) {
+        return next(request);
+    }
 
     if (request.headers.has('X-Skip-Error-Handler')) {
         return next(request);

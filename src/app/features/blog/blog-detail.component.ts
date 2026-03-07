@@ -49,7 +49,6 @@ export class BlogDetailComponent implements OnInit {
 
     loadBlogDetail(id: string): void {
         this.loading = true;
-        // Aquí deberías obtener el blog desde tu API usando el ID
         // Por ahora, simulo los datos
         this.blogService.getBlogById(id).subscribe({
             next: (blog) => {

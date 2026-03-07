@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, PLATFORM_ID, inject, Output, EventEmitter } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
@@ -13,6 +13,11 @@ export class AnimateOnScrollDirective implements OnInit, OnDestroy {
 
     private observer!: IntersectionObserver;
     private platformId = inject(PLATFORM_ID);
+
+    @Output() visible = new EventEmitter<void>();
+
+    // Dentro de tu IntersectionObserver, donde haces this.animate()
+
 
     constructor(private el: ElementRef) { }
 
@@ -62,6 +67,7 @@ export class AnimateOnScrollDirective implements OnInit, OnDestroy {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         this.animate();
+                        this.visible.emit();
                         this.observer.unobserve(entry.target);
                     }
                 });

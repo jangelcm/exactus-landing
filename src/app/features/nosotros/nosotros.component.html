@@ -1,31 +1,47 @@
-<main role="main">
+<main role="main" itemscope itemtype="https://schema.org/AboutPage">
   <article
-    class="bg-gradient-to-br from-[rgb(var(--color-bg-dark))] via-[rgb(var(--color-bg-dark-secondary))] to-[rgb(var(--color-bg-dark))] text-[rgb(var(--color-text-on-dark))] ">
+    class="bg-gradient-to-br from-[rgb(var(--color-bg-dark))] via-[rgb(var(--color-bg-dark-secondary))] to-[rgb(var(--color-bg-dark))] text-[rgb(var(--color-text-on-dark))]"
+    itemscope itemtype="https://schema.org/Organization">
+    <meta itemprop="name" content="Exactus">
+    <meta itemprop="url" content="https://www.exactus.pe">
+    <meta itemprop="logo" content="https://www.exactus.pe/assets/logo.png">
+
     <!-- HERO -->
     <section class="hero lg:min-h-[calc(95vh-7rem)] bg-cover lg:bg-center bg-right bg-no-repeat relative px-6"
       aria-labelledby="quienes-somos">
       <div class="grid md:grid-cols-2 lg:gap-12 justify-center lg:py-20 py-12">
-        <div class="hidden lg:block">
-          <div appAnimateOnScroll [animationType]="'slideRight'" [animationDuration]="800"
-            class="text-2xl mb-4 lg:text-[rgb(var(--color-primary))]">
-            <span class="lg:text-black text-sm  font-semibold uppercase tracking-wide ">José
-              Santisteban: </span>
-            <span class="text-sm font-semibold uppercase tracking-wide">Gerente/Contador</span>
+        <div class="hidden lg:block relative">
+          <div class="person-badges">
+            <div class="person-badge">
+              <div class="avatar">JS</div>
+              <div class="info">
+                <div class="name">José Santisteban</div>
+                <div class="role">Gerente / Contador</div>
+              </div>
+            </div>
+            <div class="person-badge">
+              <div class="avatar bg-secondary">AN</div>
+              <div class="info">
+                <div class="name">Alfredo Navarro de la Cruz</div>
+                <div class="role">Socio principal</div>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Texto principal -->
-        <div appAnimateOnScroll [animationType]="'slideUp'" [animationDuration]="800" class="lg:pt-20 md:mb-20 mb-10">
-          <h1 id="quienes-somos"
-            class="text-[rgb(var(--color-primary))] text-center lg:text-start text-4xl md:text-6xl font-bold mb-6 uppercase">
+        <div class="lg:pt-60 lg:pl-50 md:mb-20 mb-10">
+          <h1 id="quienes-somos" appAnimateOnScroll [animationType]="'slideRight'" [animationDelay]="100"
+            class="text-[rgb(var(--color-primary))] text-start lg:text-start text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter">
             ¿Quiénes somos?
           </h1>
-          <p class="max-w-2xl  text-[rgb(var(--color-text-on-dark-muted))] text-lg lg:text-2xl leading-relaxed mb-8">
+          <p appAnimateOnScroll [animationType]="'slideRight'" [animationDelay]="300"
+            class="max-w-2xl  text-[rgb(var(--color-text-on-dark-muted))] text-lg lg:text-2xl leading-relaxed mb-8">
             Somos una empresa enfocada en brindar soluciones innovadoras, eficientes y escalables,
             ayudando a nuestros clientes a crecer con tecnología moderna y asesoría profesional de excelencia.
           </p>
 
-          <div class="flex gap-4">
+          <div class="flex gap-4" appAnimateOnScroll [animationType]="'slideUp'" [animationDuration]="500">
             <a href="/contacto"
               class="px-6 py-3 rounded-xl bg-[rgb(var(--color-primary))] text-white hover:bg-[rgb(var(--color-primary))] transition font-semibold"
               aria-label="Ir a página de contacto">
@@ -40,12 +56,14 @@
 
         </div>
         <div class="lg:hidden relative flex justify-center">
-          <div class="absolute inset-0  animate-pulse rounded-lg">
-          </div>
-          <img src="assets/v1.png" alt="Ilustración representativa de nuestra empresa" width="300"
-            class="lg:hidden h-auto max-w-full object-contain opacity-0 transition-opacity duration-500"
-            [class.opacity-100]="imageLoaded" (load)="imageLoaded = true" appAnimateOnScroll
-            [animationType]="'slideLeft'" [animationDuration]="800">
+          <figure>
+            <img src="assets/nosotros/quienes-somos-mobile.png"
+              alt="Equipo directivo de Exactus - José Santisteban, Gerente y Contador, junto a socio especialista en consultoría empresarial"
+              width="600" height="400" loading="lazy" itemprop="image"
+              class="lg:hidden h-auto max-w-full object-contain opacity-0 transition-opacity duration-500"
+              [class.opacity-100]="imageLoaded" (load)="imageLoaded = true" appAnimateOnScroll
+              [animationType]="'slideLeft'" [animationDuration]="800">
+          </figure>
         </div>
 
       </div>
@@ -53,14 +71,16 @@
 
     <!-- MISIÓN / VISIÓN -->
     <section class="bg-[rgb(var(--color-primary))]/30 border-[rgb(var(--color-primary-light))]"
-      aria-labelledby="mision-vision">
+      aria-labelledby="mision-vision-titulo">
       <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-10">
 
         <!-- Misión -->
         <article appAnimateOnScroll [animationType]="'slideDown'" [animationDuration]="800" [animationDelay]="200"
-          class="bg-[rgb(var(--color-bg-primary))]  rounded-2xl p-8 hover:scale-[1.02] transition">
-          <h2 class="text-2xl mb-4 text-[rgb(var(--color-primary))]">Misión</h2>
-          <p class="text-[rgb(var(--color-text-on-dark-muted))] leading-relaxed">
+          class="bg-[rgb(var(--color-bg-primary))] rounded-2xl p-8 hover:scale-[1.02] transition"
+          aria-labelledby="mision-titulo">
+          <h2 id="mision-titulo" class="text-xl md:text-2xl font-bold uppercase text-[rgb(var(--color-primary))] mb-6">
+            Nuestra Misión</h2>
+          <p class="text-[rgb(var(--color-text-on-dark-muted))] leading-relaxed" itemprop="description">
             Ser aliados estratégicos de
             nuestros clientes, comprendiendo
             sus desafíos y proponiendo
@@ -72,8 +92,10 @@
 
         <!-- Visión -->
         <article appAnimateOnScroll [animationType]="'slideDown'" [animationDuration]="800" [animationDelay]="200"
-          class="bg-[rgb(var(--color-bg-primary))] rounded-2xl p-8 hover:scale-[1.02] transition">
-          <h2 class="text-2xl mb-4 text-[rgb(var(--color-primary))]">Visión</h2>
+          class="bg-[rgb(var(--color-bg-primary))] rounded-2xl p-8 hover:scale-[1.02] transition"
+          aria-labelledby="vision-titulo">
+          <h2 id="vision-titulo" class="text-xl md:text-2xl font-bold uppercase text-[rgb(var(--color-primary))] mb-6">
+            Nuestra Visión</h2>
           <p class="text-[rgb(var(--color-text-on-dark-muted))] leading-relaxed">
             Ser una empresa líder en
             consultoría empresarial,
@@ -89,8 +111,7 @@
         <section appAnimateOnScroll [animationType]="'slideUp'" [animationDuration]="800" [animationDelay]="200"
           class="mt-10 md:col-span-2 bg-white rounded-2xl p-10" aria-labelledby="valores">
           <div class="flex items-center gap-3 mb-6">
-            <span class="h-1 w-10 rounded-full bg-[rgb(var(--color-primary))]"></span>
-            <h2 id="valores" class="text-xl md:text-2xl font-bold uppercase text-gray-500">
+            <h2 id="valores" class="text-xl md:text-2xl font-bold uppercase text-[rgb(var(--color-primary))]">
               Nuestros valores
             </h2>
           </div>
@@ -160,11 +181,13 @@
 
         <!-- BLOQUE IZQUIERDO -->
         <div class="space-y-8">
-          <h3 class="text-2xl font-semibold mb-8 text-black/80">
-            Tecnología y Asesoría en un solo lugar
-          </h3>
+          <div class="flex items-center gap-3 mb-6">
+            <h2 id="tecnologia" class="text-xl md:text-2xl font-bold uppercase text-[rgb(var(--color-primary))]">
+              Tecnología y asesoria en un solo lugar
+            </h2>
+          </div>
           <!-- Introducción E-Novus -->
-          <div class="bg-[rgb(var(--color-primary))]/30 rounded-2xl p-6">
+          <div class="rounded-2xl lg:mb-25 mb-10">
             <p class="text-black leading-relaxed mb-6">
               E-Novus es una empresa de soluciones tecnológicas en el mercado peruano, comprometida con brindar un
               servicio cercano y de calidad, enfocado en las necesidades de nuestros clientes y respaldado por altos
@@ -241,9 +264,12 @@
         <!-- BLOQUE DERECHO -->
         <div>
 
-          <h3 class="text-2xl font-semibold mb-8 text-[rgb(var(--color-primary))]">
-            Módulos del sistema
-          </h3>
+
+          <div class="flex items-center gap-3 mb-6">
+            <h3 id="modulos" class="text-xl md:text-2xl font-bold uppercase text-[rgb(var(--color-primary))]">
+              Módulos del sistema
+            </h3>
+          </div>
 
           <div class="grid grid-cols-2 gap-6">
 
@@ -297,9 +323,9 @@
             </div>
 
           </div>
-          <div class="relative mt-10 group">
-            <img src="assets/nosotros/tecnologia.webp" width="600" height="400"
-              alt="Ilustración de módulos del sistema E-Novus"
+          <figure class="relative mt-10 group">
+            <img src="assets/nosotros/tecnologia.webp" width="600" height="400" loading="lazy"
+              alt="Sistema de gestión empresarial E-Novus - Software de contabilidad, ventas, tesorería e inventarios desarrollado por Exactus"
               class="w-full h-auto lg:max-h-[300px] object-cover rounded-lg shadow-md">
 
             <!-- Etiquetas de marca -->
@@ -315,9 +341,10 @@
             </div>
 
             <!-- Overlay con gradiente sutil -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg pointer-events-none"
+              aria-hidden="true">
             </div>
-          </div>
+          </figure>
         </div>
       </div>
     </section>
@@ -330,44 +357,34 @@
     </div>
 
     <!-- RAZONES PARA ELEGIRNOS -->
-    <section appAnimateOnScroll [animationType]="'fadeIn'" [animationDuration]="800" #valuesSection
-      class="mx-auto max-w-7xl px-6 py-20" aria-labelledby="nuestros-valores">
+    <section appAnimateOnScroll [animationType]="'fadeIn'" [animationDuration]="800" (visible)="startCounters()"
+      (visible)="startCounters()" #valuesSection class="mx-auto max-w-7xl px-6 py-20"
+      aria-labelledby="identidad-corporativa">
 
       <header class="text-center mb-12">
-        <p
-          class="lg:text-2xl sm:text-xl text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4">
+        <span
+          class="lg:text-2xl sm:text-xl text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4 block">
           Razones para elegirnos
-        </p>
+        </span>
 
-        <h2 id="nuestro-software" class="mt-4 text-gray-500 text-4xl md:text-5xl font-bold leading-tight">
-          Identidad Corporativa
-
+        <h2 id="identidad-corporativa" class="mt-4 text-gray-500 text-4xl md:text-5xl font-bold leading-tight">
+          Nuestra Identidad Corporativa
         </h2>
         <p class="mt-10 text-[rgb(var(--color-text-on-dark-muted))] max-w-3xl mx-auto">
           Más de una década brindando asesoría contable estratégica a empresas nacionales e internacionales.
         </p>
       </header>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 list-none p-0 m-0">
 
         <!-- Años -->
-        <article
-          class="bg-[rgb(var(--color-bg-dark-secondary))] border-3 border-[rgb(var(--color-primary))] rounded-2xl p-8 text-center shadow-md hover:shadow-lg transition group"
-          role="listitem">
+        <li
+          class="bg-[rgb(var(--color-bg-dark-secondary))] rounded-2xl p-8 text-center shadow-md hover:shadow-lg transition group">
 
-          <div class="flex justify-center mb-4">
-            <div class="bg-[rgb(var(--color-primary))]/10 p-4 rounded-full group-hover:scale-110 transition">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[rgb(var(--color-primary))]" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" />
-              </svg>
-            </div>
-          </div>
-
-          <p class="text-[rgb(var(--color-primary))] text-4xl font-bold mb-2">
-            {{ years }}+
-          </p>
+          <strong class="text-[rgb(var(--color-primary))] text-4xl font-bold mb-2 block"
+            [attr.aria-label]="'Más de ' + years() + ' años'">
+            {{ years() }}+
+          </strong>
 
           <h3 class="font-semibold text-lg mb-2">
             Años en el mercado peruano
@@ -376,27 +393,16 @@
           <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
             Experiencia consolidada como firma contable.
           </p>
-        </article>
-
+        </li>
 
         <!-- Clientes -->
-        <article
-          class="bg-[rgb(var(--color-bg-dark-secondary))] border-3 border-[rgb(var(--color-primary))] rounded-xl p-8 text-center shadow-md hover:shadow-lg transition"
-          role="listitem">
+        <li
+          class="bg-[rgb(var(--color-bg-dark-secondary))] rounded-xl p-8 text-center shadow-md hover:shadow-lg transition">
 
-          <div class="flex justify-center mb-4">
-            <div class="bg-[rgb(var(--color-primary))]/10 p-4 rounded-full group-hover:scale-110 transition">
-              <!-- Users Icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[rgb(var(--color-primary))]" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M17 20h5v-1a4 4 0 00-3-3.87M9 20H4v-1a4 4 0 013-3.87m10-4.13a4 4 0 11-8 0 4 4 0 018 0zm6 0a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </div>
-          </div>
-          <p class="text-[rgb(var(--color-primary))] text-4xl font-bold mb-2">
-            {{ clients }}+
-          </p>
+          <strong class="text-[rgb(var(--color-primary))] text-4xl font-bold mb-2 block"
+            [attr.aria-label]="'Más de ' + clients() + ' clientes'">
+            {{ clients() }}+
+          </strong>
 
           <h3 class="font-semibold text-lg mb-2">
             Empresas atendidas
@@ -405,27 +411,16 @@
           <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
             Clientes del sector privado atendidos durante los últimos años.
           </p>
-        </article>
+        </li>
 
         <!-- Socios -->
-        <article
-          class="bg-[rgb(var(--color-bg-dark-secondary))] border-3 border-[rgb(var(--color-primary))] rounded-xl p-8 text-center shadow-md hover:shadow-lg transition"
-          role="listitem">
+        <li
+          class="bg-[rgb(var(--color-bg-dark-secondary))] rounded-xl p-8 text-center shadow-md hover:shadow-lg transition">
 
-          <div class="flex justify-center mb-4">
-            <div class="bg-[rgb(var(--color-primary))]/10 p-4 rounded-full group-hover:scale-110 transition">
-              <!-- Briefcase Icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[rgb(var(--color-primary))]" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M21 13V7a2 2 0 00-2-2h-3V3H8v2H5a2 2 0 00-2 2v6m18 0v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6m18 0H3" />
-              </svg>
-
-            </div>
-          </div>
-          <p class="text-[rgb(var(--color-primary))] text-4xl font-bold mb-2">
-            {{ socios }}
-          </p>
+          <strong class="text-[rgb(var(--color-primary))] text-4xl font-bold mb-2 block"
+            [attr.aria-label]="socios() + ' socios'">
+            {{ socios() }}
+          </strong>
 
           <h3 class="font-semibold text-lg mb-2">
             Socios especialistas
@@ -434,26 +429,16 @@
           <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
             Más de 15 años de experiencia profesional acumulada.
           </p>
-        </article>
+        </li>
 
         <!-- Sectores -->
-        <article
-          class="bg-[rgb(var(--color-bg-dark-secondary))] border-3 border-[rgb(var(--color-primary))] rounded-xl p-8 text-center shadow-md hover:shadow-lg transition"
-          role="listitem">
-          <div class="flex justify-center mb-4">
-            <div class="bg-[rgb(var(--color-primary))]/10 p-4 rounded-full group-hover:scale-110 transition">
-              <!-- Building Icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[rgb(var(--color-primary))]" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3 21h18M9 8h6M9 12h6M9 16h6M5 21V7a2 2 0 012-2h10a2 2 0 012 2v14" />
-              </svg>
+        <li
+          class="bg-[rgb(var(--color-bg-dark-secondary))] rounded-xl p-8 text-center shadow-md hover:shadow-lg transition">
 
-            </div>
-          </div>
-          <p class="text-[rgb(var(--color-primary))] text-4xl font-bold mb-2">
-            {{ sectoresEconomicos }}+
-          </p>
+          <strong class="text-[rgb(var(--color-primary))] text-4xl font-bold mb-2 block"
+            [attr.aria-label]="'Más de ' + sectoresEconomicos() + ' sectores'">
+            {{ sectoresEconomicos() }}+
+          </strong>
 
           <h3 class="font-semibold text-lg mb-2">
             Sectores económicos
@@ -462,10 +447,11 @@
           <p class="text-sm text-[rgb(var(--color-text-on-dark-muted))]">
             Presencia con clientes nacionales e internacionales.
           </p>
-        </article>
+        </li>
 
-      </div>
+      </ul>
     </section>
+
 
   </article>
 </main>

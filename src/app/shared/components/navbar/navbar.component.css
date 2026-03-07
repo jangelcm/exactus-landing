@@ -1,21 +1,15 @@
-@keyframes fade-in {
+.animate-slide-in {
+	animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
 	from {
 		opacity: 0;
-		transform: translateY(-10px);
+		transform: translateY(10px);
 	}
 
 	to {
 		opacity: 1;
 		transform: translateY(0);
 	}
-}
-
-.animate-fade-in {
-	animation: fade-in 0.2s ease-in;
-}
-
-.icon-angle-down {
-	font-size: 16px;
-	margin-left: .2em;
-	opacity: .6;
 }

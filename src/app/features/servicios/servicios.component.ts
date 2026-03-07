@@ -2,6 +2,7 @@ import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardExactusComponent } from '../../shared/components/card-exactus/card-exactus.component';
+import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll.directive';
 export interface Servicio {
     slug: string;
     title: string;
@@ -17,7 +18,7 @@ export interface Servicio {
 
 @Component({
     selector: 'app-servicios',
-    imports: [CommonModule, CardExactusComponent],
+    imports: [CommonModule, CardExactusComponent, AnimateOnScrollDirective],
     templateUrl: './servicios.component.html',
     styleUrls: ['./servicios.component.css']
 })
@@ -28,23 +29,8 @@ export class ServiciosComponent implements OnInit {
         'auditorias': 'auditoria-tributaria'
     };
 
-    constructor(private route: ActivatedRoute, private router: Router) { }
+    serviciosFiltrados: Servicio[] = [];
 
-    ngOnInit() {
-        this.route.paramMap.subscribe(params => {
-            const slug = params.get('slug');
-            if (slug) {
-                this.selectServicioBySlug(slug);
-            }
-        });
-
-        this.route.queryParams.subscribe(params => {
-            const serviceIndex = params['service'];
-            if (serviceIndex !== undefined && serviceIndex >= 0 && serviceIndex < this.servicios.length) {
-                this.selectedServicio = this.servicios[parseInt(serviceIndex, 10)];
-            }
-        });
-    }
     servicios: Servicio[] = [
         {
             slug: 'asesoria-tributaria',
@@ -218,8 +204,31 @@ export class ServiciosComponent implements OnInit {
 
     selectedServicio: Servicio = this.servicios[0];
 
+    constructor(private route: ActivatedRoute, private router: Router) { }
+
+    ngOnInit() {
+        this.route.paramMap.subscribe(params => {
+            const slug = params.get('slug');
+            if (slug) {
+                this.selectServicioBySlug(slug);
+            } else {
+                this.selectServicio(this.servicios[0]);
+            }
+        });
+
+        this.route.queryParams.subscribe(params => {
+            const serviceIndex = params['service'];
+            if (serviceIndex !== undefined && serviceIndex >= 0 && serviceIndex < this.servicios.length) {
+                this.selectedServicio = this.servicios[parseInt(serviceIndex, 10)];
+                this.serviciosFiltrados = this.servicios.filter(s => s.slug !== this.selectedServicio.slug);
+            }
+        });
+    }
+
+
     selectServicio(servicio: Servicio) {
         this.selectedServicio = servicio;
+        this.serviciosFiltrados = this.servicios.filter(s => s.slug !== servicio.slug);
         this.router.navigate(['/servicios', servicio.slug]);
         if (isPlatformBrowser(this.platformId)) {
             window.scrollTo(0, 0);
@@ -231,6 +240,10 @@ export class ServiciosComponent implements OnInit {
         const found = this.servicios.find(servicio => servicio.slug === normalizedSlug);
         if (found) {
             this.selectedServicio = found;
+            this.serviciosFiltrados = this.servicios.filter(s => s.slug !== found.slug);
+        } else {
+            // Opcional: manejar el caso en que no se encuentra el slug
+            this.selectServicio(this.servicios[0]);
         }
     }
 }

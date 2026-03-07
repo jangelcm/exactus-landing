@@ -27,27 +27,21 @@
       [animationDuration]="800">
 
       <li *ngFor="let service of services" class="group">
-        <article class="relative h-full rounded-2xl p-8 shadow-sm border border-gray-100
+        <article class="relative h-full rounded-2xl p-8 shadow-sm
                  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
 
-          <!-- Decorative Accent Line -->
-          <div class="absolute left-0 top-0 h-full w-2 bg-[rgb(var(--color-primary))]
-                   scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300 rounded-l-2xl">
-          </div>
           <!-- Decorative Accent Line - Bottom -->
-          <div class="absolute left-0 bottom-0 h-2 w-full bg-[rgb(var(--color-primary))]
-             scale-x-0 group-hover:scale-x-100 origin-right transition-transform duration-300  rounded-b-2xl">
+          <div class="absolute left-0 bottom-0 h-2 w-full scale-x-0 group-hover:scale-x-100 origin-right
+            transition-transform duration-300 rounded-b-2xl" [ngStyle]="{'background-color': service.color}">
           </div>
           <!-- Icon -->
-          <div class="w-14 h-14 flex items-center justify-center rounded-full
-                   bg-[rgb(var(--color-primary))]/10
-                   text-[rgb(var(--color-primary))]
-                   text-2xl mb-6">
+          <div class="w-14 h-14 flex items-center justify-center rounded-2xl
+                   text-2xl mb-6" [ngStyle]="{'background-color': service.color}">
             {{ service.icon }}
           </div>
 
           <!-- Title -->
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">
+          <h3 class="text-xl font-semibold text-[rgb(var(--color-primary))] mb-4">
             {{ service.title }}
           </h3>
 
@@ -66,8 +60,7 @@
 
           <!-- CTA -->
           <a [routerLink]="service.ctaLink" class="mt-auto inline-flex items-center gap-2 text-sm font-semibold
-                   text-[rgb(var(--color-primary))]
-                   hover:gap-3 transition-all duration-300">
+                   hover:gap-3 transition-all duration-300" [ngStyle]="{'color': service.color}">
             {{ service.ctaLabel }}
             <span>→</span>
           </a>

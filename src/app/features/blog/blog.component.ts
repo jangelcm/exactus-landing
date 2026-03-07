@@ -26,7 +26,6 @@ export class BlogComponent {
 
     constructor(
         private blogService: BlogService,
-        private authService: AuthService,
         private alertService: AlertService
     ) { }
 

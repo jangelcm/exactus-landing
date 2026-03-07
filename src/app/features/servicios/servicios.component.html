@@ -1,12 +1,12 @@
-<main role="main">
+<main role="main" class="bg-gray-50/50 min-h-screen">
   <div class="container mx-auto px-4 py-12">
     <h1
-      class="text-center text-[rgb(var(--color-primary))] lg:text-start text-4xl md:text-6xl font-bold mb-6 uppercase">
-      Nuestros
-      Servicios
+      class="text-start text-[rgb(var(--color-primary))] lg:text-start text-4xl md:text-6xl font-bold mb-12 uppercase tracking-tighter">
+      Nuestros Servicios
     </h1>
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:gap-20 gap-10">
-      <!-- Detalle del servicio seleccionado -->
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:gap-16 gap-10">
+
       <div class="md:col-span-2 flex flex-col justify-start">
         <h2 class="lg:text-2xl sm:text-xl text-lg font-semibold tracking-widest uppercase  mb-4">
           {{ selectedServicio.title }}</h2>
@@ -16,7 +16,8 @@
         <!-- Sección 1 -->
         <h3 class="text-xl font-semibold mt-6 mb-2 text-[rgb(var(--color-primary))]">{{ selectedServicio.subtitle1 }}
         </h3>
-        <p class="text-base mb-3">{{ selectedServicio.detail1 }}</p>
+        <p class="text-base mb-3">{{
+          selectedServicio.detail1 }}</p>
         <ul class="mb-6 space-y-2">
           <li *ngFor="let item of selectedServicio.detail1Items" class="flex items-start gap-2">
             <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
@@ -27,7 +28,8 @@
         <!-- Sección 2 -->
         <h3 class="text-xl font-semibold mt-4 mb-2 text-[rgb(var(--color-primary))]">{{ selectedServicio.subtitle2 }}
         </h3>
-        <p class="text-base mb-3">{{ selectedServicio.detail2 }}</p>
+        <p class="text-base mb-3">{{
+          selectedServicio.detail2 }}</p>
         <ul class="space-y-2">
           <li *ngFor="let item of selectedServicio.detail2Items" class="flex items-start gap-2">
             <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
@@ -35,18 +37,27 @@
           </li>
         </ul>
       </div>
-      <!-- Listado de cards -->
-      <div>
-        <p
-          class="lg:text-2xl sm:text-xl text-lg font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4 underline underline-offset-4">
-          Más Servicios
+
+      <aside class="sticky top-24 h-fit">
+        <p class="text-xl font-bold uppercase text-[rgb(var(--color-primary))] mb-6 flex items-center gap-2">
+          <span class="w-8 h-[2px] bg-[rgb(var(--color-primary))]"></span>
+          Explorar Más
         </p>
+
         <div class="flex flex-col gap-4">
-          <card-exactus *ngFor="let servicio of servicios" [title]="servicio.title" [description]="servicio.description"
-            [image]="servicio.image" [class.selected]="servicio === selectedServicio"
-            (click)="selectServicio(servicio)"></card-exactus>
+          @for (servicio of serviciosFiltrados; track servicio.title; let i = $index) {
+          <div appAnimateOnScroll [animationType]="'slideLeft'" [animationDelay]="i * 100"
+            class="cursor-pointer transform transition-all duration-300 hover:-translate-x-2"
+            (click)="selectServicio(servicio)">
+
+            <card-exactus [title]="servicio.title" [description]="servicio.description" [image]="servicio.image"
+              [class.is-active]="servicio === selectedServicio">
+            </card-exactus>
+          </div>
+          }
         </div>
-      </div>
+      </aside>
+
     </div>
   </div>
 </main>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, signal } from '@angular/core';
 import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll.directive';
 
 @Component({
@@ -9,13 +9,20 @@ import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scr
 })
 export class NosotrosComponent {
 
-    @ViewChild('valuesSection') valuesSection!: ElementRef;
-    years = 0;
-    clients = 0;
-    socios = 0;
-    sectoresEconomicos = 0;
 
-    private animated = false;
+    readonly TARGETS = {
+        years: 10,
+        clients: 150,
+        socios: 2,
+        sectores: 15
+    };
+
+    years = signal(0);
+    clients = signal(0);
+    socios = signal(0);
+    sectoresEconomicos = signal(0);
+
+    private started = false;
 
     imageLoaded = false;
 
@@ -23,40 +30,30 @@ export class NosotrosComponent {
         this.imageLoaded = true;
     }
 
-    ngAfterViewInit() {
-        const observer = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting && !this.animated) {
-                this.startCounters();
-                this.animated = true;
-                observer.disconnect();
-            }
-        }, { threshold: 0.4 });
 
-        observer.observe(this.valuesSection.nativeElement);
-    }
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
     startCounters() {
-        this.animateValue('years', 10, 1500);
-        this.animateValue('clients', 150, 1500);
-        this.animateValue('socios', 2, 1000);
-        this.animateValue('sectoresEconomicos', 15, 1500);
+        if (this.started) return; // Evita que se reinicie si el usuario sube y baja
+        this.started = true;
+
+        this.animateValue(this.years, this.TARGETS.years, 2000);
+        this.animateValue(this.clients, this.TARGETS.clients, 800);
+        this.animateValue(this.socios, this.TARGETS.socios, 2000);
+        this.animateValue(this.sectoresEconomicos, this.TARGETS.sectores, 2000);
     }
 
-    animateValue(property: keyof this, end: number, duration: number) {
-        const start = 0;
-        const startTime = performance.now();
+    private animateValue(sig: any, target: number, duration: number) {
+        const stepTime = Math.abs(Math.floor(duration / target));
 
-        const step = (currentTime: number) => {
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            this[property] = Math.floor(progress * end) as any;
+        const finalStepTime = Math.max(stepTime, 50);
 
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                this[property] = end as any;
-            }
-        };
-
-        requestAnimationFrame(step);
+        const timer = setInterval(() => {
+            sig.update((val: number) => {
+                if (val < target) return val + 1;
+                clearInterval(timer);
+                return target;
+            });
+        }, finalStepTime);
     }
 }

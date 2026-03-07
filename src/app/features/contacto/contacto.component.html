@@ -1,17 +1,18 @@
 <main role="main">
   <article
-    class="min-h-screen container mx-auto bg-gradient-to-br from-[rgb(var(--color-bg-dark))] via-[rgb(var(--color-bg-dark-secondary))] to-[rgb(var(--color-bg-dark))] text-[rgb(var(--color-text-on-dark))]">
+    class="container mx-auto bg-gradient-to-br from-[rgb(var(--color-bg-dark))] via-[rgb(var(--color-bg-dark-secondary))] to-[rgb(var(--color-bg-dark))] text-[rgb(var(--color-text-on-dark))]">
 
     <!-- HERO + FORMULARIO -->
-    <section class="px-4 py-12" aria-labelledby="contacto-titulo">
+    <section class="px-4 pt-12" aria-labelledby="contacto-titulo">
+      <h1
+        class="text-start text-[rgb(var(--color-primary))] lg:text-start text-4xl md:text-6xl font-bold mb-12 uppercase tracking-tighter">
+        Contáctenos
+      </h1>
       <div class="grid md:grid-cols-2 gap-12 items-start">
 
         <!-- Información de contacto -->
-        <div>
-          <h1 id="contacto-titulo"
-            class="text-[rgb(var(--color-primary))] lg:text-start text-4xl md:text-6xl font-bold mb-6 uppercase">
-            Contáctenos
-          </h1>
+        <div class="flex flex-col justify-center">
+
           <p class="text-[rgb(var(--color-text-on-dark-muted))] text-lg leading-relaxed mb-8">
             Estamos aquí para ayudarte con tus necesidades contables y fiscales.
             Completa el formulario y nos pondremos en contacto contigo a la brevedad.
@@ -205,10 +206,5 @@
     </section>
 
   </article>
-  <div class="rounded overflow-hidden shadow flex justify-center w-full">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5516.73445079514!2d-77.03716172765755!3d-12.117602868493742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c83d5f089aa1%3A0xec9264f90ffa712!2sCalle%202%20de%20Mayo%20516!5e0!3m2!1ses-419!2spe!4v1770512248633!5m2!1ses-419!2spe"
-      class="w-full h-[500px] border-0 block mx-auto min-w-[300px] max-w-full" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
+  <app-oficinas></app-oficinas>
 </main>

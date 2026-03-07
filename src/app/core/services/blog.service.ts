@@ -1,20 +1,34 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable, makeStateKey, PLATFORM_ID, TransferState } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { AuthService } from './auth.service';
 import { environment } from '../../environment/enviroment';
+import { isPlatformServer } from '@angular/common';
+const BLOGS_KEY = makeStateKey<any>('blog');
 
 @Injectable({ providedIn: 'root' })
 export class BlogService {
     private apiUrl = `${environment.apiUrl}/blog`;
 
-    constructor(
-        private http: HttpClient,
-        private authService: AuthService
-    ) { }
 
-    getBlogs(): Observable<any[]> {
-        return this.http.get<any[]>(this.apiUrl);
+    private http = inject(HttpClient);
+    private state = inject(TransferState);
+    private platformId = inject(PLATFORM_ID);
+    private authService = inject(AuthService);
+
+    getBlogs() {
+        if (this.state.hasKey(BLOGS_KEY)) {
+            const data = this.state.get(BLOGS_KEY, null);
+            // No eliminar el TransferState aquí, así está disponible para todos los consumidores
+            return of(data);
+        }
+        return this.http.get(this.apiUrl).pipe(
+            tap(data => {
+                if (isPlatformServer(this.platformId)) {
+                    this.state.set(BLOGS_KEY, data);
+                }
+            })
+        );
     }
 
     getBlog(id: string): Observable<any> {
@@ -22,6 +36,7 @@ export class BlogService {
     }
 
     getBlogById(id: string): Observable<any> {
+        console.log('[SSR] Llamando API blog:', id);
         return this.http.get<any>(`${this.apiUrl}/${id}`);
     }
 

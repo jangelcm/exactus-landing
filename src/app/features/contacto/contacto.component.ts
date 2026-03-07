@@ -4,10 +4,11 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { environment } from '../../environment/enviroment';
 import { IconLocationComponent } from '../../shared/components/icons/icon-location.component';
+import { OficinasComponent } from '../../shared/components/oficinas/oficinas.component';
 
 @Component({
   selector: 'app-contacto',
-  imports: [CommonModule, ReactiveFormsModule, IconLocationComponent,],
+  imports: [CommonModule, ReactiveFormsModule, IconLocationComponent, OficinasComponent,],
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })
