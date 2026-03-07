@@ -30,11 +30,13 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Server
   },
   {
-    path: 'blog/detail/:id',
+    path: 'blog/:slug',
     renderMode: RenderMode.Server
   },
-  {
-    path: '**',
-    renderMode: RenderMode.Prerender
-  }
+  { path: 'contacto', renderMode: RenderMode.Prerender },
+  { path: 'servicios', renderMode: RenderMode.Prerender },
+  { path: 'oficinas', renderMode: RenderMode.Prerender },
+  { path: 'admin/login', renderMode: RenderMode.Prerender },
+  { path: 'admin/dashboard', renderMode: RenderMode.Prerender },
+  { path: '**', renderMode: RenderMode.Prerender }
 ];

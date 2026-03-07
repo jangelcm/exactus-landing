@@ -4,6 +4,7 @@ import { Observable, of, tap } from 'rxjs';
 import { AuthService } from './auth.service';
 import { environment } from '../../environment/enviroment';
 import { isPlatformServer } from '@angular/common';
+import { Blog } from '../../features/blog/blog-form.component';
 const BLOGS_KEY = makeStateKey<any>('blog');
 
 @Injectable({ providedIn: 'root' })
@@ -31,27 +32,27 @@ export class BlogService {
         );
     }
 
-    getBlog(id: string): Observable<any> {
-        return this.http.get<any>(`${this.apiUrl}/${id}`);
+    getBlog(id: string): Observable<Blog> {
+        return this.http.get<Blog>(`${this.apiUrl}/${id}`);
     }
 
-    getBlogById(id: string): Observable<any> {
-        console.log('[SSR] Llamando API blog:', id);
-        return this.http.get<any>(`${this.apiUrl}/${id}`);
+    getBlogBySlug(slug: string): Observable<Blog> {
+        console.log('[SSR] Llamando API blog:', slug);
+        return this.http.get<Blog>(`${this.apiUrl}/slug/${slug}`);
     }
 
-    getRelatedBlogs(blogId: number, limit: number = 3): Observable<any[]> {
-        return this.http.get<any[]>(`${this.apiUrl}/related/${blogId}?limit=${limit}`);
+    getRelatedBlogs(blogId: number, limit: number = 3): Observable<Blog[]> {
+        return this.http.get<Blog[]>(`${this.apiUrl}/related/${blogId}?limit=${limit}`);
     }
 
-    createBlog(blog: any): Observable<any> {
+    createBlog(blog: Blog): Observable<Blog> {
         const headers = this.getAuthHeaders();
-        return this.http.post<any>(this.apiUrl, blog, { headers });
+        return this.http.post<Blog>(this.apiUrl, blog, { headers });
     }
 
-    updateBlog(id: string, blog: any): Observable<any> {
+    updateBlog(id: string, blog: Blog): Observable<Blog> {
         const headers = this.getAuthHeaders();
-        return this.http.patch<any>(`${this.apiUrl}/${id}`, blog, { headers });
+        return this.http.patch<Blog>(`${this.apiUrl}/${id}`, blog, { headers });
     }
 
     deleteBlog(id: string): Observable<any> {

@@ -26,11 +26,10 @@ export const routes: Routes = [
 		path: 'blog',
 		component: BlogFormComponent,
 	},
-	{ path: 'blog/detail/:id', component: BlogDetailComponent },
+	{ path: 'blog/:slug', component: BlogDetailComponent },
 
 	// Admin routes (protegidas)
 	{ path: 'admin/login', component: LoginComponent },
 	{ path: 'admin/dashboard', component: BlogFormComponent, canActivate: [AdminGuard] },
-
 	{ path: '**', redirectTo: '' }
 ];

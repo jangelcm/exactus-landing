@@ -1,5 +1,5 @@
-import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardExactusComponent } from '../../shared/components/card-exactus/card-exactus.component';
 import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll.directive';
@@ -23,7 +23,6 @@ export interface Servicio {
     styleUrls: ['./servicios.component.css']
 })
 export class ServiciosComponent implements OnInit {
-    private platformId = inject(PLATFORM_ID);
     private readonly slugAliases: Record<string, string> = {
         'asesoria-contable': 'asesoria-contable',
         'auditorias': 'auditoria-tributaria'
@@ -230,9 +229,7 @@ export class ServiciosComponent implements OnInit {
         this.selectedServicio = servicio;
         this.serviciosFiltrados = this.servicios.filter(s => s.slug !== servicio.slug);
         this.router.navigate(['/servicios', servicio.slug]);
-        if (isPlatformBrowser(this.platformId)) {
-            window.scrollTo(0, 0);
-        }
+
     }
 
     private selectServicioBySlug(slug: string) {

@@ -8,9 +8,9 @@
 
     <!-- HERO -->
     <section class="hero lg:min-h-[calc(95vh-7rem)] bg-cover lg:bg-center bg-right bg-no-repeat relative px-6"
-      aria-labelledby="quienes-somos">
+      appAnimateOnScroll [animationType]="'fadeIn'" aria-labelledby="quienes-somos">
       <div class="grid md:grid-cols-2 lg:gap-12 justify-center lg:py-20 py-12">
-        <div class="hidden lg:block relative">
+        <div class="hidden lg:block relative" appAnimateOnScroll [animationType]="'slideUp'" [animationDelay]="200">
           <div class="person-badges">
             <div class="person-badge">
               <div class="avatar">JS</div>
@@ -31,17 +31,17 @@
 
         <!-- Texto principal -->
         <div class="lg:pt-60 lg:pl-50 md:mb-20 mb-10">
-          <h1 id="quienes-somos" appAnimateOnScroll [animationType]="'slideRight'" [animationDelay]="100"
+          <h1 id="quienes-somos" appAnimateOnScroll [animationType]="'slideUp'" [animationDelay]="400"
             class="text-[rgb(var(--color-primary))] text-start lg:text-start text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter">
             ¿Quiénes somos?
           </h1>
-          <p appAnimateOnScroll [animationType]="'slideRight'" [animationDelay]="300"
+          <p appAnimateOnScroll [animationType]="'slideUp'" [animationDelay]="600"
             class="max-w-2xl  text-[rgb(var(--color-text-on-dark-muted))] text-lg lg:text-2xl leading-relaxed mb-8">
             Somos una empresa enfocada en brindar soluciones innovadoras, eficientes y escalables,
             ayudando a nuestros clientes a crecer con tecnología moderna y asesoría profesional de excelencia.
           </p>
 
-          <div class="flex gap-4" appAnimateOnScroll [animationType]="'slideUp'" [animationDuration]="500">
+          <div class="flex gap-4" appAnimateOnScroll [animationType]="'slideUp'" [animationDelay]="800">
             <a href="/contacto"
               class="px-6 py-3 rounded-xl bg-[rgb(var(--color-primary))] text-white hover:bg-[rgb(var(--color-primary))] transition font-semibold"
               aria-label="Ir a página de contacto">
@@ -109,7 +109,7 @@
         </article>
 
         <section appAnimateOnScroll [animationType]="'slideUp'" [animationDuration]="800" [animationDelay]="200"
-          class="mt-10 md:col-span-2 bg-white rounded-2xl p-10" aria-labelledby="valores">
+          class="mt-10 md:col-span-2 bg-white rounded-2xl p-10 hover:scale-[1.02] transition" aria-labelledby="valores">
           <div class="flex items-center gap-3 mb-6">
             <h2 id="valores" class="text-xl md:text-2xl font-bold uppercase text-[rgb(var(--color-primary))]">
               Nuestros valores
