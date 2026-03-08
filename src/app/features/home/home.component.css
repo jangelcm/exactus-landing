@@ -33,20 +33,3 @@
         transform: translateX(100%) rotateY(360deg);
     }
 }
-
-img {
-    filter: brightness(0) invert(1);
-    object-fit: contain;
-}
-
-img[alt="Storyblok"],
-img[alt="Creative Force"],
-img[alt="CoreMedia"],
-img[alt="Front-Commerce"],
-img[alt="Contentstack"] {
-    filter: none;
-}
-
-img[alt="Getty Images"] {
-    filter: brightness(0) invert(1) contrast(2);
-}

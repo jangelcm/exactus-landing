@@ -1,5 +1,6 @@
 <div
   class="relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[calc(60vh-120px)] overflow-hidden select-none bg-black/90"
+  role="region" aria-roledescription="carousel" aria-label="Servicios destacados de Exactus"
   (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
 
   <ng-container *ngIf="slides.length">
@@ -7,9 +8,11 @@
     <!-- Media -->
     <div class="absolute inset-0">
 
-      <img [src]="slides[current].image" class="w-full h-full object-cover transition-all duration-700 ease-out"
-        [class.opacity-0]="!imageLoaded" [class.opacity-100]="imageLoaded" [class.scale-105]="!imageLoaded"
-        [class.scale-100]="imageLoaded" (load)="onImageLoad()" />
+      <img [src]="slides[current].image" [alt]="slides[current].alt"
+        [attr.fetchpriority]="current === 0 ? 'high' : 'auto'" [attr.loading]="current === 0 ? 'eager' : 'lazy'"
+        class="w-full h-full object-cover transition-all duration-700 ease-out" [class.opacity-0]="!imageLoaded"
+        [class.opacity-100]="imageLoaded" [class.scale-105]="!imageLoaded" [class.scale-100]="imageLoaded"
+        (load)="onImageLoad()" />
       <!-- Overlay oscuro elegante -->
       <div class="absolute inset-0 bg-gradient-to-br from-black/100 via-black/50 to-black/50"></div>
 
@@ -23,11 +26,11 @@
             <!-- Eyebrow -->
             <p class="text-[rgb(var(--color-primary-light))] uppercase tracking-widest md:text-lg text-sm font-bold mb-3"
               appAnimateOnScroll [animationType]="'slideUp'" [animationDelay]="200">
-              Estudio Legal & Tributario
+              Asesoría Contable, Legal & Tributaria en Perú
             </p>
 
             <!-- Título principal -->
-            <h1 class="text-white text-5xl md:text-7xl font-extrabold leading-tight mb-4 drop-shadow" appAnimateOnScroll
+            <h1 class="text-white text-4xl  md:text-6xl font-extrabold mb-4 drop-shadow" appAnimateOnScroll
               [animationType]="'slideUp'" [animationDelay]="400">
               {{ slides[current].title }}
             </h1>
@@ -41,12 +44,14 @@
             <!-- CTAs -->
             <div class="flex flex-col sm:flex-row gap-4" appAnimateOnScroll [animationType]="'slideUp'"
               [animationDelay]="800">
-              <button routerLink="/contacto"
+              <button routerLink="/contacto" [attr.title]="'Solicitar asesoría en ' + slides[current].title"
+                aria-label="Botón de Agenda una consulta con Exactus"
                 class="bg-[rgb(var(--color-primary))] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[rgb(var(--color-primary-dark))] transition">
                 Agenda una consulta
               </button>
 
               <a *ngIf="slides[current].link" [routerLink]="slides[current].link"
+                aria-label="Botón de Conoce nuestros servicios"
                 class="border border-white/70 text-center text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
                 Conoce nuestros servicios
               </a>
@@ -58,14 +63,14 @@
     </div>
 
     <!-- Flechas -->
-    <button *ngIf="showArrows" (click)="prev()"
+    <button *ngIf="showArrows" (click)="prev()" aria-label="Ver slide anterior"
       class="absolute left-4 top-1/10  sm:top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[rgb(var(--color-primary-light))] rounded-full p-3 shadow-xl z-20 hidden sm:block">
       <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
 
-    <button *ngIf="showArrows" (click)="next()"
+    <button *ngIf="showArrows" (click)="next()" aria-label="Ver siguiente slide"
       class="absolute right-4 top-1/10  sm:top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[rgb(var(--color-primary-light))] rounded-full p-3 shadow-xl z-20 hidden sm:block">
       <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />

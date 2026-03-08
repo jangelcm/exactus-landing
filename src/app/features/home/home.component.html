@@ -9,6 +9,82 @@
   <!-- ... existing code ... -->
   <app-main-services></app-main-services>
 
+  <div class="w-full py-8 flex items-center justify-center">
+    <div class="flex-1 h-0.5 bg-gradient-to-r from-transparent to-[rgb(var(--color-primary))]/20"></div>
+    <div class="w-2 h-2 rounded-full bg-[rgb(var(--color-primary))] mx-4"></div>
+    <div class="flex-1 h-0.5 bg-gradient-to-l from-transparent to-[rgb(var(--color-primary))]/20"></div>
+  </div>
+
+  <section class="py-16 bg-white" aria-labelledby="trust-title">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+
+      <header class="mb-20 max-w-3xl mx-auto" appAnimateOnScroll [animationType]="'slideDown'">
+        <p
+          class="lg:text-2xl sm:text-xl text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4">
+          Nuestra Trayectoria
+        </p>
+        <h2 id="trust-title" class="text-4xl md:text-5xl font-bold text-gray-500 mb-6 leading-tight">
+          Más de 10 años impulsando el crecimiento empresarial en el Perú
+        </h2>
+      </header>
+
+      <article class="flex flex-col lg:flex-row items-center gap-16 justify-center max-w-6xl mx-auto text-left">
+
+        <div class="w-full lg:w-1/2" appAnimateOnScroll [animationType]="'slideRight'">
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            En <strong class="text-[rgb(var(--color-primary))]">Exactus</strong>, entendemos que la contabilidad no es
+            solo registrar números, es la base para la toma de decisiones estratégicas. Nuestra experiencia nos permite
+            anticipar riesgos tributarios y optimizar la carga laboral de su empresa.
+          </p>
+
+          <ul class="space-y-4 mb-10 text-gray-700 font-medium text-lg">
+            <li class="flex items-center gap-4">
+              <svg class="w-7 h-7 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Asesoría personalizada por contadores colegiados (CCPL).
+            </li>
+            <li class="flex items-center gap-4">
+              <svg class="w-7 h-7 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Uso de tecnología ERP de vanguardia para reportes en tiempo real.
+            </li>
+          </ul>
+
+          <div class="flex items-center gap-6 mt-12 border-t border-gray-100 pt-8">
+            <img src="assets/sellos/sello-sunat.webp" alt="Especialistas en normativa SUNAT"
+              class="h-16 rounded-xl opacity-70 border border-gray-200 hover:opacity-100 transition">
+            <img src="assets/sellos/sello-colegio.jpg" alt="Miembros del Colegio de Contadores de Lima"
+              class="h-16 rounded-xl opacity-70 border border-gray-200  hover:opacity-100 transition">
+            <span class="text-sm text-gray-400">Exactus, garantía de cumplimiento.</span>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 relative" appAnimateOnScroll [animationType]="'slideUp'">
+          <figure class="relative overflow-hidden rounded-[2rem] shadow-2xl z-10 aspect-[3/2]">
+
+            <img src="assets/sellos/sello-sunat.webp"
+              class="w-full h-full object-cover grayscale-0 group-hover:grayscale-0 transition duration-1000">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+
+            <figcaption
+              class="absolute bottom-6 left-6 right-6 text-white text-sm font-medium bg-black/50 px-4 py-2 rounded-lg backdrop-blur-sm">
+              Contadores colegiados con más de 10 años de experiencia, especializados en asesoría
+              tributaria, laboral y jurídica para empresas que buscan crecimiento sostenible y cumplimiento normativo.
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
   <!-- ... existing code ... -->
   <div class="w-full py-8 flex items-center justify-center">
     <div class="flex-1 h-0.5 bg-gradient-to-r from-transparent to-[rgb(var(--color-primary))]/20"></div>

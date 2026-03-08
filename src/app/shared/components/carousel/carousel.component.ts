@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, PLATFORM_ID, inject, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, PLATFORM_ID, inject, OnInit, OnDestroy, AfterViewInit, NgZone } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, Scroll } from '@angular/router';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
@@ -12,7 +12,7 @@ import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.dir
 export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   private platformId = inject(PLATFORM_ID);
 
-  @Input() slides: Array<{ image: string; video?: string; title: string; description: string; link?: string, youtube?: string }> = [];
+  @Input() slides: Array<{ image: string; alt: string; video?: string; title: string; description: string; link?: string, youtube?: string, }> = [];
   @Input() autoPlay = true;
   @Input() interval = 6000;
   @Input() showArrows = true;
@@ -25,6 +25,8 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   private touchEndX = 0;
   imageLoaded = false;
   isFirstLoad = true;
+
+  private ngZone = inject(NgZone);
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -50,9 +52,15 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
 
   startAutoPlay() {
     if (!isPlatformBrowser(this.platformId)) return;
-
     this.stopAutoPlay();
-    this.timer = setInterval(() => this.next(), this.interval);
+
+    this.ngZone.runOutsideAngular(() => {
+      this.timer = setInterval(() => {
+        this.ngZone.run(() => {
+          this.next();
+        });
+      }, this.interval);
+    });
   }
 
   stopAutoPlay() {

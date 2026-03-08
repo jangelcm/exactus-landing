@@ -19,7 +19,7 @@ export class NavbarComponent {
   open = false;
   openServiciosDropdown = false;
   openServiciosDropdownMobile = false;
-
+  currentLang: string = 'es';
   servicios: Servicio[] = [
     { slug: 'asesoria-tributaria', title: 'Asesoría Tributaria', description: 'Cumplimiento tributario integral' },
     { slug: 'asesoria-laboral', title: 'Asesoría Laboral', description: 'Gestión de relaciones laborales' },
@@ -48,5 +48,18 @@ export class NavbarComponent {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/']);
+  }
+
+  changeLanguage(lang: string) {
+    this.currentLang = lang;
+    // Lógica para cambiar el idioma en toda la app:
+    // this.translate.use(lang);
+
+    // Opcional: Cerrar menú móvil al cambiar idioma
+    this.open = false;
+
+    console.log(`Cambiando idioma a: ${lang}`);
+    // Aquí podrías guardar la preferencia en localStorage
+    localStorage.setItem('pref_lang', lang);
   }
 }

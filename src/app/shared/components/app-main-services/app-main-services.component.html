@@ -1,4 +1,4 @@
-<section class="py-16 px-6" aria-labelledby="main-services-title">
+<section class="py-16 px-6" aria-labelledby="main-services-title" itemscope itemtype="https://schema.org/Service">
 
   <div class="lg:px-20">
 
@@ -8,11 +8,11 @@
 
       <p
         class="lg:text-2xl sm:text-xl text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4">
-        Nuestros Servicios
+        Servicios Contables en Lima, Perú
       </p>
 
       <h2 id="main-services-title" class="text-4xl md:text-5xl font-bold text-gray-500  mb-6 leading-tight">
-        Áreas principales de especialización
+        Especialistas en Asesoría Empresarial Integral
       </h2>
 
       <p class="text-gray-600 text-lg leading-relaxed">
@@ -36,7 +36,7 @@
           </div>
           <!-- Icon -->
           <div class="w-14 h-14 flex items-center justify-center rounded-2xl
-                   text-2xl mb-6" [ngStyle]="{'background-color': service.color}">
+                   text-2xl mb-6" [attr.aria-hidden]="true" [ngStyle]="{'background-color': service.color}">
             {{ service.icon }}
           </div>
 
@@ -59,7 +59,7 @@
           </ul>
 
           <!-- CTA -->
-          <a [routerLink]="service.ctaLink" class="mt-auto inline-flex items-center gap-2 text-sm font-semibold
+          <a [routerLink]="service.ctaLink" [attr.title]="service.ctaLabel" class="mt-auto inline-flex items-center gap-2 text-sm font-semibold
                    hover:gap-3 transition-all duration-300" [ngStyle]="{'color': service.color}">
             {{ service.ctaLabel }}
             <span>→</span>
@@ -80,7 +80,7 @@
 
       <button type="button" [routerLink]="['/contacto']"
         class="bg-[rgb(var(--color-primary))] text-white font-semibold px-8 py-3 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition-colors shadow-lg">
-        Agenda una consulta estratégica
+        Agendar Consultoría Contable
 
       </button>
     </div>

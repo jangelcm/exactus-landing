@@ -23,57 +23,57 @@ export class AppMainServicesComponent {
   services = [
     {
       icon: '📊',
-      title: 'Asesoría Contable',
-      description: 'Gestión contable integral bajo Normas Internacionales de Información Financiera (NIIF), elaboración de estados financieros y optimización de procesos contables.',
+      title: 'Asesoría Contable & Outsourcing', // Añadimos "Outsourcing" (Keyword clave)
+      description: 'Gestión contable integral bajo NIIF y principios contables vigentes en Perú. Transformamos su contabilidad en una herramienta de toma de decisiones.',
       highlights: [
-        'Estados financieros mensuales y anuales',
-        'Libros contables electrónicos',
-        'Reportes financieros para entidades externas',
-        'Capacitación contable empresarial'
+        'Estados Financieros Mensuales y Anuales (NIIF)',
+        'Libros Contables Electrónicos (PLE / SIRE)', // Añadimos SIRE (tendencia actual en Perú)
+        'Outsourcing Contable para MYPES y Medianas Empresas',
+        'Reconstrucción y Regularización Contable'
       ],
-      ctaLabel: 'Más sobre asesoría contable',
+      ctaLabel: 'Ver servicios contables',
       ctaLink: '/servicios/asesoria-contable',
       color: '#D32f2f'
     },
     {
       icon: '⚖️',
-      title: 'Asesoría Tributaria',
-      description: 'Planeamiento tributario estratégico y cumplimiento fiscal ante SUNAT, incluyendo detracciones, retenciones y fiscalizaciones.',
+      title: 'Asesoría Tributaria y Fiscal',
+      description: 'Planeamiento estratégico para optimizar la carga impositiva y asegurar el cumplimiento total ante SUNAT, evitando multas y contingencias.',
       highlights: [
-        'Declaración mensual y anual de impuestos',
-        'Atención de fiscalizaciones SUNAT',
-        'Planeamiento tributario',
-        'Declaración de Beneficiario Final'
+        'Declaraciones Juradas Mensuales y Anuales',
+        'Defensa ante Fiscalizaciones de SUNAT',
+        'Recuperación de IGV y Devolución de Percepciones', // Valor agregado alto
+        'Análisis de Detracciones y Retenciones'
       ],
-      ctaLabel: 'Más sobre asesoría tributaria',
+      ctaLabel: 'Ver servicios tributarios',
       ctaLink: '/servicios/asesoria-tributaria',
       color: '#1976d2'
     },
     {
       icon: '👥',
-      title: 'Asesoría Laboral',
-      description: 'Gestión de planillas electrónicas, cumplimiento ante MINTRA y SUNAFIL, y administración de beneficios laborales.',
+      title: 'Asesoría Laboral y Planillas',
+      description: 'Administración de nómina y cumplimiento normativo ante MINTRA y SUNAFIL para garantizar una gestión humana libre de riesgos legales.',
       highlights: [
-        'Planilla electrónica PDT 601 PLAME',
-        'AFP NET y boletas de pago digitales',
-        'Liquidación de beneficios sociales',
-        'Atención de inspecciones laborales'
+        'Cálculo de Planilla Electrónica (PLAME y T-Registro)',
+        'Liquidación de Beneficios Sociales y CTS',
+        'Gestión de Contratos Laborales y Adendas',
+        'Auditoría Laboral Preventiva (Cero Multas SUNAFIL)'
       ],
-      ctaLabel: 'Más sobre asesoría laboral',
+      ctaLabel: 'Ver servicios laborales',
       ctaLink: '/servicios/asesoria-laboral',
       color: '#388e3c'
     },
     {
       icon: '🔍',
-      title: 'Auditorías',
-      description: 'Auditorías financieras, tributarias y evaluaciones de control interno para empresas nacionales y transnacionales.',
+      title: 'Auditoría y Control Interno',
+      description: 'Exámenes críticos y sistemáticos de sus finanzas para asegurar transparencia ante socios, bancos y entidades reguladoras.',
       highlights: [
-        'Auditoría de estados financieros',
-        'Auditoría tributaria preventiva',
-        'Precios de transferencia',
-        'Diagnóstico empresarial'
+        'Auditoría Financiera para Entidades Bancarias',
+        'Auditoría Tributaria Preventiva (Diagnóstico)',
+        'Estudios de Precios de Transferencia',
+        'Evaluación de Controles Internos y Riesgos'
       ],
-      ctaLabel: 'Más sobre auditorías',
+      ctaLabel: 'Ver servicios de auditoría',
       ctaLink: '/servicios/auditorias',
       color: '#fbc02d'
     }

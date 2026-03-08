@@ -1,5 +1,5 @@
 <header role="banner" class="sticky top-0 z-50">
-        <nav class="w-full max-w-full h-30 mx-auto bg-[rgb(var(--color-bg-primary))] md:px-25 px-4 md:py-5 py-4 flex items-center md:justify-end justify-between border-b border-[rgb(var(--color-primary))]"
+        <nav class="w-full max-w-full h-30 mx-auto bg-[rgb(var(--color-bg-primary))] md:px-25 px-4 md:py-5 py-4 flex items-center  justify-between border-b border-[rgb(var(--color-primary))]"
                 role="navigation" aria-label="Navegación principal">
                 <a routerLink="/" aria-label="Ir a inicio">
                         <img src="assets/logo.svg" alt="Logo de Tasklif" class="h-40 w-60 mr-10" />
@@ -16,6 +16,11 @@
                 </button>
                 <ul class="hidden sm:flex gap-8 text-2xl font-medium" role="menubar">
 
+                        <li role="none"><a routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
+                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
+                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors"
+                                        role="menuitem">Inicio</a>
+                        </li>
                         <li role="none"><a routerLink="/nosotros"
                                         routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
                                         class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors"
@@ -70,6 +75,21 @@
                         </li>
 
 
+                        <li role="none" class="flex items-center ml-4 border-l pl-6 border-gray-200">
+                                <div class="flex gap-4">
+                                        <button (click)="changeLanguage('es')"
+                                                class="flex-1 py-2 rounded-md border text-sm font-bold transition-all p-2"
+                                                [ngClass]="currentLang === 'es' ? 'bg-[rgb(var(--color-primary))] text-white border-[rgb(var(--color-primary))]' : 'text-gray-500 border-gray-200'">
+                                                Español
+                                        </button>
+                                        <button (click)="changeLanguage('en')"
+                                                class="flex-1 py-2 rounded-md border text-sm font-bold transition-all p-2"
+                                                [ngClass]="currentLang === 'en' ? 'bg-[rgb(var(--color-primary))] text-white border-[rgb(var(--color-primary))]' : 'text-gray-500 border-gray-200'">
+                                                English
+                                        </button>
+                                </div>
+                        </li>
+
 
                         <!-- Botón Logout (solo para admin) - Desktop -->
                         <li role="none" *ngIf="authService.isAdmin$ | async">
@@ -88,7 +108,11 @@
                 <ul *ngIf="open" id="mobile-menu"
                         class="absolute top-full right-0 w-2/3 bg-white shadow-md flex flex-col py-4 px-6 sm:hidden animate-fade-in"
                         role="menu">
-
+                        <li role="none" class="border-b border-[rgb(var(--color-primary))]">
+                                <a routerLink="/" routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
+                                        [routerLinkActiveOptions]="{ exact: true }" (click)="open = false"
+                                        class="py-2 block" role="menuitem">Inicio</a>
+                        </li>
                         <li role="none" class="border-b border-[rgb(var(--color-primary))]">
                                 <a routerLink="/nosotros"
                                         routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
@@ -137,7 +161,21 @@
                                         routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
                                         (click)="open = false" class="py-2 block" role="menuitem">Contacto</a>
                         </li>
-
+                        <li role="none" class="mt-4 pt-4 border-t border-gray-100">
+                                <p class="text-xs text-gray-400 uppercase tracking-widest mb-3">Idioma / Language</p>
+                                <div class="flex gap-4">
+                                        <button (click)="changeLanguage('es')"
+                                                class="flex-1 py-2 rounded-md border text-sm font-bold transition-all"
+                                                [ngClass]="currentLang === 'es' ? 'bg-[rgb(var(--color-primary))] text-white border-[rgb(var(--color-primary))]' : 'text-gray-500 border-gray-200'">
+                                                Español
+                                        </button>
+                                        <button (click)="changeLanguage('en')"
+                                                class="flex-1 py-2 rounded-md border text-sm font-bold transition-all"
+                                                [ngClass]="currentLang === 'en' ? 'bg-[rgb(var(--color-primary))] text-white border-[rgb(var(--color-primary))]' : 'text-gray-500 border-gray-200'">
+                                                English
+                                        </button>
+                                </div>
+                        </li>
                         <!-- Botón Logout (solo para admin) - Mobile -->
                         <li role="none" *ngIf="authService.isAdmin$ | async"
                                 class="border-t border-[rgb(var(--color-primary))] mt-2 pt-2">

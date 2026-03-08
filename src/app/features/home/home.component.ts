@@ -7,11 +7,12 @@ import { ClientesCarouselComponent } from '../../shared/components/clientes-caro
 import { FaqComponent } from '../../shared/components/faq/faq.component';
 import { FAQ } from '../../shared/components/faq/faq.component';
 import { ReviewsComponent } from '../reviews/reviews.component';
+import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll.directive';
 
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, CarouselComponent, AppMainServicesComponent, OficinasComponent, ClientesCarouselComponent, FaqComponent, ReviewsComponent],
+  imports: [CommonModule, CarouselComponent, AppMainServicesComponent, OficinasComponent, ClientesCarouselComponent, FaqComponent, ReviewsComponent, AnimateOnScrollDirective],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -20,27 +21,30 @@ export class HomeComponent {
   slides = [
     {
       image: 'assets/slider/outsourcing.webp',
-      title: 'Asesoría Contable',
-      description: 'Organización y mejora de procesos, elaboración de estados financieros y cumplimiento de obligaciones contables y tributarias.',
+      title: 'Estudio Contable Especializado en Lima',
+      alt: 'Contadores expertos en outsourcing contable para empresas en Lima Perú - Exactus',
+      description: 'Transformamos la complejidad contable en claridad para tu empresa. Outsourcing contable con respaldo experto para MYPES y medianas empresas.',
       link: '/servicios/asesoria-contable'
-    },
-
-    {
-      image: 'assets/slider/laboral.jpg',
-      title: 'Asesoría Laboral',
-      description: 'Gestión laboral y obligaciones legales con precisión y experiencia.',
-      link: '/servicios/asesoria-laboral'
     },
     {
       image: 'assets/slider/tributaria.jpg',
-      title: 'Asesoría Tributaria',
-      description: 'Controles y cumplimiento de normas tributarias para tu empresa.',
+      title: 'Asesoría Tributaria y Cumplimiento SUNAT',
+      alt: 'Asesoría tributaria especializada para evitar multas de SUNAT en Perú - Exactus Consultores',
+      description: 'Protege tu patrimonio y evita contingencias. Planificación tributaria estratégica y auditorías preventivas con más de 10 años de experiencia.',
       link: '/servicios/asesoria-tributaria'
     },
     {
+      image: 'assets/slider/laboral.jpg',
+      title: 'Gestión Laboral y Outsourcing de Planillas',
+      alt: 'Servicio de outsourcing de planillas y asesoría laboral frente a SUNAFIL - Exactus',
+      description: 'Cumplimiento normativo total frente a SUNAFIL. Gestionamos tu talento humano con precisión legal y eficiencia administrativa.',
+      link: '/servicios/asesoria-laboral'
+    },
+    {
       image: 'assets/slider/auditoria-tributaria.jpg',
-      title: 'Auditorías',
-      description: 'Servicios de Auditoría de Estados Financieros, Auditoría Financiera y Auditoría Tributaria.',
+      title: 'Auditoría Financiera y Exámenes Especiales',
+      alt: 'Auditoría de estados financieros y exámenes especiales para empresas peruanas - Exactus',
+      description: 'Transparencia y valor para tus accionistas. Evaluamos tus estados financieros bajo estándares internacionales para un crecimiento seguro.',
       link: '/servicios/auditorias'
     }
   ];
@@ -71,15 +75,15 @@ export class HomeComponent {
       expanded: false
     },
     {
-      id: 5,
-      pregunta: '¿Qué diferencia a Exactus de otras firmas de auditoría y consultoría?',
-      respuesta: 'Exactus se destaca por: (1) Enfoque integral combinando auditoría y asesoría legal, (2) Equipo especializado con experiencia en diversos sectores, (3) Uso de tecnología avanzada para análisis de datos, (4) Atención personalizada y accesible, y (5) Compromiso con la confidencialidad y ética profesional sin compromisos.',
+      id: 4,
+      pregunta: '¿Brindan asesoría contable para MYPES y PYMES en Perú?',
+      respuesta: 'En Exactus nos especializamos en empresas de todos los tamaños. Ofrecemos paquetes de outsourcing contable y asesoría tributaria diseñados específicamente para MYPES, adaptando nuestros costos y metodologías al presupuesto de la pequeña y mediana empresa peruana.',
       expanded: false
     },
     {
       id: 6,
-      pregunta: '¿Utilizan herramientas tecnológicas o software especializado para el análisis de datos?',
-      respuesta: 'Sí, utilizamos el ERP ENOVUS como herramienta principal para análisis de datos financieros y operativos. Esto nos permite automatizar procesos, detectar anomalías más rápidamente, mejorar la precisión de nuestros reportes y proporcionar insights más detallados a nuestros clientes.',
+      pregunta: '¿Cuentan con software propio para la gestión contable y facturación?',
+      respuesta: 'Sí, integramos el ERP ENOVUS en nuestros servicios. Es una herramienta avanzada que facilita el control financiero, la facturación electrónica y el análisis de datos operativos, permitiendo a nuestros clientes cumplir con las normativas de SUNAT de manera automatizada.',
       expanded: false
     },
     {
@@ -105,6 +109,33 @@ export class HomeComponent {
       pregunta: '¿Qué documentación inicial se requiere para comenzar un diagnóstico de mi empresa?',
       respuesta: 'Para un diagnóstico inicial requerimos: (1) Estados financieros de los últimos 2-3 años, (2) Estructura organizacional y política de la empresa, (3) Listado de procesos clave, (4) Descripción del modelo de negocio, (5) Información sobre sistemas contables y administrativos utilizados. Proporcionamos un checklist detallado al confirmar el proyecto.',
       expanded: false
+    }
+  ];
+
+  stats = [
+    {
+      icon: '🏆',
+      value: '10+',
+      label: 'Años de Experiencia',
+      detail: 'Trayectoria sólida en el mercado peruano brindando seguridad jurídica y contable.'
+    },
+    {
+      icon: '🏢',
+      value: '150+',
+      label: 'Empresas Asesoradas',
+      detail: 'Desde MYPES hasta corporativos nacionales confían en nuestra gestión.'
+    },
+    {
+      icon: '✔️',
+      value: '100%',
+      label: 'Cumplimiento SUNAT',
+      detail: 'Cero multas en fiscalizaciones para nuestros clientes con contabilidad externa.'
+    },
+    {
+      icon: '👨‍⚖️',
+      value: 'Especialistas',
+      label: 'Equipo Colegiado',
+      detail: 'Contadores y abogados registrados en sus respectivos colegios profesionales.'
     }
   ];
 }

@@ -13,6 +13,6 @@ import { AlertComponent } from './shared/components/alert/alert.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tasklif';
+  title = 'Exactus';
 }
 
