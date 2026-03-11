@@ -26,11 +26,9 @@
 
 
                     <!-- Flecha izquierda (solo desktop) -->
-                    <button (click)="scrollLeft()" class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10
-               h-10 w-10 items-center justify-center
-               rounded-full
-               bg-[rgb(var(--color-primary))]/10 hover:bg-white text-[rgb(var(--color-primary-light))]
-               shadow-xl transition-all duration-300">
+                    <button (click)="scrollLeft()"
+                        class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-[rgb(var(--color-primary))]/10 hover:bg-white text-[rgb(var(--color-primary-light))] shadow-xl transition-all duration-300"
+                        aria-label="Ver clientes anteriores">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
@@ -58,11 +56,9 @@
 
                     </div>
                     <!-- Flecha derecha (solo desktop) -->
-                    <button (click)="scrollRight()" class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10
-               h-10 w-10 items-center justify-center 
-               rounded-full
-               bg-[rgb(var(--color-primary))]/10 hover:bg-white text-[rgb(var(--color-primary-light))]
-               shadow-xl transition-all duration-300">
+                    <button (click)="scrollRight()"
+                        class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-[rgb(var(--color-primary))]/10 hover:bg-white text-[rgb(var(--color-primary-light))] shadow-xl transition-all duration-300"
+                        aria-label="Ver siguientes clientes">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
@@ -70,7 +66,8 @@
 
                     <!-- Flecha izquierda móvil -->
                     <button (click)="scrollLeft()"
-                        class="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 items-center justify-center rounded-full text-[rgb(var(--color-primary))] transition-all duration-300 flex">
+                        class="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 items-center justify-center rounded-full text-[rgb(var(--color-primary))] transition-all duration-300 flex"
+                        aria-label="Ver clientes anteriores">
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
@@ -78,7 +75,8 @@
 
                     <!-- Flecha derecha móvil -->
                     <button (click)="scrollRight()"
-                        class="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 items-center justify-center rounded-full text-[rgb(var(--color-primary))] transition-all duration-300 flex">
+                        class="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 items-center justify-center rounded-full text-[rgb(var(--color-primary))] transition-all duration-300 flex"
+                        aria-label="Ver siguientes clientes">
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                         </svg>

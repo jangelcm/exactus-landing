@@ -1,0 +1,23 @@
+/* Efecto de flotación suave individual */
+.group:nth-child(odd) {
+    animation: float 6s ease-in-out infinite;
+}
+
+.group:nth-child(even) {
+    animation: float 6s ease-in-out infinite reverse;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}

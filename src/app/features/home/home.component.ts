@@ -24,28 +24,32 @@ export class HomeComponent {
       title: 'Estudio Contable Especializado en Lima',
       alt: 'Contadores expertos en outsourcing contable para empresas en Lima Perú - Exactus',
       description: 'Transformamos la complejidad contable en claridad para tu empresa. Outsourcing contable con respaldo experto para MYPES y medianas empresas.',
-      link: '/servicios/asesoria-contable'
+      link: '/servicios/asesoria-contable',
+      height: 'h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]'
     },
     {
       image: 'assets/slider/tributaria.jpg',
       title: 'Asesoría Tributaria y Cumplimiento SUNAT',
       alt: 'Asesoría tributaria especializada para evitar multas de SUNAT en Perú - Exactus Consultores',
       description: 'Protege tu patrimonio y evita contingencias. Planificación tributaria estratégica y auditorías preventivas con más de 10 años de experiencia.',
-      link: '/servicios/asesoria-tributaria'
+      link: '/servicios/asesoria-tributaria',
+      height: 'h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]'
     },
     {
       image: 'assets/slider/laboral.jpg',
       title: 'Gestión Laboral y Outsourcing de Planillas',
       alt: 'Servicio de outsourcing de planillas y asesoría laboral frente a SUNAFIL - Exactus',
       description: 'Cumplimiento normativo total frente a SUNAFIL. Gestionamos tu talento humano con precisión legal y eficiencia administrativa.',
-      link: '/servicios/asesoria-laboral'
+      link: '/servicios/asesoria-laboral',
+      height: 'h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]'
     },
     {
       image: 'assets/slider/auditoria-tributaria.jpg',
       title: 'Auditoría Financiera y Exámenes Especiales',
       alt: 'Auditoría de estados financieros y exámenes especiales para empresas peruanas - Exactus',
       description: 'Transparencia y valor para tus accionistas. Evaluamos tus estados financieros bajo estándares internacionales para un crecimiento seguro.',
-      link: '/servicios/auditorias'
+      link: '/servicios/auditorias',
+      height: 'h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]'
     }
   ];
 

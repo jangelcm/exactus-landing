@@ -12,7 +12,7 @@ import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.dir
 export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   private platformId = inject(PLATFORM_ID);
 
-  @Input() slides: Array<{ image: string; alt: string; video?: string; title: string; description: string; link?: string, youtube?: string, }> = [];
+  @Input() slides: Array<{ image: string; alt: string; video?: string; title: string; description: string; link?: string, youtube?: string, height?: string, width?: string }> = [];
   @Input() autoPlay = true;
   @Input() interval = 6000;
   @Input() showArrows = true;

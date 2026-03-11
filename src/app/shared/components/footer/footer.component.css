@@ -1,1 +1,6 @@
 /* El diseño principal se maneja con Tailwind, pero puedes agregar detalles aquí si lo deseas */
+footer.bg-url {
+    background-image: url('/assets/fondo_seccion.jpg');
+    background-size: cover;
+    background-position: center;
+}

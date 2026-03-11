@@ -1,4 +1,5 @@
-<section class="py-16 px-6" aria-labelledby="main-services-title" itemscope itemtype="https://schema.org/Service">
+<section class="py-16 px-6 max-w-screen-2xl mx-auto" aria-labelledby="main-services-title" itemscope
+  itemtype="https://schema.org/Service">
 
   <div class="lg:px-20">
 
@@ -23,51 +24,55 @@
     </header>
 
     <!-- Grid -->
-    <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10" appAnimateOnScroll [animationType]="'slideUp'"
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min" appAnimateOnScroll [animationType]="'slideUp'"
       [animationDuration]="800">
 
-      <li *ngFor="let service of services" class="group">
-        <article class="relative h-full rounded-2xl p-8 shadow-sm
-                 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer">
+      <li *ngFor="let service of services; let i = index"
+        class="group relative overflow-hidden rounded-[2.5rem] border border-gray-100 bg-white/80 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+        [ngClass]="{
+        'md:col-span-2': i === 0 || i === 3, 
+        'md:col-span-1': i === 1 || i === 2
+      }">
 
-          <!-- Decorative Accent Line - Bottom -->
-          <div class="absolute left-0 bottom-0 h-2 w-full scale-x-0 group-hover:scale-x-100 origin-right
-            transition-transform duration-300 rounded-b-2xl" [ngStyle]="{'background-color': service.color}">
+
+        <article class="bg-gray-200 relative h-full p-10 flex flex-col justify-between z-10 overflow-hidden">
+          <div class="absolute inset-0 opacity-30 pointer-events-none" style="background-image: 
+         linear-gradient(45deg, transparent 48%, white 70%, white 41%, transparent 52%),
+         linear-gradient(110deg, transparent 30%, white 31%, white 32%, transparent 33%);
+       background-size: 50% 80%, 120% 120%;">
           </div>
-          <!-- Icon -->
-          <div class="w-14 h-14 flex items-center justify-center rounded-2xl
-                   text-2xl mb-6" [attr.aria-hidden]="true" [ngStyle]="{'background-color': service.color}">
-            {{ service.icon }}
+          <div>
+            <div
+              class="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6 shadow-inner text-2xl transition-transform duration-500 group-hover:rotate-[12deg]"
+              [ngStyle]="{'background-color': service.color , 'color': service.color}">
+              {{ service.icon }}
+            </div>
+
+            <h3
+              class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-[rgb(var(--color-primary))] transition-colors">
+              {{ service.title }}
+            </h3>
+
+            <p class="text-gray-600 text-sm leading-relaxed max-w-md line-clamp-3">
+              {{ service.description }}
+            </p>
           </div>
 
-          <!-- Title -->
-          <h3 class="text-xl font-semibold text-[rgb(var(--color-primary))] mb-4">
-            {{ service.title }}
-          </h3>
+          <div class="flex items-end justify-between mt-4">
+            <ul class="hidden lg:block space-y-1 text-xs text-gray-500 font-medium">
+              <li *ngFor="let item of service.highlights.slice(0,2)" class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full" [ngStyle]="{'background-color': service.color}"></span>
+                {{ item }}
+              </li>
+            </ul>
 
-          <!-- Description -->
-          <p class="text-gray-600 text-sm leading-relaxed mb-6">
-            {{ service.description }}
-          </p>
-
-          <!-- Highlights -->
-          <ul class="space-y-3 text-sm text-gray-600 mb-8">
-            <li *ngFor="let item of service.highlights" class="flex items-start gap-2">
-              <span class="text-[rgb(var(--color-primary))] mt-1">•</span>
-              <span>{{ item }}</span>
-            </li>
-          </ul>
-
-          <!-- CTA -->
-          <a [routerLink]="service.ctaLink" [attr.title]="service.ctaLabel" class="mt-auto inline-flex items-center gap-2 text-sm font-semibold
-                   hover:gap-3 transition-all duration-300" [ngStyle]="{'color': service.color}">
-            {{ service.ctaLabel }}
-            <span>→</span>
-          </a>
-
+            <a [routerLink]="service.ctaLink"
+              class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-50 text-gray-400 group-hover:bg-[rgb(var(--color-primary))] group-hover:text-white transition-all duration-300">
+              <span class="text-xl">→</span>
+            </a>
+          </div>
         </article>
       </li>
-
     </ul>
 
     <!-- Bottom CTA -->

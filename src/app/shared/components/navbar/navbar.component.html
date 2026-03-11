@@ -1,195 +1,140 @@
-<header role="banner" class="sticky top-0 z-50">
-        <nav class="w-full max-w-full h-30 mx-auto bg-[rgb(var(--color-bg-primary))] md:px-25 px-4 md:py-5 py-4 flex items-center  justify-between border-b border-[rgb(var(--color-primary))]"
-                role="navigation" aria-label="Navegación principal">
-                <a routerLink="/" aria-label="Ir a inicio">
-                        <img src="assets/logo.svg" alt="Logo de Tasklif" class="h-40 w-60 mr-10" />
-                </a>
-                <button class="sm:hidden flex items-center px-3 py-2 border rounded text-[rgb(var(--color-primary))] border-[rgb(var(--color-primary))]"
-                        (click)="open = !open" aria-label="Abrir menú de navegación" [attr.aria-expanded]="open"
-                        aria-controls="mobile-menu">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 6h16M4 12h16M4 18h16">
-                                </path>
-                        </svg>
-                </button>
-                <ul class="hidden sm:flex gap-8 text-2xl font-medium" role="menubar">
+<header role="banner"
+        class="sticky top-0 z-50 bg-[rgb(var(--color-bg-primary))] border-b border-[rgb(var(--color-primary))]">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Navegación principal">
+                <div class="flex justify-between items-center h-20 md:h-24">
 
-                        <li role="none"><a routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
-                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
-                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors"
-                                        role="menuitem">Inicio</a>
-                        </li>
-                        <li role="none"><a routerLink="/nosotros"
-                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
-                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors"
-                                        role="menuitem">Nosotros</a>
-                        </li>
+                        <div class="flex items-center">
+                                <a routerLink="/" aria-label="Exactus - Ir al inicio" class="flex items-center">
+                                        <img src="assets/logo.svg" alt="Exactus Logo"
+                                                class="h-10 w-[60%] md:h-14 transition-all duration-300" />
+                                </a>
+                        </div>
 
-                        <!-- Menú Servicios Desktop -->
-                        <li role="none" class="relative group" (mouseenter)="openServiciosDropdown = true"
-                                (mouseleave)="openServiciosDropdown = false">
-                                <button [routerLink]="['/servicios']"
-                                        [routerLinkActive]="'font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]'"
-                                        [routerLinkActiveOptions]="{ exact: false }"
-                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors flex items-center gap-2"
-                                        role="menuitem" aria-haspopup="true"
-                                        [attr.aria-expanded]="openServiciosDropdown" (click)="$event.preventDefault()">
-                                        Servicios
-                                        <svg class="h-4 w-4 transition-transform"
-                                                [ngClass]="{'rotate-180': openServiciosDropdown}" fill="none"
-                                                stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M6 9l6 6 6-6"></path>
+                        <div class="flex items-center sm:hidden">
+                                <button (click)="open = !open"
+                                        class="inline-flex items-center justify-center p-2 rounded-md text-[rgb(var(--color-primary))] hover:bg-gray-100 focus:outline-none"
+                                        [attr.aria-expanded]="open" aria-controls="mobile-menu">
+                                        <span class="sr-only">Abrir menú</span>
+                                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path *ngIf="!open" stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                                <path *ngIf="open" stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                         </svg>
                                 </button>
+                        </div>
 
-                                <!-- Dropdown Desktop -->
-                                <div *ngIf="openServiciosDropdown" role="menu"
-                                        class="absolute left-0 mt-0 w-64 bg-white shadow-2xl rounded-lg py-2 z-50 border border-gray-100 animate-fade-in">
-                                        <div *ngFor="let servicio of servicios; let i = index" role="menuitem"
-                                                class="px-4 py-3 hover:bg-[rgb(var(--color-primary))]/15 hover:bg-opacity-10 cursor-pointer transition-colors border-b border-gray-100 last:border-b-0 group/item"
-                                                (click)="navigateToService(servicio.slug)">
-                                                <p
-                                                        class="font-semibold text-sm text-[rgb(var(--color-primary))] group-hover/item:text-[rgb(var(--color-primary-dark))]">
-                                                        {{ servicio.title }}
-                                                </p>
-                                                <p class="text-xs text-gray-600 group-hover/item:text-gray-800">
-                                                        {{ servicio.description }}
-                                                </p>
-                                        </div>
-                                </div>
-                        </li>
+                        <div class="hidden sm:flex sm:items-center sm:gap-4 md:gap-8">
+                                <ul class="flex items-center gap-4 md:gap-6 text-lg lg:text-xl font-medium"
+                                        role="menubar">
+                                        <li role="none">
+                                                <a routerLink="/"
+                                                        routerLinkActive="text-[rgb(var(--color-primary))] font-bold"
+                                                        [routerLinkActiveOptions]="{exact: true}"
+                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">Inicio</a>
+                                        </li>
+                                        <li role="none">
+                                                <a routerLink="/nosotros"
+                                                        routerLinkActive="text-[rgb(var(--color-primary))] font-bold"
+                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">Nosotros</a>
+                                        </li>
 
-                        <li role="none"><a routerLink="/blog"
-                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
-                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors"
-                                        role="menuitem">Blog</a>
-                        </li>
+                                        <li role="none" class="relative group"
+                                                (mouseenter)="openServiciosDropdown = true"
+                                                (mouseleave)="openServiciosDropdown = false">
+                                                <button class="flex items-center gap-1 hover:text-[rgb(var(--color-primary))] transition-colors p-2 focus:outline-none"
+                                                        [class.font-bold]="openServiciosDropdown">
+                                                        Servicios
+                                                        <svg class="h-4 w-4 transform transition-transform"
+                                                                [ngClass]="{'rotate-180': openServiciosDropdown}"
+                                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                        </svg>
+                                                </button>
 
-                        <li role="none"><a routerLink="/contacto"
-                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))] border-b-2 border-[rgb(var(--color-primary-dark))]"
-                                        class="text-[rgb(var(--color-primary-dark))] hover:text-[rgb(var(--color-primary-dark))] transition-colors"
-                                        role="menuitem">Contacto</a>
-                        </li>
+                                                <div *ngIf="openServiciosDropdown"
+                                                        class="absolute left-0 w-72 bg-white shadow-xl rounded-b-lg border-t-4 border-[rgb(var(--color-primary))] py-2 animate-fade-in">
+                                                        <a *ngFor="let servicio of servicios"
+                                                                (click)="navigateToService(servicio.slug)"
+                                                                class="block px-4 py-3 hover:bg-[rgb(var(--color-primary))]/10 cursor-pointer border-b last:border-0 border-gray-100 transition-colors">
+                                                                <p class="text-sm font-bold text-gray-900 ">
+                                                                        {{servicio.title}}</p>
+                                                                <p class="text-xs text-gray-500">
+                                                                        {{servicio.description}}</p>
+                                                        </a>
+                                                </div>
+                                        </li>
 
+                                        <li role="none"><a routerLink="/blog"
+                                                        routerLinkActive="text-[rgb(var(--color-primary))] font-bold"
+                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">Blog</a>
+                                        </li>
+                                        <li role="none"><a routerLink="/contacto"
+                                                        routerLinkActive="text-[rgb(var(--color-primary))] font-bold"
+                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">Contacto</a>
+                                        </li>
+                                </ul>
 
-                        <li role="none" class="flex items-center ml-4 border-l pl-6 border-gray-200">
-                                <div class="flex gap-4">
+                                <div class="flex items-center ml-2 border-l pl-4 border-gray-200 gap-2">
                                         <button (click)="changeLanguage('es')"
-                                                class="flex-1 py-2 rounded-md border text-sm font-bold transition-all p-2"
-                                                [ngClass]="currentLang === 'es' ? 'bg-[rgb(var(--color-primary))] text-white border-[rgb(var(--color-primary))]' : 'text-gray-500 border-gray-200'">
-                                                Español
-                                        </button>
+                                                [class.text-[rgb(var(--color-primary))]]="currentLang === 'es'"
+                                                class="text-lg font-bold hover:opacity-70">ES</button>
+                                        <span class="text-gray-300">|</span>
                                         <button (click)="changeLanguage('en')"
-                                                class="flex-1 py-2 rounded-md border text-sm font-bold transition-all p-2"
-                                                [ngClass]="currentLang === 'en' ? 'bg-[rgb(var(--color-primary))] text-white border-[rgb(var(--color-primary))]' : 'text-gray-500 border-gray-200'">
-                                                English
-                                        </button>
+                                                [class.text-[rgb(var(--color-primary))]]="currentLang === 'en'"
+                                                class="text-lg font-bold hover:opacity-70">EN</button>
                                 </div>
-                        </li>
 
-
-                        <!-- Botón Logout (solo para admin) - Desktop -->
-                        <li role="none" *ngIf="authService.isAdmin$ | async">
-                                <button (click)="logout()"
-                                        class="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300"
-                                        title="Cerrar sesión" role="menuitem">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
+                                <button *ngIf="authService.isAdmin$ | async" (click)="logout()"
+                                        class="ml-4 p-2 bg-red-50 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all">
+                                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                         </svg>
                                 </button>
-                        </li>
-                </ul>
-                <!-- Menú móvil -->
-                <ul *ngIf="open" id="mobile-menu"
-                        class="absolute top-full right-0 w-2/3 bg-white shadow-md flex flex-col py-4 px-6 sm:hidden animate-fade-in"
-                        role="menu">
-                        <li role="none" class="border-b border-[rgb(var(--color-primary))]">
-                                <a routerLink="/" routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
-                                        [routerLinkActiveOptions]="{ exact: true }" (click)="open = false"
-                                        class="py-2 block" role="menuitem">Inicio</a>
-                        </li>
-                        <li role="none" class="border-b border-[rgb(var(--color-primary))]">
-                                <a routerLink="/nosotros"
-                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
-                                        (click)="open = false" class="py-2 block" role="menuitem">Nosotros</a>
-                        </li>
-
-                        <!-- Menú Servicios Mobile -->
-                        <li role="none" class="border-b border-[rgb(var(--color-primary))]">
-                                <button [routerLink]="['/servicios']"
-                                        [routerLinkActive]="'font-bold text-[rgb(var(--color-primary-dark))]'"
-                                        [routerLinkActiveOptions]="{ exact: false }"
-                                        (click)="openServiciosDropdownMobile = !openServiciosDropdownMobile; $event.preventDefault()"
-                                        class="py-2 w-full text-left flex items-center justify-between text-[rgb(var(--color-primary-dark))]"
-                                        role="menuitem" aria-haspopup="true"
-                                        [attr.aria-expanded]="openServiciosDropdownMobile">
-                                        Servicios
-                                        <svg class="h-4 w-4 transition-transform"
-                                                [ngClass]="{'rotate-180': openServiciosDropdownMobile}" fill="none"
-                                                stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M6 9l6 6 6-6"></path>
-                                        </svg>
-                                </button>
-
-                                <!-- Dropdown Mobile -->
-                                <div *ngIf="openServiciosDropdownMobile" role="menu" class="rounded-lg mt-2 py-2">
-                                        <button *ngFor="let servicio of servicios; let i = index" role="menuitem"
-                                                (click)="navigateToService(servicio.slug)"
-                                                class="w-full text-left px-3 py-2 text-sm hover:bg-[rgb(var(--color-primary))] hover:bg-opacity-10 transition-colors border-l-4 border-transparent hover:border-[rgb(var(--color-primary))]">
-                                                <p class="font-semibold text-[rgb(var(--color-primary))]">
-                                                        {{ servicio.title }}
-                                                </p>
-                                                <p class="text-xs text-gray-600">
-                                                        {{ servicio.description }}
-                                                </p>
-                                        </button>
-                                </div>
-                        </li>
-
-                        <li role="none" class="border-b border-[rgb(var(--color-primary))]">
-                                <a routerLink="/blog" routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
-                                        (click)="open = false" class="py-2 block" role="menuitem">Blog</a>
-                        </li>
-                        <li role="none">
-                                <a routerLink="/contacto"
-                                        routerLinkActive="font-bold text-[rgb(var(--color-primary-dark))]"
-                                        (click)="open = false" class="py-2 block" role="menuitem">Contacto</a>
-                        </li>
-                        <li role="none" class="mt-4 pt-4 border-t border-gray-100">
-                                <p class="text-xs text-gray-400 uppercase tracking-widest mb-3">Idioma / Language</p>
-                                <div class="flex gap-4">
-                                        <button (click)="changeLanguage('es')"
-                                                class="flex-1 py-2 rounded-md border text-sm font-bold transition-all"
-                                                [ngClass]="currentLang === 'es' ? 'bg-[rgb(var(--color-primary))] text-white border-[rgb(var(--color-primary))]' : 'text-gray-500 border-gray-200'">
-                                                Español
-                                        </button>
-                                        <button (click)="changeLanguage('en')"
-                                                class="flex-1 py-2 rounded-md border text-sm font-bold transition-all"
-                                                [ngClass]="currentLang === 'en' ? 'bg-[rgb(var(--color-primary))] text-white border-[rgb(var(--color-primary))]' : 'text-gray-500 border-gray-200'">
-                                                English
-                                        </button>
-                                </div>
-                        </li>
-                        <!-- Botón Logout (solo para admin) - Mobile -->
-                        <li role="none" *ngIf="authService.isAdmin$ | async"
-                                class="border-t border-[rgb(var(--color-primary))] mt-2 pt-2">
-                                <button (click)="logout(); open = false"
-                                        class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300"
-                                        title="Cerrar sesión" role="menuitem">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                        </svg>
-                                        <span>Cerrar sesión</span>
-                                </button>
-                        </li>
-                </ul>
+                        </div>
+                </div>
         </nav>
+
+        <div *ngIf="open" id="mobile-menu"
+                class="sm:hidden bg-white border-t border-gray-100 shadow-inner animate-fade-in">
+                <div class="px-4 pt-2 pb-6 space-y-1">
+                        <a routerLink="/" (click)="open=false"
+                                class="block px-3 py-4 text-base font-medium border-b border-gray-50">Inicio</a>
+                        <a routerLink="/nosotros" (click)="open=false"
+                                class="block px-3 py-4 text-base font-medium border-b border-gray-50">Nosotros</a>
+
+                        <div>
+                                <button (click)="openServiciosDropdownMobile = !openServiciosDropdownMobile"
+                                        class="w-full flex justify-between items-center px-3 py-4 text-base font-medium border-b border-gray-50">
+                                        Servicios
+                                        <svg class="h-4 w-4 transform transition-transform"
+                                                [ngClass]="{'rotate-180': openServiciosDropdownMobile}" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                </button>
+                                <div *ngIf="openServiciosDropdownMobile" class="bg-gray-50 pl-4">
+                                        <a *ngFor="let s of servicios" (click)="navigateToService(s.slug)"
+                                                class="block px-3 py-3 text-sm text-gray-600 border-b border-white">{{s.title}}</a>
+                                </div>
+                        </div>
+
+                        <a routerLink="/blog" (click)="open=false"
+                                class="block px-3 py-4 text-base font-medium border-b border-gray-50">Blog</a>
+                        <a routerLink="/contacto" (click)="open=false"
+                                class="block px-3 py-4 text-base font-medium">Contacto</a>
+
+                        <div class="grid grid-cols-2 gap-2 mt-6">
+                                <button (click)="changeLanguage('es')"
+                                        [ngClass]="currentLang === 'es' ? 'bg-[rgb(var(--color-primary))] text-white' : 'bg-gray-100 text-gray-600'"
+                                        class="py-3 rounded-lg font-bold">Español</button>
+                                <button (click)="changeLanguage('en')"
+                                        [ngClass]="currentLang === 'en' ? 'bg-[rgb(var(--color-primary))] text-white' : 'bg-gray-100 text-gray-600'"
+                                        class="py-3 rounded-lg font-bold">English</button>
+                        </div>
+                </div>
+        </div>
 </header>

@@ -37,7 +37,7 @@ export class AppMainServicesComponent {
     },
     {
       icon: '⚖️',
-      title: 'Asesoría Tributaria y Fiscal',
+      title: 'Asesoría Tributaria',
       description: 'Planeamiento estratégico para optimizar la carga impositiva y asegurar el cumplimiento total ante SUNAT, evitando multas y contingencias.',
       highlights: [
         'Declaraciones Juradas Mensuales y Anuales',
@@ -51,7 +51,7 @@ export class AppMainServicesComponent {
     },
     {
       icon: '👥',
-      title: 'Asesoría Laboral y Planillas',
+      title: 'Asesoría Laboral',
       description: 'Administración de nómina y cumplimiento normativo ante MINTRA y SUNAFIL para garantizar una gestión humana libre de riesgos legales.',
       highlights: [
         'Cálculo de Planilla Electrónica (PLAME y T-Registro)',
@@ -65,7 +65,7 @@ export class AppMainServicesComponent {
     },
     {
       icon: '🔍',
-      title: 'Auditoría y Control Interno',
+      title: 'Auditorías',
       description: 'Exámenes críticos y sistemáticos de sus finanzas para asegurar transparencia ante socios, bancos y entidades reguladoras.',
       highlights: [
         'Auditoría Financiera para Entidades Bancarias',
