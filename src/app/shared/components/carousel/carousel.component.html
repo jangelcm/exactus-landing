@@ -6,15 +6,13 @@
   <ng-container *ngIf="slides.length">
 
     <!-- Media -->
-    <div class="absolute inset-0">
+    <div class="absolute inset-0 h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]">
 
       <img [src]="slides[current].image"
         [alt]="slides[current].alt || 'Imagen de ' + (slides[current].title || 'servicio Exactus')"
         [attr.width]="slides[current].width || 1920" [attr.height]="slides[current].height || 900"
         [attr.fetchpriority]="current === 0 ? 'high' : 'auto'" [attr.loading]="current === 0 ? 'eager' : 'lazy'"
-        class="w-full h-full object-cover transition-all duration-700 ease-out" [class.opacity-0]="!imageLoaded"
-        [class.opacity-100]="imageLoaded" [class.scale-105]="!imageLoaded" [class.scale-100]="imageLoaded"
-        (load)="onImageLoad()" />
+        class="w-full h-full object-cover transition-all duration-700 ease-out" (load)="onImageLoad()" />
       <!-- Overlay oscuro elegante -->
       <div class="absolute inset-0 bg-gradient-to-br from-black/100 via-black/50 to-black/50"></div>
 
