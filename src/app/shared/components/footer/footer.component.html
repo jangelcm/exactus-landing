@@ -9,73 +9,89 @@
     <!-- Logo y lema -->
     <div class="flex flex-col items-center md:items-start gap-2">
       <img src="assets/logo.svg" alt="Logo de Exactus" class="h-10 w-auto mb-2" />
-      <span class="font-semibold text-[rgb(var(--color-primary))] text-center md:text-left"></span>
+      <span class="font-semibold text-[rgb(var(--color-primary))] text-center md:text-left">{{ 'footer.slogan' |
+        transloco }}</span>
     </div>
 
     <!-- Navegación principal -->
     <div>
-      <h3 class="font-bold mb-2 text-[rgb(var(--color-primary))]">Navegación</h3>
+      <h3 class="font-bold mb-2 text-[rgb(var(--color-primary))]">{{ 'footer.navigation.title' | transloco }}
+      </h3>
       <ul class="space-y-1 text-[rgb(var(--color-text-muted))]">
         <li class="flex items-center gap-2">
           <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
-          <a routerLink="/" class="hover:text-[rgb(var(--color-primary))]">Inicio</a>
+          <a routerLink="/" class="hover:text-[rgb(var(--color-primary))]">{{ 'footer.navigation.home' |
+            transloco }}</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
-          <a routerLink="/nosotros" class="hover:text-[rgb(var(--color-primary))]">Nosotros</a>
+          <a routerLink="/nosotros" class="hover:text-[rgb(var(--color-primary))]">{{ 'footer.navigation.about' |
+            transloco }}</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
-          <a routerLink="/servicios" class="hover:text-[rgb(var(--color-primary))]">Servicios</a>
+          <a routerLink="/servicios" class="hover:text-[rgb(var(--color-primary))]">{{
+            'footer.navigation.services' | transloco }}</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
-          <a routerLink="/oficinas" class="hover:text-[rgb(var(--color-primary))]">Oficinas</a>
+          <a routerLink="/oficinas" class="hover:text-[rgb(var(--color-primary))]">{{ 'footer.navigation.offices'
+            | transloco }}</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
-          <a routerLink="/casos" class="hover:text-[rgb(var(--color-primary))]">Casos de éxito</a>
+          <a routerLink="/casos" class="hover:text-[rgb(var(--color-primary))]">{{ 'footer.navigation.cases' |
+            transloco }}</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
-          <a routerLink="/contacto" class="hover:text-[rgb(var(--color-primary))]">Contáctanos</a>
+          <a routerLink="/contacto" class="hover:text-[rgb(var(--color-primary))]">{{ 'footer.navigation.contact'
+            | transloco }}</a>
         </li>
       </ul>
     </div>
     <!-- Servicios -->
     <div>
-      <h3 class="font-bold mb-2 text-[rgb(var(--color-primary))]">Servicios</h3>
+      <h3 class="font-bold mb-2 text-[rgb(var(--color-primary))]">{{ 'footer.services.title' | transloco }}</h3>
       <ul class="space-y-1 text-[rgb(var(--color-text-muted))]">
         <li class="flex items-center gap-2">
-          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Activo Fijo
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> {{ 'footer.services.fixedAsset' |
+          transloco }}
         </li>
         <li class="flex items-center gap-2">
-          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Contabilidad
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> {{ 'footer.services.accounting' |
+          transloco }}
         </li>
         <li class="flex items-center gap-2">
-          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Inventario
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> {{ 'footer.services.inventory' |
+          transloco }}
         </li>
         <li class="flex items-center gap-2">
-          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Planilla
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> {{ 'footer.services.payroll' |
+          transloco }}
         </li>
         <li class="flex items-center gap-2">
-          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Ventas y comprobantes electrónicos
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> {{ 'footer.services.sales' |
+          transloco }}
         </li>
         <li class="flex items-center gap-2">
-          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> Tesorería
+          <span class="text-[rgb(var(--color-primary))] font-bold">»</span> {{ 'footer.services.treasury' |
+          transloco }}
         </li>
       </ul>
     </div>
     <!-- Contacto -->
     <div>
-      <h3 class="font-bold mb-2 text-[rgb(var(--color-primary))]">Contacto</h3>
+      <h3 class="font-bold mb-2 text-[rgb(var(--color-primary))]">{{ 'footer.contact.title' | transloco }}</h3>
       <ul class="space-y-1 text-[rgb(var(--color-text-muted))]">
-        <li><span class="font-semibold">Tel:</span> 993 652 732</li>
-        <li><span class="font-semibold">Email:</span> </li>
-        <li><span class="font-semibold">Ubicación:</span> Lima - Perú</li>
+        <li><span class="font-semibold">{{ 'footer.contact.phone' | transloco }}</span> 993 652 732</li>
+        <li><span class="font-semibold">{{ 'footer.contact.email' | transloco }}</span> </li>
+        <li><span class="font-semibold">{{ 'footer.contact.location' | transloco }}</span> {{
+          'footer.contact.locationValue' | transloco }}</li>
       </ul>
       <!-- Redes sociales y botón de llamada -->
-      <h3 class="font-bold mt-6 mb-2 text-[rgb(var(--color-primary))]">Síguenos</h3>
+      <h3 class="font-bold mt-6 mb-2 text-[rgb(var(--color-primary))]">{{ 'footer.follow.title' | transloco }}
+      </h3>
       <div class="flex items-center gap-3">
         <a href="https://www.linkedin.com/company/exactus.pe/" target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center justify-center" aria-label="LinkedIn">
@@ -94,7 +110,7 @@
 
   </div>
   <div class="px-8 mt-8 text-center text-[rgb(var(--color-text-muted))] text-xs mb-10">
-    ©2026 Exactus - Marca Registrada de Exactus Consultoría Empresarial S.A.C en Perú.<br>
+    {{ 'footer.copyright' | transloco }}<br>
     <!-- <span>Desarrollado con <span class="text-[rgb(var(--color-pink))]">♥</span> por tu equipo</span> -->
   </div>
 </footer>

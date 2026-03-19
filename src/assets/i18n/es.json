@@ -1,0 +1,164 @@
+{
+    "navbar": {
+        "services": {
+            "accounting": {
+                "title": "Asesoría Contable & Outsourcing",
+                "description": "Gestión contable integral bajo NIIF y principios contables vigentes en Perú."
+            },
+            "tax": {
+                "title": "Asesoría Tributaria",
+                "description": "Cumplimiento tributario integral"
+            },
+            "labor": {
+                "title": "Asesoría Laboral",
+                "description": "Gestión de relaciones laborales"
+            },
+            "legal": {
+                "title": "Asesoría Jurídica",
+                "description": "Servicios legales especializados"
+            },
+            "special": {
+                "title": "Informes Especiales",
+                "description": "Informes técnicos y periciales"
+            },
+            "audit_tax": {
+                "title": "Auditoría Tributaria",
+                "description": "Fiscalización tributaria"
+            },
+            "audit_financial": {
+                "title": "Auditoría Financiera",
+                "description": "Auditoría de estados financieros"
+            }
+        }
+    },
+    "mainServices": {
+        "header": {
+            "subtitle": "Servicios Contables en Lima, Perú",
+            "title": "Especialistas en Asesoría Empresarial Integral",
+            "description": "Soluciones contables, tributarias y laborales diseñadas para proteger tu empresa, optimizar tus recursos y garantizar cumplimiento normativo."
+        },
+        "cta": {
+            "question": "¿Necesitas una solución personalizada para tu empresa?",
+            "button": "Agendar Consultoría Contable"
+        },
+        "services": {
+            "accounting": {
+                "title": "Asesoría Contable & Outsourcing",
+                "description": "Gestión contable integral bajo NIIF y principios contables vigentes en Perú. Transformamos su contabilidad en una herramienta de toma de decisiones.",
+                "highlights": [
+                    "Estados Financieros Mensuales y Anuales (NIIF)",
+                    "Libros Contables Electrónicos (PLE / SIRE)",
+                    "Outsourcing Contable para MYPES y Medianas Empresas",
+                    "Reconstrucción y Regularización Contable"
+                ],
+                "ctaLabel": "Ver servicios contables"
+            },
+            "tax": {
+                "title": "Asesoría Tributaria",
+                "description": "Planeamiento estratégico para optimizar la carga impositiva y asegurar el cumplimiento total ante SUNAT, evitando multas y contingencias.",
+                "highlights": [
+                    "Declaraciones Juradas Mensuales y Anuales",
+                    "Defensa ante Fiscalizaciones de SUNAT",
+                    "Recuperación de IGV y Devolución de Percepciones",
+                    "Análisis de Detracciones y Retenciones"
+                ],
+                "ctaLabel": "Ver servicios tributarios"
+            },
+            "labor": {
+                "title": "Asesoría Laboral",
+                "description": "Administración de nómina y cumplimiento normativo ante MINTRA y SUNAFIL para garantizar una gestión humana libre de riesgos legales.",
+                "highlights": [
+                    "Cálculo de Planilla Electrónica (PLAME y T-Registro)",
+                    "Liquidación de Beneficios Sociales y CTS",
+                    "Gestión de Contratos Laborales y Adendas",
+                    "Auditoría Laboral Preventiva (Cero Multas SUNAFIL)"
+                ],
+                "ctaLabel": "Ver servicios laborales"
+            },
+            "audit": {
+                "title": "Auditorías",
+                "description": "Exámenes críticos y sistemáticos de sus finanzas para asegurar transparencia ante socios, bancos y entidades reguladoras.",
+                "highlights": [
+                    "Auditoría Financiera para Entidades Bancarias",
+                    "Auditoría Tributaria Preventiva (Diagnóstico)",
+                    "Estudios de Precios de Transferencia",
+                    "Evaluación de Controles Internos y Riesgos"
+                ],
+                "ctaLabel": "Ver servicios de auditoría"
+            }
+        }
+    },
+    "trajectory": {
+        "subtitle": "Nuestra Trayectoria",
+        "title": "Más de 10 años impulsando el crecimiento empresarial en el Perú",
+        "description": "En <strong class=\"text-[rgb(var(--color-primary))]\">Exactus</strong>, entendemos que la contabilidad no es solo registrar números, es la base para la toma de decisiones estratégicas. Nuestra experiencia nos permite anticipar riesgos tributarios y optimizar la carga laboral de su empresa.",
+        "features": [
+            "Asesoría personalizada por contadores colegiados (CCPL).",
+            "Uso de tecnología ERP de vanguardia para reportes en tiempo real."
+        ],
+        "guarantee": "Exactus, garantía de cumplimiento.",
+        "figcaption": "Contadores colegiados con más de 10 años de experiencia, especializados en asesoría tributaria, laboral y jurídica para empresas que buscan crecimiento sostenible y cumplimiento normativo."
+    },
+    "footer": {
+        "slogan": "Tu aliado en gestión contable y empresarial.",
+        "navigation": {
+            "title": "Navegación",
+            "home": "Inicio",
+            "about": "Nosotros",
+            "services": "Servicios",
+            "offices": "Oficinas",
+            "cases": "Casos de éxito",
+            "contact": "Contáctanos"
+        },
+        "services": {
+            "title": "Servicios",
+            "fixedAsset": "Activo Fijo",
+            "accounting": "Contabilidad",
+            "inventory": "Inventario",
+            "payroll": "Planilla",
+            "sales": "Ventas y comprobantes electrónicos",
+            "treasury": "Tesorería"
+        },
+        "contact": {
+            "title": "Contacto",
+            "phone": "Tel:",
+            "email": "Email:",
+            "location": "Ubicación:",
+            "locationValue": "Lima - Perú"
+        },
+        "follow": {
+            "title": "Síguenos"
+        },
+        "copyright": "©2026 Exactus - Marca Registrada de Exactus Consultoría Empresarial S.A.C en Perú."
+    },
+    "carousel": {
+        "slide1": {
+            "title": "Estudio Contable Especializado en Lima",
+            "alt": "Contadores expertos en outsourcing contable para empresas en Lima Perú - Exactus",
+            "description": "Transformamos la complejidad contable en claridad para tu empresa. Outsourcing contable con respaldo experto para MYPES y medianas empresas."
+        },
+        "slide2": {
+            "title": "Asesoría Tributaria y Cumplimiento SUNAT",
+            "alt": "Asesoría tributaria especializada para evitar multas de SUNAT en Perú - Exactus Consultores",
+            "description": "Protege tu patrimonio y evita contingencias. Planificación tributaria estratégica y auditorías preventivas con más de 10 años de experiencia."
+        },
+        "slide3": {
+            "title": "Gestión Laboral y Outsourcing de Planillas",
+            "alt": "Servicio de outsourcing de planillas y asesoría laboral frente a SUNAFIL - Exactus",
+            "description": "Cumplimiento normativo total frente a SUNAFIL. Gestionamos tu talento humano con precisión legal y eficiencia administrativa."
+        },
+        "slide4": {
+            "title": "Auditoría Financiera y Exámenes Especiales",
+            "alt": "Auditoría de estados financieros y exámenes especiales para empresas peruanas - Exactus",
+            "description": "Transparencia y valor para tus accionistas. Evaluamos tus estados financieros bajo estándares internacionales para un crecimiento seguro."
+        },
+        "ariaLabel": "Servicios destacados de Exactus",
+        "altPrefix": "Imagen de ",
+        "eyebrow": "Asesoría Contable, Legal & Tributaria en Perú",
+        "cta": "Agenda una consulta",
+        "cta2": "Conoce nuestros servicios",
+        "ctaTitle": "Solicitar asesoría en ",
+        "ctaAria": "Botón de Agenda una consulta con Exactus",
+        "cta2Aria": "Botón de Conoce nuestros servicios"
+    }
+}

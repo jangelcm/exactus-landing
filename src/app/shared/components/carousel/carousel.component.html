@@ -6,10 +6,10 @@
   <ng-container *ngIf="slides.length">
 
     <!-- Media -->
-    <div class="absolute inset-0 h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]">
+    <div class="absolute inset-0">
 
       <img [src]="slides[current].image"
-        [alt]="slides[current].alt || 'Imagen de ' + (slides[current].title || 'servicio Exactus')"
+        [alt]="slides[current].alt || ('carousel.altPrefix' | transloco) + (slides[current].title || 'servicio Exactus')"
         [attr.width]="slides[current].width || 1920" [attr.height]="slides[current].height || 900"
         [attr.fetchpriority]="current === 0 ? 'high' : 'auto'" [attr.loading]="current === 0 ? 'eager' : 'lazy'"
         class="w-full h-full object-cover transition-all duration-700 ease-out" (load)="onImageLoad()" />
@@ -24,38 +24,40 @@
         <div class="max-w-2xl">
           <div appAnimateOnScroll [animationType]="'fadeIn'" [animationDuration]="800">
             <!-- Eyebrow -->
-            <p class="text-[rgb(var(--color-primary-light))] uppercase tracking-widest md:text-lg text-sm font-bold mb-3"
-              appAnimateOnScroll [animationType]="'slideUp'" [animationDelay]="200">
-              Asesoría Contable, Legal & Tributaria en Perú
-            </p>
+            <ng-container *transloco="let t">
+              <p class="text-[rgb(var(--color-primary-light))] uppercase tracking-widest md:text-lg text-sm font-bold mb-3"
+                appAnimateOnScroll [animationType]="'slideUp'" [animationDelay]="200">
+                {{ t('carousel.eyebrow') }}
+              </p>
 
-            <!-- Título principal -->
-            <h1 class="text-white text-4xl  md:text-6xl font-extrabold mb-4 drop-shadow" appAnimateOnScroll
-              [animationType]="'slideUp'" [animationDelay]="400">
-              {{ slides[current].title }}
-            </h1>
+              <!-- Título principal -->
+              <h1 class="text-white text-4xl  md:text-6xl font-extrabold mb-4 drop-shadow" appAnimateOnScroll
+                [animationType]="'slideUp'" [animationDelay]="400">
+                {{ t(slides[current].title) }}
+              </h1>
 
-            <!-- Descripción -->
-            <p class="text-white/90 text-base md:text-lg mb-8 leading-relaxed" appAnimateOnScroll
-              [animationType]="'slideUp'" [animationDelay]="600">
-              {{ slides[current].description }}
-            </p>
+              <!-- Descripción -->
+              <p class="text-white/90 text-base md:text-lg mb-8 leading-relaxed" appAnimateOnScroll
+                [animationType]="'slideUp'" [animationDelay]="600">
+                {{ t(slides[current].description) }}
+              </p>
 
-            <!-- CTAs -->
-            <div class="flex flex-col sm:flex-row gap-4" appAnimateOnScroll [animationType]="'slideUp'"
-              [animationDelay]="800">
-              <button routerLink="/contacto" [attr.title]="'Solicitar asesoría en ' + slides[current].title"
-                aria-label="Botón de Agenda una consulta con Exactus"
-                class="bg-[rgb(var(--color-primary))] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[rgb(var(--color-primary-dark))] transition">
-                Agenda una consulta
-              </button>
+              <!-- CTAs -->
+              <div class="flex flex-col sm:flex-row gap-4" appAnimateOnScroll [animationType]="'slideUp'"
+                [animationDelay]="800">
+                <button routerLink="/contacto" [attr.title]="'Solicitar asesoría en ' + slides[current].title"
+                  aria-label="Botón de Agenda una consulta con Exactus"
+                  class="bg-[rgb(var(--color-primary))] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[rgb(var(--color-primary-dark))] transition">
+                  {{ t('carousel.cta') }}
+                </button>
 
-              <a *ngIf="slides[current].link" [routerLink]="slides[current].link"
-                aria-label="Botón de Conoce nuestros servicios"
-                class="border border-white/70 text-center text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
-                Conoce nuestros servicios
-              </a>
-            </div>
+                <a *ngIf="slides[current].link" [routerLink]="slides[current].link"
+                  aria-label="Botón de Conoce nuestros servicios"
+                  class="border border-white/70 text-center text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+                  {{ t('carousel.cta2') }}
+                </a>
+              </div>
+            </ng-container>
           </div>
 
         </div>

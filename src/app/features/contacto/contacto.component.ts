@@ -1,66 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
-import { environment } from '../../environment/enviroment';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IconLocationComponent } from '../../shared/components/icons/icon-location.component';
-import { OficinasComponent } from '../../shared/components/oficinas/oficinas.component';
 
 @Component({
   selector: 'app-contacto',
-  imports: [CommonModule, ReactiveFormsModule, IconLocationComponent, OficinasComponent,],
+  imports: [CommonModule, ReactiveFormsModule, IconLocationComponent],
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent {
-  contactForm: FormGroup;
-  submitted = false;
-  successMessage = false;
+  private fb = inject(FormBuilder);
 
-  constructor(private fb: FormBuilder) {
-    this.contactForm = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(2)]],
-      apellido: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.email]],
-      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{9,}$/)]],
-      empresa: [''],
-      asunto: ['', Validators.required],
-      mensaje: ['', [Validators.required, Validators.minLength(9)]]
-    });
-  }
+  contactForm: FormGroup = this.fb.group({
+    nombre: ['', [Validators.required, Validators.minLength(3)]],
+    empresa: [''], // Opcional
+    asunto: ['', Validators.required],
+    telefono: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
+    mensaje: ['', [Validators.required]]
+  });
 
-  get f() {
-    return this.contactForm.controls;
-  }
+  asuntos = [
+    'Consulta General',
+    'Servicios Contables',
+    'Asesoría Tributaria',
+    'Constitución de Empresa',
+    'Otro'
+  ];
 
-  onSubmit() {
-    this.submitted = true;
+  enviarWhatsApp() {
+    if (this.contactForm.invalid) return;
 
-    if (this.contactForm.invalid) {
-      return;
-    }
+    const { nombre, empresa, asunto, telefono, mensaje } = this.contactForm.value;
+    const nroWhatsApp = '51993652732';
 
-    // Aquí iría la lógica para enviar el formulario
-    console.log('Formulario enviado:', this.contactForm.value);
-    emailjs
-      .send(
-        environment.emailJs.serviceId,
-        environment.emailJs.templateId,
-        this.contactForm.value,
-        environment.emailJs.publicKey
-      )
-      .then(() => {
-        this.successMessage = true;
-        this.contactForm.reset();
-        this.submitted = false;
-        // Ocultar después de 5 segundos
-        setTimeout(() => {
-          this.successMessage = false;
-        }, 4000);
-      })
-      .catch((error) => {
-        console.error('Error al enviar email:', error);
-      });
+    // Construcción del cuerpo del mensaje
+    const texto = `Hola *Exactus*, mi nombre es *${nombre}*${empresa ? ' de la empresa ' + empresa : ''}.
+Mi teléfono es +51 ${telefono}.
+Vengo por el asunto: *${asunto}*.
+Consulta: ${mensaje}`;
 
+    const url = `https://wa.me/${nroWhatsApp}?text=${encodeURIComponent(texto)}`;
+
+    // Abrir en nueva pestaña
+    window.open(url, '_blank');
   }
 }

@@ -1,154 +1,167 @@
-<div class="container mx-auto px-4 py-12">
-    <!-- Mostrar solo si es admin -->
-    @if (authService.isAdmin$ | async) {
-
-    <div class="flex justify-center mb-8">
-        @if (!showForm()) {
-        <article
-            class="bg-[rgb(var(--color-primary-light))] rounded-2xl shadow-lg p-8 flex flex-col items-center w-full max-w-md">
-            <h2 class="text-2xl font-bold text-white mb-4">¿Quieres publicar una noticia?</h2>
-            <button type="button" [disabled]="blogsResource.isLoading()"
-                class="bg-white text-[rgb(var(--color-primary))] font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
-                (click)="openNewForm()">
-                @if (blogsResource.isLoading()) { Cargando... } @else { Crear noticia }
-            </button>
-        </article>
-        } @else {
-        <article class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-4xl">
-            <header>
-                <h1 class="text-3xl font-bold text-[rgb(var(--color-primary))] mb-6">
-                    {{ isEditMode() ? 'Editar noticia' : 'Agregar noticia' }}
-                </h1>
-            </header>
-
-            <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-6">
-                <div>
-                    <label for="title"
-                        class="block text-[rgb(var(--color-primary))] text-sm font-medium mb-2">Título</label>
-                    <input id="title" type="text" formControlName="title"
-                        class="w-full rounded-md border border-gray-300 p-2" required />
-                </div>
-
-                <div class="space-y-3">
-                    <label class="block text-sm font-medium text-[rgb(var(--color-primary))]">
-                        Imagen de la noticia
-                    </label>
-
-                    <div
-                        class="relative border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-[rgb(var(--color-primary))] transition cursor-pointer bg-gray-50">
-                        <input type="file" accept="image/jpeg,image/png,image/webp" (change)="onFileChange($event)"
-                            class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
-
-                        @if (!imagePreview() && !form.get('imageUrl')?.value) {
-                        <div class="space-y-2">
-                            <div class="text-gray-500 text-sm">Arrastra una imagen aquí o haz clic para seleccionar
-                            </div>
-                            <div class="text-xs text-gray-400">PNG, JPG, WEBP (Máx. 10MB)</div>
-                        </div>
-                        }
-                        @else {
-                        <div class="relative">
-                            <img [src]="imagePreview() || form.get('imageUrl')?.value" alt="Previsualización"
-                                class="mx-auto max-h-56 rounded-lg shadow-md object-contain" />
-
-                            <button type="button" (click)="removeImage()"
-                                class="absolute top-2 right-2 bg-black/60 text-white text-xs px-3 py-1 rounded-full hover:bg-black transition">
-                                Cambiar
-                            </button>
-                        </div>
-                        }
-                    </div>
-
-                    @if (imageSizeError()) {
-                    <p class="text-sm text-red-600 animate-pulse">{{ imageSizeError() }}</p>
-                    }
-                </div>
-
-                <div>
-                    <label for="summary"
-                        class="block text-[rgb(var(--color-primary))] text-sm font-medium mb-2">Resumen</label>
-                    <input id="summary" type="text" formControlName="summary"
-                        class="w-full rounded-md border border-gray-300 p-2" required />
-                </div>
-
-                <div>
-                    <label for="content"
-                        class="block text-[rgb(var(--color-primary))] text-sm font-medium mb-2">Contenido</label>
-                    <textarea id="content" formControlName="content" rows="5"
-                        class="w-full rounded-md border border-gray-300 p-2" required></textarea>
-                </div>
-
-                <div class="flex justify-end gap-4 pt-4">
-                    <button type="button"
-                        class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300 transition"
-                        (click)="cancelForm()">
-                        Cancelar
-                    </button>
-
-                    <button type="submit" [disabled]="submitLoading() || !!imageSizeError()"
-                        class="bg-[rgb(var(--color-primary))] text-white font-bold px-6 py-2 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition disabled:opacity-50 disabled:cursor-not-allowed">
-                        {{ submitLoading() ? 'Guardando...' : 'Guardar' }}
-                    </button>
-                </div>
-            </form>
-        </article>
-        }
+<main role="main" class="bg-gray-50 min-h-screen pb-20">
+    <div class="bg-[#1f2937] py-16 mb-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-white text-4xl md:text-6xl font-extrabold uppercase tracking-tighter italic">
+                {{ (authService.isAdmin$ | async) ? 'Gestión de' : 'Nuestro' }} <span class="text-[#e63946]">Blog</span>
+            </h1>
+            <p class="text-gray-400 mt-4 max-w-2xl font-light">
+                {{ (authService.isAdmin$ | async)
+                ? 'Panel de administración para la publicación de noticias y análisis normativos.'
+                : 'Análisis actualizado y novedades del sector contable, tributario y legal en el Perú.'
+                }}
+            </p>
+        </div>
     </div>
 
-    <div>
-        @if (blogsResource.isLoading()) {
-        <div class="flex justify-center gap-2">
-            <span class="size-3 animate-ping rounded-full bg-[rgb(var(--color-primary))]"></span>
-            <span class="size-3 animate-ping rounded-full bg-[rgb(var(--color-primary))] [animation-delay:0.2s]"></span>
-            <span class="size-3 animate-ping rounded-full bg-[rgb(var(--color-primary))] [animation-delay:0.4s]"></span>
-        </div>
-        }
-        @else if (blogsResource.value() && blogsResource.value()?.length !== 0) {
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @for (blogItem of blogsResource.value(); track blogItem.id) {
-            <app-blog [blog]="blogItem" [isAdmin]="true" (onEdit)="editBlog($event)"
-                (onDelete)="blogsResource.reload()">
-            </app-blog>
+    <div class="container mx-auto px-4">
+        @if (authService.isAdmin$ | async) {
+        <div class="flex justify-center mb-12">
+            @if (!showForm()) {
+            <article
+                class="bg-[#1f2937] rounded-3xl shadow-xl p-8 flex flex-col items-center w-full max-w-lg border-b-4 border-[#e63946] animate-fade-in">
+                <div class="bg-red-50 p-4 rounded-full mb-6">
+                    <svg class="w-8 h-8 text-[#e63946]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-white mb-2 text-center">¿Publicar nueva noticia?</h2>
+                <p class="text-gray-400 text-center mb-6 text-sm">Mantén a tus clientes informados sobre las últimas
+                    normativas.</p>
+                <button type="button" [disabled]="blogsResource.isLoading()"
+                    class="w-full bg-[#e63946] text-white font-bold px-6 py-4 rounded-xl shadow-lg hover:bg-red-700 transition-all active:scale-95 disabled:opacity-50"
+                    (click)="openNewForm()">
+                    @if (blogsResource.isLoading()) { Cargando... } @else { Crear Noticia Exactus }
+                </button>
+            </article>
+            } @else {
+            <article
+                class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 w-full max-w-4xl border border-gray-100 animate-slide-up">
+                <header class="mb-8 border-l-4 border-[#e63946] pl-6">
+                    <h1 class="text-3xl font-bold text-[#1f2937]">
+                        {{ isEditMode() ? 'Editar Noticia' : 'Nueva Publicación' }}
+                    </h1>
+                    <p class="text-gray-500 text-sm mt-1">Completa los campos para actualizar el portal de noticias.</p>
+                </header>
+
+                <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="title"
+                                    class="block text-[#1f2937] text-sm font-bold mb-2 uppercase tracking-wide">Título
+                                    de Noticia</label>
+                                <input id="title" type="text" formControlName="title"
+                                    class="w-full rounded-xl border-gray-200 bg-gray-50 p-3 focus:ring-2 focus:ring-[#e63946] focus:border-transparent transition"
+                                    placeholder="Ej: Nueva Resolución SUNAT..." required />
+                            </div>
+                            <div>
+                                <label for="summary"
+                                    class="block text-[#1f2937] text-sm font-bold mb-2 uppercase tracking-wide">Resumen
+                                    Ejecutivo</label>
+                                <input id="summary" type="text" formControlName="summary"
+                                    class="w-full rounded-xl border-gray-200 bg-gray-50 p-3 focus:ring-2 focus:ring-[#e63946] transition"
+                                    placeholder="Breve descripción para la tarjeta..." required />
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <label class="block text-sm font-bold text-[#1f2937] uppercase tracking-wide">Imagen de
+                                Portada</label>
+                            <div
+                                class="relative border-2 border-dashed border-gray-200 rounded-2xl p-4 text-center hover:border-[#e63946] transition cursor-pointer bg-gray-50 group min-h-[200px] flex items-center justify-center">
+                                <input type="file" accept="image/jpeg,image/png,image/webp"
+                                    (change)="onFileChange($event)"
+                                    class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+
+                                @if (!imagePreview() && !form.get('imageUrl')?.value) {
+                                <div class="space-y-2">
+                                    <svg class="w-10 h-10 text-gray-300 mx-auto group-hover:text-[#e63946] transition"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <div class="text-gray-400 text-xs">Click para subir (JPG, PNG)</div>
+                                </div>
+                                } @else {
+                                <div class="relative w-full">
+                                    <img [src]="imagePreview() || form.get('imageUrl')?.value" alt="Preview"
+                                        class="mx-auto max-h-48 rounded-lg shadow-md object-cover w-full" />
+                                    <div
+                                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition rounded-lg flex items-center justify-center">
+                                        <span class="text-white text-xs font-bold uppercase">Cambiar Imagen</span>
+                                    </div>
+                                </div>
+                                }
+                            </div>
+                            @if (imageSizeError()) { <p class="text-xs text-red-600 font-bold animate-pulse">{{
+                                imageSizeError() }}</p> }
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="content"
+                            class="block text-[#1f2937] text-sm font-bold mb-2 uppercase tracking-wide">Contenido
+                            Completo</label>
+                        <textarea id="content" formControlName="content" rows="6"
+                            class="w-full rounded-xl border-gray-200 bg-gray-50 p-4 focus:ring-2 focus:ring-[#e63946] transition"
+                            placeholder="Desarrolla la noticia aquí..." required></textarea>
+                    </div>
+
+                    <div class="flex justify-end gap-4 pt-6 border-t border-gray-100">
+                        <button type="button" (click)="cancelForm()"
+                            class="bg-gray-100 text-gray-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-200 transition">
+                            Cancelar
+                        </button>
+                        <button type="submit" [disabled]="submitLoading() || !!imageSizeError()"
+                            class="bg-[#e63946] text-white font-bold px-10 py-3 rounded-xl hover:bg-red-700 shadow-lg shadow-red-200 transition disabled:opacity-50">
+                            {{ submitLoading() ? 'Procesando...' : 'Publicar Noticia' }}
+                        </button>
+                    </div>
+                </form>
+            </article>
             }
         </div>
         }
-        @else {
-        <p class="text-center text-gray-500 mt-8">No hay noticias disponibles.</p>
-        }
-    </div>
-    }
 
-    <!-- Mensaje para usuarios no admin -->
-    <ng-container *ngIf="!(authService.isAdmin$ | async)">
-        <div class="flex flex-col justify-center">
-            <h1
-                class="text-start text-[rgb(var(--color-primary))] lg:text-start text-4xl md:text-6xl font-bold mb-12 uppercase tracking-tighter">
-                Nuestro Blog
-            </h1>
-
+        <ng-container>
             @if (blogsResource.isLoading()) {
-            <div class="flex justify-center gap-2">
-                <span class="size-3 animate-ping rounded-full bg-[rgb(var(--color-primary))]"></span>
-                <span
-                    class="size-3 animate-ping rounded-full bg-[rgb(var(--color-primary))] [animation-delay:0.2s]"></span>
-                <span
-                    class="size-3 animate-ping rounded-full bg-[rgb(var(--color-primary))] [animation-delay:0.4s]"></span>
+            <div class="flex flex-col items-center justify-center py-24 gap-4">
+                <div class="flex gap-2">
+                    <span class="size-3 animate-bounce rounded-full bg-[#e63946]"></span>
+                    <span class="size-3 animate-bounce rounded-full bg-[#1f2937] [animation-delay:0.2s]"></span>
+                    <span class="size-3 animate-bounce rounded-full bg-[#e63946] [animation-delay:0.4s]"></span>
+                </div>
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400">Actualizando portal Exactus...</p>
             </div>
             }
 
             @else if (blogsResource.value() && blogsResource.value()?.length !== 0) {
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
                 @for (blogItem of blogsResource.value(); track blogItem.id; let i = $index) {
-                <app-blog [blog]="blogItem" [isAdmin]="false" appAnimateOnScroll [animationType]="'slideUp'"
-                    [animationDelay]="i * 100"></app-blog>
-
+                <div appAnimateOnScroll [animationType]="'slideUp'" [animationDelay]="i * 100" class="h-full">
+                    <app-blog [blog]="blogItem" [isAdmin]="(authService.isAdmin$ | async) ?? false"
+                        (onEdit)="editBlog($event)" (onDelete)="blogsResource.reload()"
+                        class="block h-full transition-transform duration-300 hover:-translate-y-2">
+                    </app-blog>
+                </div>
                 }
             </div>
             }
 
             @else {
-            <p class="text-center text-gray-500 mt-8">No hay noticias disponibles.</p>
+            <div class="max-w-2xl mx-auto text-center py-20 bg-white rounded-3xl border border-gray-100 shadow-sm">
+                <div
+                    class="bg-gray-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l5 5v11a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-[#1f2937]">Sin publicaciones</h3>
+                <p class="text-gray-500 mt-2 px-6">No hay noticias disponibles en este momento.</p>
+            </div>
             }
-        </div>
-    </ng-container>
-</div>
+        </ng-container>
+    </div>
+</main>

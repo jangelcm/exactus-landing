@@ -1,24 +1,23 @@
-<section class="py-16 max-w-screen-2xl mx-auto" aria-labelledby="main-services-title" itemscope
+<section *transloco="let t" class="py-16 max-w-screen-2xl mx-auto" aria-labelledby="main-services-title" itemscope
   itemtype="https://schema.org/Service">
 
   <div class="lg:px-20 px-6">
 
     <!-- Header -->
-    <header class="text-center max-w-3xl mx-auto mb-20" appAnimateOnScroll [animationType]="'slideDown'"
-      [animationDuration]="800">
+    <header class="text-center max-w-3xl mx-auto mb-20">
+
 
       <p
         class="lg:text-2xl sm:text-xl text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4">
-        Servicios Contables en Lima, Perú
+        {{ t('mainServices.header.subtitle') }}
       </p>
 
       <h2 id="main-services-title" class="text-4xl md:text-5xl font-bold text-gray-500  mb-6 leading-tight">
-        Especialistas en Asesoría Empresarial Integral
+        {{ t('mainServices.header.title') }}
       </h2>
 
       <p class="text-gray-600 text-lg leading-relaxed">
-        Soluciones contables, tributarias y laborales diseñadas para proteger tu empresa,
-        optimizar tus recursos y garantizar cumplimiento normativo.
+        {{ t('mainServices.header.description') }}
       </p>
 
     </header>
@@ -48,19 +47,18 @@
               {{ service.icon }}
             </div>
 
-            <h3
-              class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-[rgb(var(--color-primary))] transition-colors">
-              {{ service.title }}
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">
+              {{ t('mainServices.services.' + service.key + '.title') }}
             </h3>
 
             <p class="text-gray-600 text-sm leading-relaxed max-w-md line-clamp-3">
-              {{ service.description }}
+              {{ t('mainServices.services.' + service.key + '.description') }}
             </p>
           </div>
 
           <div class="flex items-end justify-between mt-4">
             <ul class="hidden lg:block space-y-1 text-xs text-gray-500 font-medium">
-              <li *ngFor="let item of service.highlights.slice(0,2)" class="flex items-center gap-2">
+              <li *ngFor="let item of getServiceHighlights(service.key).slice(0,2)" class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full" [ngStyle]="{'background-color': service.color}"></span>
                 {{ item }}
               </li>
@@ -79,14 +77,12 @@
     <div class="mt-24 text-center">
 
       <p class="text-gray-600 mb-6 text-lg">
-        ¿Necesitas una solución personalizada para tu empresa?
+        {{ t('mainServices.cta.question') }}
       </p>
-
 
       <button type="button" [routerLink]="['/contacto']"
         class="bg-[rgb(var(--color-primary))] text-white font-semibold px-8 py-3 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition-colors shadow-lg">
-        Agendar Consultoría Contable
-
+        {{ 'mainServices.cta.button' | transloco }}
       </button>
     </div>
 

@@ -1,0 +1,164 @@
+{
+    "mainServices": {
+        "header": {
+            "subtitle": "Accounting Services in Lima, Peru",
+            "title": "Specialists in Comprehensive Business Consulting",
+            "description": "Accounting, tax, and labor solutions designed to protect your company, optimize your resources, and ensure regulatory compliance."
+        },
+        "cta": {
+            "question": "Do you need a personalized solution for your company?",
+            "button": "Schedule Accounting Consulting"
+        },
+        "services": {
+            "accounting": {
+                "title": "Accounting Advisory & Outsourcing",
+                "description": "Comprehensive accounting management under IFRS and current Peruvian standards. We turn your accounting into a decision-making tool.",
+                "highlights": [
+                    "Monthly and Annual Financial Statements (IFRS)",
+                    "Electronic Accounting Books (PLE / SIRE)",
+                    "Accounting Outsourcing for SMEs and Medium Companies",
+                    "Accounting Reconstruction and Regularization"
+                ],
+                "ctaLabel": "See accounting services"
+            },
+            "tax": {
+                "title": "Tax Advisory",
+                "description": "Strategic planning to optimize tax burden and ensure full compliance with SUNAT, avoiding fines and contingencies.",
+                "highlights": [
+                    "Monthly and Annual Tax Returns",
+                    "Defense before SUNAT Audits",
+                    "VAT Recovery and Refunds",
+                    "Analysis of Deductions and Withholdings"
+                ],
+                "ctaLabel": "See tax services"
+            },
+            "labor": {
+                "title": "Labor Advisory",
+                "description": "Payroll administration and regulatory compliance before MINTRA and SUNAFIL to ensure risk-free human management.",
+                "highlights": [
+                    "Electronic Payroll Calculation (PLAME and T-Registro)",
+                    "Settlement of Social Benefits and CTS",
+                    "Management of Labor Contracts and Addenda",
+                    "Preventive Labor Audit (Zero SUNAFIL Fines)"
+                ],
+                "ctaLabel": "See labor services"
+            },
+            "audit": {
+                "title": "Audits",
+                "description": "Critical and systematic examination of your finances to ensure transparency before partners, banks, and regulators.",
+                "highlights": [
+                    "Financial Audit for Banking Entities",
+                    "Preventive Tax Audit (Diagnosis)",
+                    "Transfer Pricing Studies",
+                    "Evaluation of Internal Controls and Risks"
+                ],
+                "ctaLabel": "See audit services"
+            }
+        }
+    },
+    "trajectory": {
+        "subtitle": "Our Trajectory",
+        "title": "Over 10 years driving business growth in Peru",
+        "description": "At <strong class=\"text-[rgb(var(--color-primary))]\">Exactus</strong>, we understand that accounting is not just about recording numbers, it is the foundation for strategic decision-making. Our experience allows us to anticipate tax risks and optimize your company's labor burden.",
+        "features": [
+            "Personalized advice by certified accountants (CCPL).",
+            "Use of cutting-edge ERP technology for real-time reporting."
+        ],
+        "guarantee": "Exactus, compliance guarantee.",
+        "figcaption": "Certified accountants with over 10 years of experience, specialized in tax, labor, and legal consulting for companies seeking sustainable growth and regulatory compliance."
+    },
+    "navbar": {
+        "services": {
+            "accounting": {
+                "title": "Accounting Advisory & Outsourcing",
+                "description": "Comprehensive accounting management under IFRS and Peruvian standards."
+            },
+            "tax": {
+                "title": "Tax Advisory",
+                "description": "Comprehensive tax compliance"
+            },
+            "labor": {
+                "title": "Labor Advisory",
+                "description": "Labor relations management"
+            },
+            "legal": {
+                "title": "Legal Advisory",
+                "description": "Specialized legal services"
+            },
+            "special": {
+                "title": "Special Reports",
+                "description": "Technical and expert reports"
+            },
+            "audit_tax": {
+                "title": "Tax Audit",
+                "description": "Tax auditing"
+            },
+            "audit_financial": {
+                "title": "Financial Audit",
+                "description": "Financial statement audit"
+            }
+        }
+    },
+    "footer": {
+        "slogan": "Your partner in accounting and business management.",
+        "navigation": {
+            "title": "Navigation",
+            "home": "Home",
+            "about": "About Us",
+            "services": "Services",
+            "offices": "Offices",
+            "cases": "Success Stories",
+            "contact": "Contact Us"
+        },
+        "services": {
+            "title": "Services",
+            "fixedAsset": "Fixed Asset",
+            "accounting": "Accounting",
+            "inventory": "Inventory",
+            "payroll": "Payroll",
+            "sales": "Sales & e-invoices",
+            "treasury": "Treasury"
+        },
+        "contact": {
+            "title": "Contact",
+            "phone": "Phone:",
+            "email": "Email:",
+            "location": "Location:",
+            "locationValue": "Lima - Peru"
+        },
+        "follow": {
+            "title": "Follow us"
+        },
+        "copyright": "©2026 Exactus - Registered Trademark of Exactus Consultoría Empresarial S.A.C in Peru."
+    },
+    "carousel": {
+        "slide1": {
+            "title": "Specialized Accounting Firm in Lima",
+            "alt": "Expert accountants in accounting outsourcing for companies in Lima Peru - Exactus",
+            "description": "We turn accounting complexity into clarity for your business. Expert-backed outsourcing for SMEs and medium-sized companies."
+        },
+        "slide2": {
+            "title": "Tax Advisory and SUNAT Compliance",
+            "alt": "Specialized tax advisory to avoid SUNAT fines in Peru - Exactus Consultants",
+            "description": "Protect your assets and avoid contingencies. Strategic tax planning and preventive audits with over 10 years of experience."
+        },
+        "slide3": {
+            "title": "Labor Management and Payroll Outsourcing",
+            "alt": "Payroll outsourcing service and labor advisory for SUNAFIL compliance - Exactus",
+            "description": "Full regulatory compliance with SUNAFIL. We manage your human talent with legal precision and administrative efficiency."
+        },
+        "slide4": {
+            "title": "Financial Audit and Special Examinations",
+            "alt": "Financial statement audits and special examinations for Peruvian companies - Exactus",
+            "description": "Transparency and value for your shareholders. We evaluate your financial statements under international standards for safe growth."
+        },
+        "ariaLabel": "Featured services from Exactus",
+        "altPrefix": "Image of ",
+        "eyebrow": "Accounting, Legal & Tax Advisory in Peru",
+        "cta": "Book a consultation",
+        "cta2": "See our services",
+        "ctaTitle": "Request advisory in ",
+        "ctaAria": "Button to book a consultation with Exactus",
+        "cta2Aria": "Button to see our services"
+    }
+}

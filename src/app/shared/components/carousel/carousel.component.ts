@@ -2,10 +2,11 @@ import { Component, Input, Output, EventEmitter, PLATFORM_ID, inject, OnInit, On
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, Scroll } from '@angular/router';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-carousel',
-  imports: [CommonModule, RouterLink, AnimateOnScrollDirective],
+  imports: [CommonModule, RouterLink, AnimateOnScrollDirective, TranslocoModule],
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })

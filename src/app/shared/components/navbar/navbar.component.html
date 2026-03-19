@@ -31,12 +31,14 @@
                                                 <a routerLink="/"
                                                         routerLinkActive="text-[rgb(var(--color-primary))] font-bold"
                                                         [routerLinkActiveOptions]="{exact: true}"
-                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">Inicio</a>
+                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">{{
+                                                        'footer.navigation.home' | transloco }}</a>
                                         </li>
                                         <li role="none">
                                                 <a routerLink="/nosotros"
                                                         routerLinkActive="text-[rgb(var(--color-primary))] font-bold"
-                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">Nosotros</a>
+                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">{{
+                                                        'footer.navigation.about' | transloco }}</a>
                                         </li>
 
                                         <li role="none" class="relative group"
@@ -44,7 +46,7 @@
                                                 (mouseleave)="openServiciosDropdown = false">
                                                 <button class="flex items-center gap-1 hover:text-[rgb(var(--color-primary))] transition-colors p-2 focus:outline-none"
                                                         [class.font-bold]="openServiciosDropdown">
-                                                        Servicios
+                                                        {{ 'footer.navigation.services' | transloco }}
                                                         <svg class="h-4 w-4 transform transition-transform"
                                                                 [ngClass]="{'rotate-180': openServiciosDropdown}"
                                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,14 +57,24 @@
 
                                                 <div *ngIf="openServiciosDropdown"
                                                         class="absolute left-0 w-72 bg-white shadow-xl rounded-b-lg border-t-4 border-[rgb(var(--color-primary))] py-2 animate-fade-in">
-                                                        <a *ngFor="let servicio of servicios"
-                                                                (click)="navigateToService(servicio.slug)"
-                                                                class="block px-4 py-3 hover:bg-[rgb(var(--color-primary))]/10 cursor-pointer border-b last:border-0 border-gray-100 transition-colors">
-                                                                <p class="text-sm font-bold text-gray-900 ">
-                                                                        {{servicio.title}}</p>
-                                                                <p class="text-xs text-gray-500">
-                                                                        {{servicio.description}}</p>
-                                                        </a>
+                                                        <ng-container *ngFor="let servicio of servicios">
+                                                                <ng-container *transloco="let t">
+                                                                        <a (click)="navigateToService(servicio.slug)"
+                                                                                class="block px-4 py-3 hover:bg-[rgb(var(--color-primary))]/10 cursor-pointer border-b last:border-0 border-gray-100 transition-colors">
+                                                                                <p
+                                                                                        class="text-sm font-bold text-gray-900 ">
+                                                                                        {{
+                                                                                        t(`navbar.services.${servicio.key}.title`)
+                                                                                        }}
+                                                                                </p>
+                                                                                <p class="text-xs text-gray-500">
+                                                                                        {{
+                                                                                        t(`navbar.services.${servicio.key}.description`)
+                                                                                        }}
+                                                                                </p>
+                                                                        </a>
+                                                                </ng-container>
+                                                        </ng-container>
                                                 </div>
                                         </li>
 
@@ -72,7 +84,8 @@
                                         </li>
                                         <li role="none"><a routerLink="/contacto"
                                                         routerLinkActive="text-[rgb(var(--color-primary))] font-bold"
-                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">Contacto</a>
+                                                        class="hover:text-[rgb(var(--color-primary))] transition-colors p-2">{{
+                                                        'footer.navigation.contact' | transloco }}</a>
                                         </li>
                                 </ul>
 
@@ -101,14 +114,16 @@
                 class="sm:hidden bg-white border-t border-gray-100 shadow-inner animate-fade-in">
                 <div class="px-4 pt-2 pb-6 space-y-1">
                         <a routerLink="/" (click)="open=false"
-                                class="block px-3 py-4 text-base font-medium border-b border-gray-50">Inicio</a>
+                                class="block px-3 py-4 text-base font-medium border-b border-gray-50">{{
+                                'footer.navigation.home' | transloco }}</a>
                         <a routerLink="/nosotros" (click)="open=false"
-                                class="block px-3 py-4 text-base font-medium border-b border-gray-50">Nosotros</a>
+                                class="block px-3 py-4 text-base font-medium border-b border-gray-50">{{
+                                'footer.navigation.about' | transloco }}</a>
 
                         <div>
                                 <button (click)="openServiciosDropdownMobile = !openServiciosDropdownMobile"
                                         class="w-full flex justify-between items-center px-3 py-4 text-base font-medium border-b border-gray-50">
-                                        Servicios
+                                        {{ 'footer.navigation.services' | transloco }}
                                         <svg class="h-4 w-4 transform transition-transform"
                                                 [ngClass]="{'rotate-180': openServiciosDropdownMobile}" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -117,15 +132,21 @@
                                         </svg>
                                 </button>
                                 <div *ngIf="openServiciosDropdownMobile" class="bg-gray-50 pl-4">
-                                        <a *ngFor="let s of servicios" (click)="navigateToService(s.slug)"
-                                                class="block px-3 py-3 text-sm text-gray-600 border-b border-white">{{s.title}}</a>
+                                        <ng-container *ngFor="let s of servicios">
+                                                <ng-container *transloco="let t">
+                                                        <a (click)="navigateToService(s.slug)"
+                                                                class="block px-3 py-3 text-sm text-gray-600 border-b border-white">
+                                                                {{ t(`navbar.services.${s.key}.title`) }}
+                                                        </a>
+                                                </ng-container>
+                                        </ng-container>
                                 </div>
                         </div>
 
                         <a routerLink="/blog" (click)="open=false"
                                 class="block px-3 py-4 text-base font-medium border-b border-gray-50">Blog</a>
-                        <a routerLink="/contacto" (click)="open=false"
-                                class="block px-3 py-4 text-base font-medium">Contacto</a>
+                        <a routerLink="/contacto" (click)="open=false" class="block px-3 py-4 text-base font-medium">{{
+                                'footer.navigation.contact' | transloco }}</a>
 
                         <div class="grid grid-cols-2 gap-2 mt-6">
                                 <button (click)="changeLanguage('es')"

@@ -1,60 +1,99 @@
-<main role="main" class="bg-gray-50/50 min-h-screen">
-  <div class="container mx-auto px-4 py-12">
-    <h1
-      class="text-start text-[rgb(var(--color-primary))] lg:text-start text-4xl md:text-6xl font-bold mb-12 uppercase tracking-tighter">
-      Nuestros Servicios
-    </h1>
+<main role="main" class="bg-gray-50 min-h-screen pb-20">
+  <div class="bg-[#1f2937] py-16 mb-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-white text-4xl md:text-6xl font-extrabold uppercase tracking-tighter italic">
+        Nuestros <span class="text-[#e63946]">Servicios</span>
+      </h1>
+      <p class="text-gray-400 mt-4 max-w-2xl font-light">
+        Soluciones integrales en asesoría contable, tributaria y legal para el crecimiento sostenible de tu empresa.
+      </p>
+    </div>
+  </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:gap-16 gap-10">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-      <div class="md:col-span-2 flex flex-col justify-start">
-        <h2 class="lg:text-2xl sm:text-xl text-lg font-semibold tracking-widest uppercase  mb-4">
-          {{ selectedServicio.title }}</h2>
-        <img *ngIf="selectedServicio.image" [src]="selectedServicio.image" alt="{{ selectedServicio.title }}"
-          class="mb-4 rounded-lg max-w-full object-cover h-64 w-full">
+      <div class="lg:col-span-8">
+        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden animate-fade-in">
+          <div class="relative h-80 w-full">
+            <img *ngIf="selectedServicio.image" [src]="selectedServicio.image" class="w-full h-full object-cover"
+              [alt]="selectedServicio.title">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute bottom-6 left-8">
+              <span
+                class="bg-[#e63946] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Exactus
+                Expert</span>
+              <h2 class="text-white text-3xl font-bold mt-2">{{ selectedServicio.title }}</h2>
+            </div>
+          </div>
 
-        <!-- Sección 1 -->
-        <h3 class="text-xl font-semibold mt-6 mb-2 text-[rgb(var(--color-primary))]">{{ selectedServicio.subtitle1 }}
-        </h3>
-        <p class="text-base mb-3">{{
-          selectedServicio.detail1 }}</p>
-        <ul class="mb-6 space-y-2">
-          <li *ngFor="let item of selectedServicio.detail1Items" class="flex items-start gap-2">
-            <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
-            <span>{{ item }}</span>
-          </li>
-        </ul>
+          <div class="p-8 md:p-12">
+            <div class="mb-12">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-1.5 h-8 bg-[#e63946] rounded-full"></div>
+                <h3 class="text-2xl font-bold text-gray-800">{{ selectedServicio.subtitle1 }}</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed mb-6 text-lg">{{ selectedServicio.detail1 }}</p>
 
-        <!-- Sección 2 -->
-        <h3 class="text-xl font-semibold mt-4 mb-2 text-[rgb(var(--color-primary))]">{{ selectedServicio.subtitle2 }}
-        </h3>
-        <p class="text-base mb-3">{{
-          selectedServicio.detail2 }}</p>
-        <ul class="space-y-2">
-          <li *ngFor="let item of selectedServicio.detail2Items" class="flex items-start gap-2">
-            <span class="text-[rgb(var(--color-primary))] font-bold">»</span>
-            <span>{{ item }}</span>
-          </li>
-        </ul>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <li *ngFor="let item of selectedServicio.detail1Items"
+                  class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl border border-transparent hover:border-red-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#e63946] mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-700 text-sm font-medium">{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-8 border-t border-gray-100">
+              <h3 class="text-2xl font-bold text-gray-800 mb-4">{{ selectedServicio.subtitle2 }}</h3>
+              <p class="text-gray-600 leading-relaxed mb-6 italic">{{ selectedServicio.detail2 }}</p>
+
+              <div class="space-y-3">
+                <div *ngFor="let item of selectedServicio.detail2Items" class="group flex items-center gap-4 p-2">
+                  <div class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-[#e63946] transition-colors"></div>
+                  <span class="text-gray-600 group-hover:text-gray-900 transition-colors">{{ item }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <aside class="sticky top-24 h-fit">
-        <p class="text-xl font-bold uppercase text-[rgb(var(--color-primary))] mb-6 flex items-center gap-2">
-          <span class="w-8 h-[2px] bg-[rgb(var(--color-primary))]"></span>
-          Explorar Más
-        </p>
+      <aside class="lg:col-span-4">
+        <div class="sticky top-24 space-y-6">
+          <div class="bg-[#1f2937] p-6 rounded-2xl shadow-xl">
+            <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+              <span class="w-6 h-[1px] bg-[#e63946]"></span>
+              Más Servicios
+            </h4>
 
-        <div class="flex flex-col gap-4">
-          @for (servicio of serviciosFiltrados; track servicio.title; let i = $index) {
-          <div appAnimateOnScroll [animationType]="'slideLeft'" [animationDelay]="i * 100"
-            class="cursor-pointer transform transition-all duration-300 hover:-translate-x-2"
-            (click)="selectServicio(servicio)">
-
-            <card-exactus [title]="servicio.title" [description]="servicio.description" [image]="servicio.image"
-              [class.is-active]="servicio === selectedServicio">
-            </card-exactus>
+            <div class="flex flex-col gap-3">
+              @for (servicio of servicios; track servicio.slug) {
+              <button (click)="selectServicio(servicio)"
+                class="group w-full text-left p-4 rounded-xl transition-all duration-300 flex items-center justify-between"
+                [ngClass]="servicio.slug === selectedServicio.slug 
+                    ? 'bg-[#e63946] text-white shadow-lg shadow-red-900/20' 
+                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'">
+                <span class="font-semibold text-sm">{{ servicio.title }}</span>
+                <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+              }
+            </div>
           </div>
-          }
+
+          <div class="bg-red-50 border border-red-100 p-6 rounded-2xl">
+            <h5 class="text-[#e63946] font-bold mb-2">¿Necesitas ayuda específica?</h5>
+            <p class="text-gray-600 text-xs mb-4">Agenda una consultoría personalizada con nuestros especialistas.</p>
+            <a routerLink="/contacto"
+              class="block text-center bg-[#1f2937] text-white py-3 rounded-xl text-sm font-bold hover:bg-gray-900 transition-all">
+              Contactar Ahora
+            </a>
+          </div>
         </div>
       </aside>
 

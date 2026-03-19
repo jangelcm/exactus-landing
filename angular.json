@@ -32,7 +32,6 @@
             "outputMode": "server",
             "security": {
               "allowedHosts": [
-                // Agrega posteriormente los dominios reales de exactus
                 "localhost",
                 "127.0.0.1"
               ]

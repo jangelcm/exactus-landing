@@ -8,11 +8,12 @@ import { FaqComponent } from '../../shared/components/faq/faq.component';
 import { FAQ } from '../../shared/components/faq/faq.component';
 import { ReviewsComponent } from '../reviews/reviews.component';
 import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll.directive';
+import { TranslocoModule } from '@jsverse/transloco';
 
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, CarouselComponent, AppMainServicesComponent, OficinasComponent, ClientesCarouselComponent, FaqComponent, ReviewsComponent, AnimateOnScrollDirective],
+  imports: [CommonModule, CarouselComponent, AppMainServicesComponent, OficinasComponent, ClientesCarouselComponent, FaqComponent, ReviewsComponent, AnimateOnScrollDirective, TranslocoModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -21,33 +22,33 @@ export class HomeComponent {
   slides = [
     {
       image: 'assets/slider/outsourcing.webp',
-      title: 'Estudio Contable Especializado en Lima',
-      alt: 'Contadores expertos en outsourcing contable para empresas en Lima Perú - Exactus',
-      description: 'Transformamos la complejidad contable en claridad para tu empresa. Outsourcing contable con respaldo experto para MYPES y medianas empresas.',
+      title: 'carousel.slide1.title',
+      alt: 'carousel.slide1.alt',
+      description: 'carousel.slide1.description',
       link: '/servicios/asesoria-contable',
       height: 'h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]'
     },
     {
       image: 'assets/slider/tributaria.jpg',
-      title: 'Asesoría Tributaria y Cumplimiento SUNAT',
-      alt: 'Asesoría tributaria especializada para evitar multas de SUNAT en Perú - Exactus Consultores',
-      description: 'Protege tu patrimonio y evita contingencias. Planificación tributaria estratégica y auditorías preventivas con más de 10 años de experiencia.',
+      title: 'carousel.slide2.title',
+      alt: 'carousel.slide2.alt',
+      description: 'carousel.slide2.description',
       link: '/servicios/asesoria-tributaria',
       height: 'h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]'
     },
     {
       image: 'assets/slider/laboral.jpg',
-      title: 'Gestión Laboral y Outsourcing de Planillas',
-      alt: 'Servicio de outsourcing de planillas y asesoría laboral frente a SUNAFIL - Exactus',
-      description: 'Cumplimiento normativo total frente a SUNAFIL. Gestionamos tu talento humano con precisión legal y eficiencia administrativa.',
+      title: 'carousel.slide3.title',
+      alt: 'carousel.slide3.alt',
+      description: 'carousel.slide3.description',
       link: '/servicios/asesoria-laboral',
       height: 'h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]'
     },
     {
       image: 'assets/slider/auditoria-tributaria.jpg',
-      title: 'Auditoría Financiera y Exámenes Especiales',
-      alt: 'Auditoría de estados financieros y exámenes especiales para empresas peruanas - Exactus',
-      description: 'Transparencia y valor para tus accionistas. Evaluamos tus estados financieros bajo estándares internacionales para un crecimiento seguro.',
+      title: 'carousel.slide4.title',
+      alt: 'carousel.slide4.alt',
+      description: 'carousel.slide4.description',
       link: '/servicios/auditorias',
       height: 'h-[500px] md:h-[550px] lg:h-[calc(100vh-120px)]'
     }

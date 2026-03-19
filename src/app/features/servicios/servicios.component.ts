@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CardExactusComponent } from '../../shared/components/card-exactus/card-exactus.component';
 import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll.directive';
 export interface Servicio {
@@ -18,7 +18,7 @@ export interface Servicio {
 
 @Component({
     selector: 'app-servicios',
-    imports: [CommonModule, CardExactusComponent, AnimateOnScrollDirective],
+    imports: [CommonModule, CardExactusComponent, AnimateOnScrollDirective, RouterLink],
     templateUrl: './servicios.component.html',
     styleUrls: ['./servicios.component.css']
 })
