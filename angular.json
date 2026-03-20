@@ -29,7 +29,9 @@
             ],
             "scripts": [],
             "server": "src/main.server.ts",
-            "outputMode": "server",
+            //modificar esto de static a -> server para activar el renderizado en servidor y quitar el prerender
+            "outputMode": "static",
+            "prerender": true,
             "security": {
               "allowedHosts": [
                 "localhost",
