@@ -1,10 +1,10 @@
-<main role="main" class="bg-gray-50 min-h-screen pb-20">
-    <div class="bg-[#1f2937] py-16 mb-12">
-        <div class="container mx-auto px-4">
-            <h1 class="text-white text-4xl md:text-6xl font-extrabold uppercase tracking-tighter italic">
-                {{ (authService.isAdmin$ | async) ? 'Gestión de' : 'Nuestro' }} <span class="text-[#e63946]">Blog</span>
+<section class="min-h-screen bg-gray-50 lg:py-20 py-12 px-4 md:px-8">
+    <div class="max-w-screen-2xl  mx-auto">
+        <div class="mb-12 border-l-4 border-[#e63946] pl-6">
+            <h1 class="text-4xl font-bold text-gray-600">
+                {{ (authService.isAdmin$ | async) ? 'Gestión de' : 'Nuestro' }} Blog
             </h1>
-            <p class="text-gray-400 mt-4 max-w-2xl font-light">
+            <p class="text-gray-600 mt-2">
                 {{ (authService.isAdmin$ | async)
                 ? 'Panel de administración para la publicación de noticias y análisis normativos.'
                 : 'Análisis actualizado y novedades del sector contable, tributario y legal en el Perú.'
@@ -164,4 +164,4 @@
             }
         </ng-container>
     </div>
-</main>
+</section>

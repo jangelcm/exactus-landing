@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, PLATFORM_ID, inject, AfterViewInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { TranslocoModule } from '@jsverse/transloco';
 
 interface Cliente {
   nombre: string;
@@ -9,7 +10,7 @@ interface Cliente {
 
 @Component({
   selector: 'app-clientes-carousel',
-  imports: [CommonModule, AnimateOnScrollDirective],
+  imports: [CommonModule, AnimateOnScrollDirective, TranslocoModule],
   templateUrl: './clientes-carousel.component.html',
   styleUrls: ['./clientes-carousel.component.css']
 })

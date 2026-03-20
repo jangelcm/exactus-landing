@@ -1,7 +1,3 @@
-[build]
-  command = "npm run build"
-  publish = "dist/tasklif/browser"
-
 [[redirects]]
   from = "/*"
   to = "/index.html"

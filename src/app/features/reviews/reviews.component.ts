@@ -3,13 +3,14 @@ import { GoogleReviewsService } from '../../core/services/reviews.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GoogleReviewsResponse } from '../../core/models/review.model';
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
     selector: 'app-reviews',
     templateUrl: './reviews.component.html',
     styleUrls: ['./reviews.component.css'],
     standalone: true,
-    imports: [CommonModule, FormsModule]
+    imports: [CommonModule, FormsModule, TranslocoModule]
 })
 export class ReviewsComponent implements OnInit {
 

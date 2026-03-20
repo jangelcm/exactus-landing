@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslocoModule } from '@jsverse/transloco';
 
 export interface FAQ {
     id: number;
@@ -12,7 +13,7 @@ export interface FAQ {
 @Component({
     selector: 'app-faq',
     standalone: true,
-    imports: [CommonModule, RouterLink],
+    imports: [CommonModule, RouterLink, TranslocoModule],
     templateUrl: './faq.component.html',
     styleUrl: './faq.component.css'
 })

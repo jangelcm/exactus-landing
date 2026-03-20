@@ -1,8 +1,8 @@
 <main role="main">
-  <div class="max-w-screen-2xl mx-auto px-4 py-16 flex flex-col items-center justify-center">
+  <div *transloco="let t" class="max-w-screen-2xl mx-auto px-4 py-16 flex flex-col items-center justify-center">
     <h2 appAnimateOnScroll [animationType]="'slideUp'" [animationDuration]="800"
       class="lg:text-2xl sm:text-xl text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4">
-      Nuestra Oficina
+      {{ t('offices.title') }}
     </h2>
     <div class="w-full flex justify-center">
       <!-- Oficina Principal -->
@@ -25,7 +25,7 @@
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <p class="text-[rgb(var(--color-text-muted))] text-sm text-center">
-          Correo: <a href="mailto:admin@exactus.pe" class="text-[rgb(var(--color-primary))] underline"
+          {{ t('offices.email') }}: <a href="mailto:admin@exactus.pe" class="text-[rgb(var(--color-primary))] underline"
             itemprop="email">{{address}}</a>
         </p>
       </article>

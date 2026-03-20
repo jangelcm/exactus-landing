@@ -1,13 +1,13 @@
-<div class="max-w-screen-2xl mx-auto text-center my-10 p-5">
+<div *transloco="let t" class="max-w-screen-2xl mx-auto text-center my-10 p-5">
     <p
         class="lg:text-2xl sm:text-xl text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4">
-        Casos de Éxito
+        {{ t('reviews.title') }}
     </p>
     <h2 id="main-services-title" class="text-4xl md:text-5xl font-bold text-gray-500 mb-6 leading-tight">
-        Lo que dicen nuestros clientes
+        {{ t('reviews.heading') }}
     </h2>
     <!-- Loading State -->
-    <div *ngIf="isLoading" class="text-center py-10 text-gray-500">Cargando reseñas...</div>
+    <div *ngIf="isLoading" class="text-center py-10 text-gray-500">{{ t('reviews.loading') }}</div>
 
     <!-- Error State -->
     <div *ngIf="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md relative mb-6"

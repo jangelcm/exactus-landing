@@ -3,16 +3,8 @@ import { Component, inject } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { RouterLink } from '@angular/router';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
-import { TranslocoDirective, TranslocoModule } from '@jsverse/transloco';
+import { TranslocoModule } from '@jsverse/transloco';
 
-interface MainService {
-  icon: string;
-  title: string;
-  description: string;
-  highlights: string[];
-  ctaLabel: string;
-  ctaLink: string;
-}
 
 @Component({
   selector: 'app-main-services',
@@ -23,28 +15,28 @@ interface MainService {
 export class AppMainServicesComponent {
   services = [
     {
-      icon: '📊',
+      icon: '/assets/icons/contable.svg',
       key: 'accounting',
       ctaLink: '/servicios/asesoria-contable',
-      color: '#D32f2f'
+      color: '#bd2426'
     },
     {
-      icon: '⚖️',
+      icon: '/assets/icons/tributaria.svg',
       key: 'tax',
       ctaLink: '/servicios/asesoria-tributaria',
-      color: '#1976d2'
+      color: '#358e4a'
     },
     {
-      icon: '👥',
+      icon: '/assets/icons/laboral.svg',
       key: 'labor',
       ctaLink: '/servicios/asesoria-laboral',
-      color: '#388e3c'
+      color: '#408bc4'
     },
     {
-      icon: '🔍',
+      icon: '/assets/icons/auditoria.svg',
       key: 'audit',
       ctaLink: '/servicios/auditorias',
-      color: '#fbc02d'
+      color: '#e8810b '
     }
   ];
 

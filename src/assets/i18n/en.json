@@ -160,5 +160,26 @@
         "ctaTitle": "Request advisory in ",
         "ctaAria": "Button to book a consultation with Exactus",
         "cta2Aria": "Button to see our services"
+    },
+    "clientes": {
+        "title": "Our Clients",
+        "heading": "Who do we work for?",
+        "description": "They trust Exactus to boost their growth and ensure compliance. A group of clients that validate our expertise.",
+        "cta": "Learn more about our partnerships"
+    },
+    "reviews": {
+        "title": "Case Studies",
+        "heading": "What our clients say",
+        "loading": "Loading reviews..."
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Resolve your doubts about our audit, advisory and business consulting services in Peru.",
+        "ctaQuestion": "Do you need personalized consulting for your company?",
+        "ctaButton": "Request Quote"
+    },
+    "offices": {
+        "title": "Our Office",
+        "email": "Email"
     }
 }

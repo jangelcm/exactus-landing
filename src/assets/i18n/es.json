@@ -160,5 +160,26 @@
         "ctaTitle": "Solicitar asesoría en ",
         "ctaAria": "Botón de Agenda una consulta con Exactus",
         "cta2Aria": "Botón de Conoce nuestros servicios"
+    },
+    "clientes": {
+        "title": "Nuestros Clientes",
+        "heading": "¿Para quién trabajamos?",
+        "description": "Confían en Exactus para potenciar su crecimiento y asegurar su cumplimiento. Un conjunto de clientes que validan nuestra experiencia.",
+        "cta": "Conoce más sobre nuestras alianzas"
+    },
+    "reviews": {
+        "title": "Casos de Éxito",
+        "heading": "Lo que dicen nuestros clientes",
+        "loading": "Cargando reseñas..."
+    },
+    "faq": {
+        "title": "Preguntas Frecuentes",
+        "subtitle": "Resuelve tus dudas sobre nuestros servicios de auditoría, asesoría y consultoría empresarial en el Perú.",
+        "ctaQuestion": "¿Necesitas una asesoría personalizada para tu empresa?",
+        "ctaButton": "Solicitar Cotización"
+    },
+    "offices": {
+        "title": "Nuestra Oficina",
+        "email": "Correo"
     }
 }

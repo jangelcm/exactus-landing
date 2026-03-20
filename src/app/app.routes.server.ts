@@ -7,7 +7,7 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'casos-exito',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Prerender
   },
   { path: 'nosotros', renderMode: RenderMode.Prerender },
   {
@@ -25,13 +25,14 @@ export const serverRoutes: ServerRoute[] = [
       ];
     }
   },
+  // Rutas de blog con renderizado en servidor para SEO, se debe pasar a -> Server
   {
     path: 'blog',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Prerender
   },
   {
     path: 'blog/:slug',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Prerender
   },
   { path: 'contacto', renderMode: RenderMode.Prerender },
   { path: 'servicios', renderMode: RenderMode.Prerender },

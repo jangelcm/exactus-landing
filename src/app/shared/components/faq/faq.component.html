@@ -1,12 +1,12 @@
-<section class="w-full py-16" itemscope itemtype="https://schema.org/FAQPage">
+<section *transloco="let t" class="w-full py-16" itemscope itemtype="https://schema.org/FAQPage">
     <div class="container mx-auto px-4">
         <header class="text-center mb-12">
             <h2
                 class="lg:text-2xl sm:text-xl text-sm font-semibold tracking-widest uppercase text-[rgb(var(--color-primary))] mb-4 ">
-                Preguntas Frecuentes
+                {{ t('faq.title') }}
             </h2>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Resuelve tus dudas sobre nuestros servicios de auditoría, asesoría y consultoría empresarial en el Perú.
+                {{ t('faq.subtitle') }}
             </p>
         </header>
 
@@ -40,10 +40,10 @@
         </article>
 
         <div class="mt-16 text-center">
-            <p class="text-gray-600 mb-6">¿Necesitas una asesoría personalizada para tu empresa?</p>
+            <p class="text-gray-600 mb-6">{{ t('faq.ctaQuestion') }}</p>
             <button type="button" [routerLink]="['/contacto']"
                 class="bg-[rgb(var(--color-primary))] text-white font-semibold px-8 py-3 rounded-lg hover:bg-[rgb(var(--color-primary-dark))] transition shadow-lg">
-                Solicitar Cotización
+                {{ t('faq.ctaButton') }}
             </button>
         </div>
     </div>
