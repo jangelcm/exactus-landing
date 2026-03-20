@@ -28,11 +28,11 @@ export const serverRoutes: ServerRoute[] = [
   // Rutas de blog con renderizado en servidor para SEO, se debe pasar a -> Server
   {
     path: 'blog',
-    renderMode: RenderMode.Prerender
+    renderMode: RenderMode.Client
   },
   {
     path: 'blog/:slug',
-    renderMode: RenderMode.Prerender
+    renderMode: RenderMode.Client
   },
   { path: 'contacto', renderMode: RenderMode.Prerender },
   { path: 'servicios', renderMode: RenderMode.Prerender },
